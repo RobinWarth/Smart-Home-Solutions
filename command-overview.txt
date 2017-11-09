@@ -1,0 +1,19 @@
+Git commands:
+
+-git add [file]  //adds the file to git
+-git status      //giving status
+-git commit -m "committing with a message" // <--
+-git push        //upload changes after commit
+-git pull        //download changes
+
+
+-git add .	//add everything in this directory
+-git add -A	//add All
+
+
+-git branch  //show my branch
+-git branch [newBranchName] //copy this branch into new branch [newBranchName] 
+-git checkout [newBranchName] //switch to the branch [newBranchName]
+-git push --set-upstream origin [newBranchName]	//push and change the upstream branch to [newBranchName]
+
+-git merge [branchFromWitchYouWantTheThings]	//merging into your branch (branch which is checked out)
