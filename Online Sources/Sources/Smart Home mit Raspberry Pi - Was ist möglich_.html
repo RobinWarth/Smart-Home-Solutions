@@ -1,0 +1,2888 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich -->
+<html dir="ltr" lang="de-DE" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script src="./Smart Home mit Raspberry Pi - Was ist möglich__files/731194843696814" async=""></script><script async="" src="./Smart Home mit Raspberry Pi - Was ist möglich__files/fbevents.js.Download"></script><script type="text/javascript" async="" src="./Smart Home mit Raspberry Pi - Was ist möglich__files/js"></script><script async="" src="./Smart Home mit Raspberry Pi - Was ist möglich__files/analytics.js.Download"></script><script type="text/javascript">
+    (function(global, doc) {
+        'use strict';
+
+        global.addEventListener('message', function (event) {
+            var acceptableSources = ["https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de","https:\/\/www.homeandsmart.de"],
+                eventId = 'eZEvent',
+                isKnownSource = acceptableSources.some(function (source) {
+                    return source === event.origin;
+                }),
+                setBlockContent = function (config) {
+                    var block = doc.querySelector(config.selector);
+
+                    if (block) {
+                        block.innerHTML = config.content;
+                    }
+                },
+                setBlockAttribute = function (config) {
+                    var zoneNode = doc.querySelector(config.selectorZone),
+                        blockNodes;
+
+                    if (!zoneNode) {
+                        return;
+                    }
+                    blockNodes = [].slice.call(zoneNode.querySelectorAll(config.selectorBlock));
+
+                    blockNodes[config.index].setAttribute(config.attributeName, config.attributeValue);
+                },
+                response = {
+                    height: Math.max(
+                        doc.body.scrollHeight,
+                        doc.body.offsetHeight,
+                        doc.body.clientHeight
+                    ),
+                    pathName: global.location.pathname,
+                    href: global.location.href,
+                    id: eventId
+                };
+
+            if (!isKnownSource || event.data.id !== eventId) {
+                return;
+            }
+
+            if (event.data.content) {
+                setBlockContent(event.data.content);
+            }
+
+            if (event.data.blockAttribute) {
+                setBlockAttribute(event.data.blockAttribute);
+
+                return;
+            }
+
+            event.source.postMessage(response, event.origin);
+        }, false);
+    })(window, document);
+</script>
+
+                                    <link rel="icon" href="https://www.homeandsmart.de/var/site/storage/images/6/2/3/0/70326-1-ger-DE/fav.png" type="image/x-icon">
+            
+                        <link rel="stylesheet" href="./Smart Home mit Raspberry Pi - Was ist möglich__files/theme-8625e9b.css">
+        
+                            
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <title>Smart Home mit Raspberry Pi - Was ist möglich?</title>
+    <meta name="description" content="Smart Home mit Raspberry Pi bauen ➜ Raspberry Pi als Zentrale oder Medienserver für die Hausautomation ✔ Smart Home ohne Fernbedienung steuern ✔">
+    <meta name="keywords" content="">
+
+                <meta name="p:domain_verify" content="068f5302a7384f7ddfda6fc31f4493d0">
+        
+                    <meta name="robots" content="all">
+    
+
+                    
+                
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#e3e3e3"                         },
+                    "button": {
+                        "background": "#368cb6",
+                        "text": "#ffffff"
+                    }
+                },
+                "content": {
+                    "message": "Hinweis: Durch die Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu.",
+                    "dismiss": "OK",
+                    "link": "Mehr Infos",
+                    "href": "/datenschutzerklaerung"
+                }
+            })});
+    </script>
+
+    
+
+    
+    
+        
+                        
+    
+    <link rel="canonical" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich">
+
+        
+
+<meta name="news_keywords" content="IoT,Netzwerktechnik,Smart Home DIY,Produkt, Smart Home">
+
+
+    
+    <link rel="amphtml" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich?amp=true">
+
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@graph": [{
+    "@type": "Organization",
+    "name": "homeandsmart.de",
+    "legalName" : "homeandsmart GmbH",
+    "url": "https://www.homeandsmart.de",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.homeandsmart.de/bundles/raumobilhomeandsmartamp/images/www.homeandsmart.de.png",
+        "width": 196,
+        "height": 60
+    },
+    "image" :    "https://www.homeandsmart.de/bundles/raumobilhomeandsmart/images/layout/home-and-smart-logo_quader.jpg",
+    "telephone": "+49 (0) 721 / 6698 7576",
+    "faxNumber": "+49 (0) 721 / 6698 7577",
+    "email":     "info@homeandsmart.de",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress":   "Emmy-Noether-Str. 9",
+        "addressLocality": "Karlsruhe",
+        "postalCode":      "76131",
+        "addressCountry":  "Germany"
+    },
+        "sameAs": [ "https://www.facebook.com/homeandsmart","https://twitter.com/homeandsmart","https://de.pinterest.com/homeandsmart/","https://www.instagram.com/homeandsmart/","https://plus.google.com/104211828333340841944" ]
+}
+,
+
+                        {
+        "@type": "WebSite",
+    "name": "homeandsmart.de",
+    "url": "http://www.homeandsmart.de",
+    "alternateName": "home&amp;smart",
+    "publisher": {
+    "@type": "Organization",
+    "name": "homeandsmart.de",
+    "legalName" : "homeandsmart GmbH",
+    "url": "https://www.homeandsmart.de",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.homeandsmart.de/bundles/raumobilhomeandsmartamp/images/www.homeandsmart.de.png",
+        "width": 196,
+        "height": 60
+    },
+    "image" :    "https://www.homeandsmart.de/bundles/raumobilhomeandsmart/images/layout/home-and-smart-logo_quader.jpg",
+    "telephone": "+49 (0) 721 / 6698 7576",
+    "faxNumber": "+49 (0) 721 / 6698 7577",
+    "email":     "info@homeandsmart.de",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress":   "Emmy-Noether-Str. 9",
+        "addressLocality": "Karlsruhe",
+        "postalCode":      "76131",
+        "addressCountry":  "Germany"
+    },
+        "sameAs": [ "https://www.facebook.com/homeandsmart","https://twitter.com/homeandsmart","https://de.pinterest.com/homeandsmart/","https://www.instagram.com/homeandsmart/","https://plus.google.com/104211828333340841944" ]
+},
+    "description": "Smart Home Systeme, Produkte &amp; Systeme | Smarthome IoT News &amp; Tests",
+        "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.homeandsmart.de/suche?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+,
+
+                        {
+    "@type": "Article",
+    "mainEntityOfPage":{
+        "@type": "WebPage",
+        "url": "https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich"
+    },
+    "headline": "Smart Home mit Raspberry Pi - Was ist möglich?",
+    "alternativeHeadline": "Das Multitalent",
+    "datePublished": "2016-07-08T08:34:34+02:00",
+    "dateModified": "2017-09-14T11:35:09+02:00",
+    "keywords": "IoT,Netzwerktechnik,Smart Home DIY,Produkt",
+    "articleBody": "Smart Home Eigenbau mit Raspberry PiSmart Home heißt zunächst intelligentes Steuern von Geräten und Funktionen im Haushalt. Das ist ein Schritt weiter als das bloße Fernsteuern über die bei vielen Geräten mitgelieferte Fernbedienung. Mit einem Raspberry Pi rüsten Sie die fehlende Intelligenz einfach nach und selbst Geräte ganz ohne Fernbedienung können Sie über gängige Funksteckdosen und ein 433-MHz-Sendemodul zumindest smart ein- und ausschalten. Ein solches Funkmodul besteht aus einer kleinen Platine mit nur drei Anschlüssen, zwei für die Stromversorgung und einem Dateneingang, den Sie mit einem GPIO-Pin Ihres Raspberry Pi verbinden.                                                                                            Sharp GP1UM26XK - RECEIVER REMOTE CTRL TOP 40KHZ                                                                                                                                                                                                                                                                                                                                                                                                                                                           Fensterputz-Roboter                                                                                                                                                                                            239,90 €                     |                         52%                                                                                                    statt 499,90 €                                           08.11.2017                                                                                                                               Jetzt bei Amazon kaufen                                                                                                                                                                                                                                                                                              Ring Video-Türklingel                                                                                                                                                                                            163,20 €                     |                         22%                                                                                                    statt 209,95 €                                           08.11.2017                                                                                                                               Jetzt bei Amazon kaufen                                                                                                                                                                                                                                                                                              Philips Hue White and Color E27 Starter Set                                                                                                                                                                                            159,00 €                     |                         20%                                                                                                    statt 199,99 €                                           08.11.2017                                                                                                                               Jetzt bei Amazon kaufen                                                                                                                                                                                                                                                                                              Parrot Disco                                                                                                                                                                                            899,00 €                     |                         31%                                                                                                    statt 1.299,00 €                                           08.11.2017                                                                                                          Jetzt bei MediaMarkt kaufen                                                                                                                                                                                                              Intelligente IR-Fernbedienung für das Raspberry Pi im Smart HomeBei Unterhaltungselektronik und Haushaltsgeräten hat sich die Infrarot-Fernbedienung weitgehend durchgesetzt. Um diese Schnittstellen für die Hausautomation mit Raspberry Pi zu nutzen brauchen Sie eigentlich nur eine IR-LED als zusätzliche Hardware. Deren Reichweite können Sie mit einer einfachen Schaltung aus einem Standardtransistor wie dem BC547 und zwei Widerständen vergrößern. Das Lernen der Codes vorhandener Fernbedienungen ist mit einem IR-Modul mit einer Frequenz im Bereich 36 bis 40 kHz möglich, beispielsweise Sharp GP1UM26XK. Alles Bauteile, die auch im deutschen Elektronikfachhandel für Cent-Beträge erhältlich sind. Für den lötfreien Aufbau der Schaltung reicht eins der kleinsten Breadboards, mit 10x17 Kontakten (ca. 3,5x4,5 cm).https://www.youtube.com/watch?v=G65aCy_SsYIRaspberry Pi Home Automation mit Web-InterfaceSoftwareseitig besteht die RasPi Smart-Home-Steuerung aus Softwarebibliotheken, die grundlegenden Funktionen für die Kommunikation mittels IR-Codes respektive 433-MHz-Funksignalen bereitstellen, einem geeigneten Webserver und etwas Code für eine Web-basierte Oberfläche, sodass Sie per Smartphone, PC oder iPad Ihr Smart Home steuern können. Im Internet finden Sie zahlreiche Ressourcen zum Thema Raspberry Pi und IR-Fernsteuerung, ein großer Teil davon befasst sich aber mit dem umgekehrten Fall, der Steuerung des Raspberry Pi mit einer IR-Fernbedienung. Eine interessante Lösung hat das Raspberry Pi Geek Magazine im Heft 10/2015 vorgestellt. Im Gegensatz zu anderen Vorschlägen setzt es ganz auf die bevorzugte Programmiersprache Python des Raspberry Pi und kommt auch ohne Webserver-Installation aus, indem es das Python-Modul Bottle nutzt.RasPi Medienserver für das Smart HomeDas Mediacenter ist nicht unbedingt ein Smart-Home-Thema, wird es aber, wenn Sie es beispielsweise morgens nutzen, um sich mit einer audio-visuellen Show wecken zu lassen. Für den Einsatz als Medienserver eignet sich der Raspberry Pi aufgrund seiner Hardware-Ausstattung besonders gut. Dank des in den Prozessor integrierten Videomoduls streamen Sie Video- und Audio-Daten im Full-HD-Format über den HDMI-Ausgang an Monitore, TV-Geräte und Beamer. Alternativ gibt es noch einen FBAS-Videoausgang mit Composite-Signal für ältere Fernseher und Video-Hardware. Entsprechend umfangreich wird das Thema Raspberry Pi als Mediacenter in Fachzeitschriften sowie im Internet behandelt und mit OpenElec, XBMC und Raspbmc gibt es sogar eigene Linux-Distributionen, als Alternative zum meistgenutzten Raspbian, die speziell für den Raspberry Pi als Medienserver ausgelegt sind.                                                                                            Vero 2 ist ein OSMC Gerät - Open Source Mediacenter                              Erweiterungsmodule für Raspberry Pi zur HausautomationEin interessantes Feature des Raspberry Pi für das Smart Home ist der, je nach Ausführung, 34- oder 40-polige Steckverbinder. Darüber können Sie mehrere universelle Schnittstellen wie GPIO oder I2C ansprechen, aber auch Erweiterungsmodule (HATs) anbinden. Diese vereinfachen beispielsweise die Ansteuerung von Motoren und anderen Bauteilen mit höherem Strombedarf als etwa eine LED und stellen weitere Schnittstellenarten zur Verfügung, unter anderem zum Smart Home System KNX. Hier können Sie auch die Echtzeituhr nachrüsten, die dem Raspberry Pi fehlt, damit Sie nicht Ihren wichtigsten Termin verpassen, weil Ihr Smart Home nach Murphy gerade dann nach dem Mond geht und Sie nicht rechtzeitig weckt.                                                                                                                                                                                                                                                                                                                                                                                                                                      Unsere Empfehlung                                                                                                                                                                                                                                                                                                                                    Aktuelle Smart Home Angebote                                                                                                                                                                Preisalarm                                                                                                                                                                                             Wir scannen für Sie den Markt dauerhaft nach den besten Angeboten und stellen diese übersichtlich zusammen. Sichern Sie sich jetzt die besten Produkte zu den besten Preisen.                                                                                                                                                              Zu den Angeboten                                                                                                         Weitere LesetippsOpenHAB - Geräte im Smart Home verbindenZ-Wave Plus RaZberryDomotz | Smart Home Zentrale auf Raspberry Pi Mehr Infos und News zum Smart Home          Mehr Informationen zum Raspberry Pi gibt es auf                                 Amazon.",
+
+            "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": "100",
+            "worstRating": "0",
+            "ratingValue": "50",
+            "ratingCount": "6"
+        },
+    
+    "description": "Smart Home, IoT, Raspberry Pi? Im Vergleich zum typischen IoT-Device wirkt der englische Einplatinencomputer wie ein Sumo-Ringer neben einem Samurai. Im Smart Home findet er seine Aufgabe daher als Zentrale, in der Daten zusammenlaufen, Ereignisse analysiert und Aktionen ausgelöst werden, als kompakter Medienserver und dergleichen, nicht zuletzt aber auch in dem Bereich, für den er eigentlich entwickelt wurde: Experimentieren, Erfahrung sammeln, Learning by doing. Was können Sie mit Ihrem Raspberry Pi im Smart Home realisieren?",
+    "genre": "Smart Home Systeme",
+    "author": {
+        "@type": "Person",
+        "name":  "Kai Schiller"    },
+        "publisher": {
+    "@type": "Organization",
+    "name": "homeandsmart.de",
+    "legalName" : "homeandsmart GmbH",
+    "url": "https://www.homeandsmart.de",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.homeandsmart.de/bundles/raumobilhomeandsmartamp/images/www.homeandsmart.de.png",
+        "width": 196,
+        "height": 60
+    },
+    "image" :    "https://www.homeandsmart.de/bundles/raumobilhomeandsmart/images/layout/home-and-smart-logo_quader.jpg",
+    "telephone": "+49 (0) 721 / 6698 7576",
+    "faxNumber": "+49 (0) 721 / 6698 7577",
+    "email":     "info@homeandsmart.de",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress":   "Emmy-Noether-Str. 9",
+        "addressLocality": "Karlsruhe",
+        "postalCode":      "76131",
+        "addressCountry":  "Germany"
+    },
+        "sameAs": [ "https://www.facebook.com/homeandsmart","https://twitter.com/homeandsmart","https://de.pinterest.com/homeandsmart/","https://www.instagram.com/homeandsmart/","https://plus.google.com/104211828333340841944" ]
+},
+        "image": {
+        "@type": "ImageObject",
+        "url": "https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_12/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg",
+        "width": 1140,
+                "height": 640
+            }
+}        ]
+    }</script>
+
+
+
+
+    
+    
+    
+    <meta name="twitter:site" content="@homeandsmart">
+
+  <meta property="og:title" content="Smart Home mit Raspberry Pi - Was ist möglich? - Das Multitalent">
+
+  <meta property="og:description" content="Smart Home, IoT, Raspberry Pi? Im Vergleich zum typischen IoT-Device wirkt der englische Einplatinencomputer wie ein Sumo-Ringer neben einem Samurai. Im Smart Home findet er seine Aufgabe daher als Zentrale, in der Daten zusammenlaufen, Ereignisse analysiert und Aktionen ausgelöst werden, als kompakter Medienserver und dergleichen, nicht zuletzt aber auch in dem Bereich, für den er eigentlich entwickelt wurde: Experimentieren, Erfahrung sammeln, Learning by doing. Was können Sie mit Ihrem Raspberry Pi im Smart Home realisieren?">
+
+
+  
+      
+  <meta property="og:image" content="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_12/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg">
+  <meta name="twitter:image" content="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_12/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image:width" content="1140">
+  <meta property="og:image:height" content="640">
+
+  
+
+<meta property="og:url" content="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich">
+<meta property="og:type" content="article">
+
+
+
+    
+
+
+
+
+    
+        
+                                    
+
+        
+            
+            <!-- Page-hiding snippet (recommended)  -->
+            <style>.async-hide { opacity: 0 !important} </style>
+
+            <script>(function(a,s,y,n,c,h,i,d,e){
+                    s.className+=' '+y;
+                    h.start=1*new Date;
+                    h.end=i=function(){
+                        s.className=s.className.replace(RegExp(' ?'+y),'')};
+                        (a[n]=a[n]||[]).hide=h;
+                        setTimeout(function(){
+                            i();
+                            h.end=null
+                        },c);
+                    h.timeout=c;
+                })(window,document.documentElement,'async-hide','dataLayer',4000, {'GTM-W3RQCVR':true});
+            </script>
+        
+        <script type="text/javascript">
+
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js' , 'ga');
+
+                        ga('create', 'UA-87258725-1', 'auto');
+            ga('set', 'anonymizeIp', true);
+            
+                            ga('require', 'GTM-W3RQCVR');
+            
+            ga('send', 'pageview');
+
+        </script>
+
+            
+
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><style></style></head>
+
+
+<body class="no-transition device-lg"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom cc-color-override--1734431260 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">Hinweis: Durch die Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.homeandsmart.de/datenschutzerklaerung" target="_blank">Mehr Infos</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">OK</a></div><!--googleon: all--></div>
+
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+
+        <!-- Top Bar
+============================================= -->
+<div id="top-bar">
+
+    <div class="container clearfix">
+
+    <div class="col_half nobottommargin">
+      <!-- Top Links
+      ============================================= -->
+      <div class="top-links">
+        <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
+                            <li>
+                    <a href="https://www.homeandsmart.de/" title="Smart Home Systeme, Produkte &amp; Systeme | Smarthome IoT News &amp; Tests">
+                        Home
+                    </a>
+                </li>
+
+                        <li><a href="https://www.homeandsmart.de/ueber-uns" title="Über uns – home&amp;smart">Über uns</a>
+                        </li>
+
+                                                    <li>
+                                <a href="https://www.homeandsmart.de/deals" title="Aktuelle Deals" target="_self">
+
+                                    Aktuelle Deals
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                                                                                                                                                  
+
+    
+
+
+    
+<a href="https://www.homeandsmart.de/was-ist-ein-smart-home" title="Was ist ein Smart Home?" class="">
+            <span class="neu">NEU</span>
+        Was ist ein Smart Home?
+</a>
+
+
+
+                            </li>
+                                                            </ul>
+            </div><!-- .top-links end -->
+
+        </div>
+
+        <div class="col_half fright col_last nobottommargin">
+            <!-- Top Social
+            ============================================= -->
+                            <div id="top-social">
+
+                                                                
+                    <ul>
+                                                    <li>
+                                <a href="https://www.facebook.com/homeandsmart" target="_blank" class="si-facebook" title="homeandsmart auf Facebook folgen" style="width: 40px;" data-hover-width="107">
+                                    <span class="ts-icon"><i class="fa fa-facebook"></i></span>
+                                    <span class="ts-text">Facebook</span>
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                <a href="https://www.twitter.com/homeandsmart" target="_blank" class="si-twitter" title="homeandsmart auf Twitter folgen" style="width: 40px;" data-hover-width="93">
+                                   <span class="ts-icon"><i class="fa fa-twitter"></i></span>
+                                   <span class="ts-text">Twitter</span>
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                <a href="https://plus.google.com/104211828333340841944" target="_blank" class="si-gplus" title="homeandsmart auf Google+ folgen" style="width: 40px;" data-hover-width="101">
+                                    <span class="ts-icon"><i class="fa fa-google-plus"></i></span>
+                                    <span class="ts-text">Google+</span>
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                <a href="https://www.youtube.com/channel/UCS7PhPQoOyu2Og7r4Wxx1mA" target="_blank" class="si-youtube" title="homeandsmart auf Youtube folgen" style="width: 40px;" data-hover-width="99">
+                                    <span class="ts-icon"><i class="fa fa-youtube"></i></span>
+                                    <span class="ts-text">Youtube</span>
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                <a href="https://de.pinterest.com/homeandsmart" target="_blank" class="si-pinterest" title="homeandsmart auf Pinterest folgen" style="width: 40px;" data-hover-width="104">
+                                    <span class="ts-icon"><i class="fa fa-pinterest"></i></span>
+                                    <span class="ts-text">Pinterest</span>
+                                </a>
+                            </li>
+                        
+                                                    <li>
+                                <a href="https://www.instagram.com/homeandsmart" target="_blank" class="si-instagram" title="homeandsmart auf Instagram folgen" style="width: 40px;" data-hover-width="108">
+                                    <span class="ts-icon"><i class="fa fa-instagram"></i></span>
+                                    <span class="ts-text">Instagram</span>
+                                </a>
+                            </li>
+                        
+                        <li>
+                            <a href="https://www.homeandsmart.de/feed" target="_blank" class="si-rss" title="homeandsmart RSS Feed abonieren" style="width: 40px;" data-hover-width="107">
+                                <span class="ts-icon"><i class="fa fa-rss"></i></span>
+                                <span class="ts-text">RSS-Feed</span>
+                            </a>
+                        </li>
+
+                                                    <li>
+                                <a href="mailto:info@homeandsmart.de" class="si-email3" style="width: 40px;" data-hover-width="189">
+                                    <span class="ts-icon"><i class="fa fa-envelope-o"></i></span>
+                                    <span class="ts-text">info@homeandsmart.de</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </div><!-- #top-social end -->
+                    </div>
+
+    </div>
+</div><!-- #top-bar end -->
+
+        
+        <!-- Header
+============================================= -->
+<header id="header" class="transparent-header sticky-style-3">
+
+  <div id="header-wrap" class="">
+
+    <!-- Primary Navigation
+    ============================================= -->
+    <nav id="primary-menu" class="style-2">
+
+      <div class="mobile-menue container clearfix">
+
+        <div id="side-panel-trigger" class="side-menu-panel-trigger"><i class="fa fa-bars"></i></div>
+
+        <div id="logo">
+          <a href="https://www.homeandsmart.de/" class="standard-logo">
+
+                                                            <img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/4d43877-90fb74a.svg" id="svglogo" title="Smart Home Systeme, Produkte &amp; Systeme | Smarthome IoT News &amp; Tests" alt="homeandsmart.de Logo">
+                                          
+          </a>
+
+                    </div><!-- #logo end -->
+
+                <div id="mobile_search" class="top-search-trigger"><i class="fa fa-search search-show"></i></div>
+
+
+
+                <!-- Top Search
+        ============================================= -->
+                <div id="top-search">
+          <form id="search-form" action="https://www.homeandsmart.de/suche" method="get">
+            <input type="text" name="q" class="form-control" value="" placeholder="Suchbegriff eingeben..." autocomplete="off">
+            <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="top-search-trigger">
+              <i class="fa fa-times search-hide"></i>
+            </a>
+          </form>
+        </div><!-- #top-search end -->
+        
+        <div id="sidebar_shaddow" class="sidebar"></div>
+
+                        <ul class="menu-main sf-js-enabled" id="menu-main" style="touch-action: pan-y;">
+            
+                                    <li class="first sub-menu">                <a href="https://www.homeandsmart.de/produkte" title="PRODUKTE – Smart Home" class="sf-with-ul">
+        PRODUKTE
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_1" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/produkte" title="PRODUKTE – Smart Home" class=" is_parent ">
+        PRODUKTE
+          </a>
+        
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/smart-home-systeme" title="Smart Home Systeme – Smart Home" class="sf-with-ul">
+        Smart Home Systeme
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/smart-home-systeme" title="Smart Home Systeme – Smart Home" class=" is_parent ">
+        Smart Home Systeme
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/belkin-wemo" title="Belkin WeMo – Smart Home" class="">
+        Belkin WeMo
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/bosch-smart-home-system-controller" title="Bosch Smart Home" class="">
+        Bosch Smart Home
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/devolo-home-control-smart-home-zum-selbermachen" title="devolo Home Control – Smart Home" class="">
+        devolo Home Control
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/elgato-eve-homekit-sensoren-smart-home-siri-steuerung" title="Elgato Eve – Smart Home" class="">
+        Elgato Eve
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/fibaro-home-center-2-z-wave-hc2" title="Fibaro Home Center – Smart Home" class="">
+        Fibaro Home Center
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/fritz-box-smart-home" title="FritzBox – Smart Home" class="">
+        FritzBox
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/gigaset-elements-smart-home-system-sensoren" title="Gigaset elements – Smart Home" class="">
+        Gigaset elements
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/homematic-eq-3-funk-zentrale" title="Homematic – Smart Home" class="">
+        Homematic
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/homematic-ip-eq-3-hausautomation" title="Homematic IP – Smart Home" class="">
+        Homematic IP
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/innogy-smarthome" title="innogy Smarthome – Smart Home" class="">
+        innogy Smarthome
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/telekom-smart-home" title="Magenta Smart Home – Smart Home" class="">
+        Magenta Smart Home
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/mydlink-home-smart-home-system" title="mydlink Home – Smart Home" class="">
+        mydlink Home
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/netatmo-universum-smart-home-produkte-uebersicht" title="Netatmo – Smart Home" class="">
+        Netatmo
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/qivicon-smart-home-plattform" title="Qivicon – Smart Home" class="">
+        Qivicon
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/tahoma-connect" title="Somfy TaHoma – Smart Home" class="">
+        Somfy TaHoma
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/home-easy-von-elro-perfekte-heimsteuerung-fuer-senioren" title="Home Easy – Smart Home" class="">
+        Home Easy
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/mediola-haussteuerung-smart-home-aio-gateway-iqontrol" title="Mediola – Smart Home" class="">
+        Mediola
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/sicherheit" title="Sicherheit – Smart Home" class="sf-with-ul">
+        Sicherheit
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/sicherheit" title="Sicherheit – Smart Home" class=" is_parent ">
+        Sicherheit
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/secuentry-von-burg-waechter-innovatives-tuerschloss-key-app" title="Burg Wächter – Smart Home" class="">
+        Burg Wächter
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/canary-smart-home-sicherheit" title="Canary – Smart Home" class="">
+        Canary
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/danalock-schloss-smart-home" title="Danalock – Smart Home" class="">
+        Danalock
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/doorbird-wlan-videotuerklingel-smart-home" title="Doorbird – Smart Home" class="">
+        Doorbird
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/foscam-ip-ueberwachungs-kameras" title="Foscam – Smart Home" class="">
+        Foscam
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/movi-4k-kamera-simulierter-multi-kamera-funktion" title="movi4k – Smart Home" class="">
+        movi4k
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/nuki-smartlock-intelligentes-sicheres-tuerschloss" title="Nuki – Smart Home" class="">
+        Nuki
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/olympia-smart-home-alarmsysteme-73er-74er" title="Olympia – Smart Home" class="">
+        Olympia
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/entertainment" title="Entertainment – Smart Home" class="sf-with-ul">
+        Entertainment
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/entertainment" title="Entertainment – Smart Home" class=" is_parent ">
+        Entertainment
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/bose-soundtouch-multiroom-system" title="Bose Soundtouch – Smart Home" class="">
+        Bose Soundtouch
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/logitech-harmony-fernbedienung-zum-smart-home" title="Logitech Harmony – Smart Home" class="">
+        Logitech Harmony
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/sonos-multiroom-sound-system" title="Sonos Multiroom – Smart Home" class="">
+        Sonos Multiroom
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/licht" title="Licht – Smart Home" class="sf-with-ul">
+        Licht
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/licht" title="Licht – Smart Home" class=" is_parent ">
+        Licht
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/philips-hue" title="Philips Hue – Smart Home" class="">
+        Philips Hue
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/osram-lightify-lichtsteuerung" title="Osram Lightify – Smart Home" class="">
+        Osram Lightify
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/lightberry-philips-ambilight-alternative-fuer-den-tv" title="Philips Ambilight – Smart Home" class="">
+        Philips Ambilight
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/heizung" title="Heizung – Smart Home" class="sf-with-ul">
+        Heizung
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/heizung" title="Heizung – Smart Home" class=" is_parent ">
+        Heizung
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/centero-hausautomation-von-elero" title="elero Centero – Smart Home" class="">
+        elero Centero
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/evohome-honeywell-heizung-raumthermostat" title="Honeywell Evohome – Smart Home" class="">
+        Honeywell Evohome
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/tado-heizung" title="tado – Smart Home" class="">
+        tado
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/hausautomation" title="Hausautomation – Smart Home" class="sf-with-ul">
+        Hausautomation
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/hausautomation" title="Hausautomation – Smart Home" class=" is_parent ">
+        Hausautomation
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/digitalstrom-smart-home-hausautomation-intelligenter-strom" title="Digitalstrom – Smart Home" class="">
+        Digitalstrom
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/bussysteme-knx-bus-smart-home" title="KNX – Smart Home" class="">
+        KNX
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/loxone-smart-home-miniserver" title="Loxone – Smart Home" class="">
+        Loxone
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/openhab-2-smart-home-software-open-source" title="Openhab – Smart Home" class="">
+        Openhab
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/home-connect-bosch-siemens-hausgeraete" title="Home Connect – Smart Home" class="">
+        Home Connect
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="last sub-menu">                <a href="https://www.homeandsmart.de/gesundheit" title="Gesundheit – Smart Home" class="sf-with-ul">
+        Gesundheit
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/gesundheit" title="Gesundheit – Smart Home" class=" is_parent ">
+        Gesundheit
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/withings-blutdruckmessgeraet-einfache-dokumentation" title="Withings Blood Pressure – Smart Home" class="">
+        Withings Blood Pressure
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/temptraq-thermometer-die-modere-art-fieber-zu-messen" title="TempTraq – Smart Home" class="">
+        TempTraq
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/xiaomi-mi-smart-scale-die-intelligente-bluetooth-waage" title="Xiami Mi – Smart Home" class="">
+        Xiami Mi
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/welten" title="WELTEN – Smart Home" class="sf-with-ul">
+        WELTEN
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_1" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/welten" title="WELTEN – Smart Home" class=" is_parent ">
+        WELTEN
+          </a>
+        
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/apple" title="Apple – Smart Home" class="sf-with-ul">
+        Apple
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/apple" title="Apple – Smart Home" class=" is_parent ">
+        Apple
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/apple-homepod-smart-home-lautsprecher" title="Apple HomePod - Smart Home" class="">
+        Apple HomePod
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/apple-homekit-ios-smart-home-system" title="HomeKit - Apple" class="">
+        HomeKit
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/homekit-geraete-smart-home-apple" title="HomeKit kompatible Geräte" class="">
+        Kompatible Geräte
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/siri-homekit-spracherkennung-software-assistant" title="Siri – Smart Home" class="">
+        Siri
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/amazon" title="Amazon – Smart Home" class="sf-with-ul">
+        Amazon
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/amazon" title="Amazon – Smart Home" class=" is_parent ">
+        Amazon
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/echo-dot-und-amazon-tap-die-neuen-amazon-alexa-geraete" title="Echo Dot - Smart Home" class="">
+        Echo Dot
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/amazon-echo-dot-bluetooth-lautsprecher-mit-wlan-alexa" title="Amazon Echo - Smart Home" class="">
+        Echo
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/amazon-echo-show-alexa-mit-kamera-und-bildschirm" title="Echo Show - Smart Home" class="">
+        Echo Show
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/amazon-echo-kompatible-produkte-systeme" title="Kompatible Geräte - Amazon Echo" class="">
+        Kompatible Geräte
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/amazon-alexa-sprachassistentin-smart-home-kompatible-geraete" title="Alexa – Smart Home" class="">
+        Alexa
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/65-alexa-skills-im-ueberblick" title="Alexa Skills – Smart Home" class="">
+        Alexa Skills
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/samsung" title="Samsung – Smart Home" class="sf-with-ul">
+        Samsung
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/samsung" title="Samsung – Smart Home" class=" is_parent ">
+        Samsung
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/smartthings-samsung-smart-home-system" title="SmartThings – Smart Home" class="">
+        SmartThings
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/samsung-galaxy-s8-bixby-sprachassistent" title="Bixby – Smart Home" class="">
+        Bixby
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/samsung-tizen-smart-tv-plattform" title="Smart TVs - Samsung" class="">
+        Smart TVs
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/google" title="Google – Smart Home" class="sf-with-ul">
+        Google
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/google" title="Google – Smart Home" class=" is_parent ">
+        Google
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/google-home-macht-amazon-echo-im-smart-home-konkurrenz" title="Google Home – Smart Home" class="">
+        Google Home
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/google-home-kompatible-geraete" title="Kompatible Geräte - Google Home" class="">
+        Kompatible Geräte
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/google-assistant" title="Google Assistant – Smart Home" class="">
+        Google Assistant
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="last sub-menu">                <a href="https://www.homeandsmart.de/microsoft" title="Microsoft – Smart Home" class="sf-with-ul">
+        Microsoft
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/microsoft" title="Microsoft – Smart Home" class=" is_parent ">
+        Microsoft
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/home-hub-microsofts-smart-home-software-fuer-windows-10" title="Home Hub – Smart Home" class="">
+        Home Hub
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/hoert-windows-10-im-smart-home-dank-cortana-bald-aufs-wort" title="Cortana – Smart Home" class="">
+        Cortana
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                                    <li class="sub-menu">                <a href="https://www.homeandsmart.de/magazin" title="MAGAZIN – Smart Home" class="sf-with-ul">
+        MAGAZIN
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_1" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/magazin" title="MAGAZIN – Smart Home" class=" is_parent ">
+        MAGAZIN
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/ganz-schoen-smart" title="Ganz schön smart! – Smart Home" class="">
+        Ganz schön smart!
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/gadgets" title="Gadgets – Smart Home" class="">
+        Gadgets
+          </a>
+        
+    </li>
+
+    
+                                    <li class="last sub-menu">                <a href="https://www.homeandsmart.de/wissen" title="Wissen – Smart Home" class="sf-with-ul">
+        Wissen
+                <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+          </a>
+                <ul class="menu_level_2 menu-pos-invert" style="display: none;">
+            
+                <li class="first">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="menuback">
+        <i class="fa fa-angle-left pull-left" aria-hidden="true"></i>zurück
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/wissen" title="Wissen – Smart Home" class=" is_parent ">
+        Wissen
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/was-ist-ein-smart-home" title="Was ist ein Smart Home?" class="">
+        Was ist ein Smart Home?
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/was-ist-ein-smart-tv" title="Was ist ein Smart TV" class="">
+        Was ist ein Smart TV
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/wlan-signal-verstaerken" title="WLAN Signal verstärken" class="">
+        WLAN Signal verstärken
+          </a>
+        
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/funkstandards" title="Funkstandards – Smart Home" class="">
+        Funkstandards
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/bus-systeme" title="Bussysteme – Smart Home" class="">
+        Bussysteme
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+    </li>
+
+    
+                <li>                <a href="https://www.homeandsmart.de/news" title="NEWS – Smart Home" class="">
+        NEWS
+          </a>
+        
+    </li>
+
+    
+                <li class="last">                <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#" class="top-search-trigger">
+        <i class="fa fa-search search-show"></i>
+          </a>
+        
+    </li>
+
+
+    </ul>
+
+
+        <div id="side-panel-trigger-close" class="side-menu-panel-trigger">
+            <a href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+
+      </div>
+
+    </nav><!-- #primary-menu end -->
+
+  </div>
+
+</header>
+<!-- #header end -->
+
+
+
+
+    <!-- Content
+    ============================================= -->
+    <section id="content" style="margin-bottom: 0px;">
+        
+    <!-- top -->
+    <div class="container">
+        <!-- middle -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="landing-page__zone landing-page__zone--content landing-page__zone--left ">
+                    <div class="landing-page__block block_ hs-content-page-zone-block">
+                        <!-- Artikel Header  -->
+                                                                                                                        
+                                                
+                                                                        
+                                                                                                                                                                                                        
+                        <div class="content_header">
+                            <div class="content_tags">
+                                <a href="https://www.homeandsmart.de/smart-home-diy" class="hs-tag" title="Smart Home DIY - Smart Home">Smart Home DIY</a>
+                            </div>
+                        </div>
+
+                        <div class="entry-title">
+                            <h1>
+                                <span class="hs-subline">Das Multitalent</span>
+                                Smart Home mit Raspberry Pi - Was ist möglich?
+                            </h1>
+                        </div>
+                                
+            
+                                        <div class="teaser-text ezrichtext-field"><p>Smart Home, IoT, Raspberry Pi? Im Vergleich zum typischen IoT-Device wirkt der englische Einplatinencomputer wie ein Sumo-Ringer neben einem Samurai. Im Smart Home findet er seine Aufgabe daher als Zentrale, in der Daten zusammenlaufen, Ereignisse analysiert und Aktionen ausgelöst werden, als kompakter Medienserver und dergleichen, nicht zuletzt aber auch in dem Bereich, für den er eigentlich entwickelt wurde: Experimentieren, Erfahrung sammeln, Learning by doing. Was können Sie mit Ihrem Raspberry Pi im Smart Home realisieren?</p>
+
+</div>
+
+            
+    
+
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <ul class="entry-meta clearfix">
+                                    
+
+    <li>
+        <a href="https://www.homeandsmart.de/impressum/kai-schiller" target="_self" rel="author">
+            <i class="fa fa-user"></i>Kai Schiller
+        </a>
+    </li>
+
+
+                                    <li>08.07.2016</li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 sharebuttons-container">
+                                <div class="shariff" data-services="[&quot;facebook&quot;, &quot;twitter&quot;, &quot;instagram&quot;, &quot;googleplus&quot;, &quot;pinterest&quot;, &quot;mail&quot;, &quot;whatsapp&quot;]" data-theme="white" data-title="Smart Home mit Raspberry Pi - Was ist möglich? - Das Multitalent" data-media-url="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_12/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg" data-mail-body="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich
+        
+            
+                        Smart Home, IoT, Raspberry Pi? Im Vergleich zum typischen IoT-Device wirkt der englische Einplatinencomputer wie ein Sumo-Ringer neben einem Samurai. Im Smart Home findet er seine Aufgabe daher als Zentrale, in der Daten zusammenlaufen, Ereignisse analysiert und Aktionen ausgelöst werden, als kompakter Medienserver und dergleichen, nicht zuletzt aber auch in dem Bereich, für den er eigentlich entwickelt wurde: Experimentieren, Erfahrung sammeln, Learning by doing. Was können Sie mit Ihrem Raspberry Pi im Smart Home realisieren?
+      
+    " data-mail-subject="Smart Home mit Raspberry Pi - Was ist möglich? - Das Multitalent" data-mail-url="mailto:" data-url="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich"><ul class="theme-white orientation-horizontal col-7"><li class="shariff-button facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Facebook teilen" role="button" aria-label="Bei Facebook teilen"><span class="fa fa-facebook"></span><span class="share_text">teilen</span></a></li><li class="shariff-button twitter"><a href="https://twitter.com/intent/tweet?text=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent&amp;url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Twitter teilen" role="button" aria-label="Bei Twitter teilen"><span class="fa fa-twitter"></span><span class="share_text">tweet</span></a></li><li class="shariff-button googleplus"><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Google+ teilen" role="button" aria-label="Bei Google+ teilen"><span class="fa fa-google-plus"></span><span class="share_text">teilen</span></a></li><li class="shariff-button pinterest"><a href="https://www.pinterest.com/pin/create/link/?url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich&amp;media=https%3A%2F%2Fwww.homeandsmart.de%2Fvar%2Fsite%2Fstorage%2Fimages%2F_aliases%2Ffixed_col_12%2F1%2F0%2F4%2F4%2F24401-1-ger-DE%2Fdomotics-kit-arduino-udoo-raspberry-smart-home.jpg&amp;description=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent" data-rel="popup" title="Bei Pinterest pinnen" role="button" aria-label="Bei Pinterest pinnen"><span class="fa fa-pinterest-p"></span><span class="share_text">pin it</span></a></li><li class="shariff-button mail"><a href="mailto:?subject=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent&amp;body=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Smart%20Home%2C%20IoT%2C%20Raspberry%20Pi%3F%20Im%20Vergleich%20zum%20typischen%20IoT-Device%20wirkt%20der%20englische%20Einplatinencomputer%20wie%20ein%20Sumo-Ringer%20neben%20einem%20Samurai.%20Im%20Smart%20Home%20findet%20er%20seine%20Aufgabe%20daher%20als%20Zentrale%2C%20in%20der%20Daten%20zusammenlaufen%2C%20Ereignisse%20analysiert%20und%20Aktionen%20ausgel%C3%B6st%20werden%2C%20als%20kompakter%20Medienserver%20und%20dergleichen%2C%20nicht%20zuletzt%20aber%20auch%20in%20dem%20Bereich%2C%20f%C3%BCr%20den%20er%20eigentlich%20entwickelt%20wurde%3A%20Experimentieren%2C%20Erfahrung%20sammeln%2C%20Learning%20by%20doing.%20Was%20k%C3%B6nnen%20Sie%20mit%20Ihrem%20Raspberry%20Pi%20im%20Smart%20Home%20realisieren%3F%0A%20%20%20%20%20%20%0A%20%20%20%20" title="Per E-Mail versenden" role="button" aria-label="Per E-Mail versenden"><span class="fa fa-envelope"></span><span class="share_text">mail</span></a></li><li class="shariff-button whatsapp"><a href="whatsapp://send?text=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent%20https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" title="Bei Whatsapp teilen" role="button" aria-label="Bei Whatsapp teilen"><span class="fa fa-whatsapp"></span><span class="share_text">teilen</span></a></li></ul></div>
+                            </div>
+                        </div>
+
+                        
+                                                                                    
+                            <div class="row">
+                                                                                                        <div class="hs-main-image col-md-12">
+                                              <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_8/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_8_2x/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/domotics-kit-arduino-udoo-raspberry-smart-home.jpg" alt="Domotics Kit Smart Home Lösung basierend auf Arduino, Udoo und Raspberry"></picture>
+                                    </div>
+                                
+                                <div class="hs-image-copyright col-md-12 text-right">
+                                                                            <span class="hs-caption-short">Domotics Kit Smart Home Lösung - Arduino, Udoo und Raspberry</span>
+                                                                                                                                                                                                                                                        </div>
+                            </div>
+                                                <!-- Ende Artikel Header  -->
+
+                        <!-- Artikel ToC  -->
+                        <div class="block_tableOfContent">
+                            <div class="entry-body">
+  <div class="hs-singleheading">
+      Inhalt
+  </div>
+          
+            
+        <ul class="table-of-content fa-ul">
+<li>
+<i class="fa fa-li fa-arrow-circle-down"></i><a title="Smart Home Eigenbau mit Raspberry Pi" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#toc-1" data-scrollto="#toc-1">Smart Home Eigenbau mit Raspberry Pi</a>
+</li>
+<li>
+<i class="fa fa-li fa-arrow-circle-down"></i><a title="Intelligente IR-Fernbedienung für das Raspberry Pi im Smart Home" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#toc-2" data-scrollto="#toc-2">Intelligente IR-Fernbedienung für das Raspberry Pi im Smart Home</a>
+</li>
+<li>
+<i class="fa fa-li fa-arrow-circle-down"></i><a title="Raspberry Pi Home Automation mit Web-Interface" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#toc-3" data-scrollto="#toc-3">Raspberry Pi Home Automation mit Web-Interface</a>
+</li>
+<li>
+<i class="fa fa-li fa-arrow-circle-down"></i><a title="RasPi Medienserver für das Smart Home" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#toc-4" data-scrollto="#toc-4">RasPi Medienserver für das Smart Home</a>
+</li>
+<li>
+<i class="fa fa-li fa-arrow-circle-down"></i><a title="Erweiterungsmodule für Raspberry Pi zur Hausautomation" href="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich#toc-5" data-scrollto="#toc-5">Erweiterungsmodule für Raspberry Pi zur Hausautomation</a>
+</li>
+</ul>
+
+            
+    
+</div>
+                        </div>
+
+                        <!-- Ende Artikel ToC  -->
+
+                        <!-- Artikel Content  -->
+                        <div class="entry-body">
+                
+            
+        
+                        <div class="ezrichtext-field"><h2 id="toc-1">Smart Home Eigenbau mit Raspberry Pi</h2><p>Smart Home heißt zunächst intelligentes Steuern von Geräten und Funktionen im Haushalt. Das ist ein Schritt weiter als das bloße Fernsteuern über die bei vielen Geräten mitgelieferte Fernbedienung. Mit einem Raspberry Pi rüsten Sie die fehlende Intelligenz einfach nach und selbst Geräte ganz ohne Fernbedienung können Sie über gängige Funksteckdosen und ein <strong>433-MHz-Sendemodul</strong> zumindest smart ein- und ausschalten. Ein solches Funkmodul besteht aus einer kleinen Platine mit nur drei Anschlüssen, zwei für die Stromversorgung und einem Dateneingang, den Sie mit einem GPIO-Pin Ihres Raspberry Pi verbinden.</p>    <div class="align-center ez-embed-type-image">
+    
+
+                                    
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    
+    
+          <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/inline_image/9/0/4/4/24409-1-ger-DE/sharp-gp1um26xk-receiver-remote-ctrl-top-40khz.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/inline_image_2x/9/0/4/4/24409-1-ger-DE/sharp-gp1um26xk-receiver-remote-ctrl-top-40khz.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/sharp-gp1um26xk-receiver-remote-ctrl-top-40khz.jpg" alt="Sharp GP1UM26XK - RECEIVER REMOTE CTRL TOP 40KHZ"></picture>
+      </div>
+
+  <div class="hs-image-copyright col-md-12 text-right">
+          <span class="hs-caption-short">Sharp GP1UM26XK - RECEIVER REMOTE CTRL TOP 40KHZ</span>
+                          </div>
+</div>
+
+</div>
+<div class="">
+    
+
+    
+        
+                            
+                    <div class="col-md-12">
+                                    <div class="row">
+                
+                    <div class="hs_preisradarBox_block hs-content-page-zone-block">
+                      
+                    <div class="row hs_preisradarBox_container">
+                        
+                                                            
+                            
+                            <div class="col-md-6 hs-border-bottom">
+                                
+                
+
+<div class="hs-preisradar hs-affiliateListe">
+
+    <div class="hs-preisradar-row hs-affiliateListe-title-row">
+        <div class="hs-name">
+            <span class="ezstring-field">Fensterputz-Roboter</span>
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row clearfix">
+        <div class="hs-entry-image">
+
+            
+                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/9/3/8/1/131839-1-ger-DE/schnaeppchen-guenstiger-sichler-fensterputz-roboter-pr-025.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/9/3/8/1/131839-1-ger-DE/schnaeppchen-guenstiger-sichler-fensterputz-roboter-pr-025.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/schnaeppchen-guenstiger-sichler-fensterputz-roboter-pr-025.jpg" alt="Mit dem Fensterputzroboter von Sichler lassen sich auch Wintergärten und Dachfenster gut reinigen"></picture>
+            
+                    </div>
+
+        <div class="hs-entry-c">
+            <div class="new_price">
+                                    239,90 €
+                    |
+                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>52%
+                                                </div>
+
+                            <div class="old_price">
+                    statt <span class="hs-strikethrough">499,90 €</span>
+                </div>
+            
+            <div class="hs-date">08.11.2017</div>
+
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row hs-affiliateListe-button-row">
+        <div class="preisradar_affiliate_link dotdotdot" style="word-wrap: break-word;">
+                            
+
+                    
+
+    <a href="https://www.amazon.de/gp/product/B00CUBRCVW/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;tag=homeandsmartd-21&amp;camp=1638&amp;creative=6742&amp;linkCode=as2&amp;creativeASIN=B00CUBRCVW&amp;linkId=7f983faf50fb8592fc16986a5ae19d67" title="Sichler Fensterreinigungsroboter bei Amazon kaufen" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="Amazon Aktionswoche Sichler Fensterreinigungsroboter (Produkt)">
+
+                    <i class="fa fa-amazon"></i>
+        
+        <span class="ezstring-field">Jetzt bei Amazon kaufen</span>    </a>
+
+                    </div>
+    </div>
+</div>
+
+                            </div>
+                        
+                                                            
+                            
+                            <div class="col-md-6 hs-border-bottom">
+                                
+                
+
+<div class="hs-preisradar hs-affiliateListe">
+
+    <div class="hs-preisradar-row hs-affiliateListe-title-row">
+        <div class="hs-name">
+            <span class="ezstring-field">Ring Video-Türklingel</span>
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row clearfix">
+        <div class="hs-entry-image">
+
+            
+                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/6/1/6/7/107616-1-ger-DE/smarte-ring-videotuerklingel-mit-zwei-wege-audio.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/6/1/6/7/107616-1-ger-DE/smarte-ring-videotuerklingel-mit-zwei-wege-audio.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/smarte-ring-videotuerklingel-mit-zwei-wege-audio.jpg" alt="Ring Video-Türklingel mit Zwei-Wege-Audio"></picture>
+            
+                    </div>
+
+        <div class="hs-entry-c">
+            <div class="new_price">
+                                    163,20 €
+                    |
+                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>22%
+                                                </div>
+
+                            <div class="old_price">
+                    statt <span class="hs-strikethrough">209,95 €</span>
+                </div>
+            
+            <div class="hs-date">08.11.2017</div>
+
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row hs-affiliateListe-button-row">
+        <div class="preisradar_affiliate_link dotdotdot" style="word-wrap: break-word;">
+                            
+
+                    
+
+    <a href="https://www.amazon.de/gp/product/B072Q48WQR/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;tag=homeandsmartd-21&amp;camp=1638&amp;creative=6742&amp;linkCode=as2&amp;creativeASIN=B072Q48WQR&amp;linkId=fca4aa232dc932ecdddbc775d007b640" title="Ring Video-Türklingel bei Amazon kaufen" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="Ring Doorbell Video-Türklingel (Produkt) Top Türklingel">
+
+                    <i class="fa fa-amazon"></i>
+        
+        <span class="ezstring-field">Jetzt bei Amazon kaufen</span>    </a>
+
+                    </div>
+    </div>
+</div>
+
+                            </div>
+                        
+                                                            
+                            
+                            <div class="col-md-6 hs-border-bottom">
+                                
+                
+
+<div class="hs-preisradar hs-affiliateListe">
+
+    <div class="hs-preisradar-row hs-affiliateListe-title-row">
+        <div class="hs-name">
+            <span class="ezstring-field">Philips Hue White and Color E27 Starter Set</span>
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row clearfix">
+        <div class="hs-entry-image">
+
+            
+                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/7/5/7/1/91757-2-ger-DE/philips-hue-starter-set-farbig.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/7/5/7/1/91757-2-ger-DE/philips-hue-starter-set-farbig.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/philips-hue-starter-set-farbig.jpg" alt="Philips Hue White and Color Starterset E27"></picture>
+            
+                    </div>
+
+        <div class="hs-entry-c">
+            <div class="new_price">
+                                    159,00 €
+                    |
+                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>20%
+                                                </div>
+
+                            <div class="old_price">
+                    statt <span class="hs-strikethrough">199,99 €</span>
+                </div>
+            
+            <div class="hs-date">08.11.2017</div>
+
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row hs-affiliateListe-button-row">
+        <div class="preisradar_affiliate_link dotdotdot" style="word-wrap: break-word;">
+                            
+
+                    
+
+    <a href="https://www.amazon.de/gp/product/B01LZ8QYPI/ref=as_li_tl?ie=UTF8&amp;tag=homeandsmartd-21&amp;camp=1638&amp;creative=6742&amp;linkCode=as2&amp;creativeASIN=B01LZ8QYPI&amp;linkId=35f2c6178e56b59d32ac4ae35e21df80" title="Philips Hue White and Color E27 Starter Set bei Amazon kaufen" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="Philips Hue White and Color E27 Starter Set (Produkt)">
+
+                    <i class="fa fa-amazon"></i>
+        
+        <span class="ezstring-field">Jetzt bei Amazon kaufen</span>    </a>
+
+                    </div>
+    </div>
+</div>
+
+                            </div>
+                        
+                                                            
+                            
+                            <div class="col-md-6 hs-border-bottom">
+                                
+                
+
+<div class="hs-preisradar hs-affiliateListe">
+
+    <div class="hs-preisradar-row hs-affiliateListe-title-row">
+        <div class="hs-name">
+            <span class="ezstring-field">Parrot Disco</span>
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row clearfix">
+        <div class="hs-entry-image">
+
+            
+                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/0/2/7/8/98720-1-ger-DE/parraot-disco-drohne-mit-vr-brille.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/0/2/7/8/98720-1-ger-DE/parraot-disco-drohne-mit-vr-brille.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/parraot-disco-drohne-mit-vr-brille.jpg" alt="PARROT Disco FPV Drohne"></picture>
+            
+                    </div>
+
+        <div class="hs-entry-c">
+            <div class="new_price">
+                                    899,00 €
+                    |
+                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>31%
+                                                </div>
+
+                            <div class="old_price">
+                    statt <span class="hs-strikethrough">1.299,00 €</span>
+                </div>
+            
+            <div class="hs-date">08.11.2017</div>
+
+        </div>
+    </div>
+
+    <div class="hs-preisradar-row hs-affiliateListe-button-row">
+        <div class="preisradar_affiliate_link dotdotdot" style="word-wrap: break-word;">
+                            
+
+                    
+
+    <a href="https://partners.webmasterplan.com/click.asp?ref=802883&amp;site=14665&amp;type=text&amp;tnb=2&amp;diurl=http%3A%2F%2Fwww.mediamarkt.de%2Fde%2Fproduct%2F_parrot-disco-fpv-2165551.html" title="Parrot Disco FPV Drohne bei MediaMarkt kaufen" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="MediaMarkt Parrot Disco FPV-Brille (Produkt)">
+
+        
+        <span class="ezstring-field">Jetzt bei MediaMarkt kaufen</span>    </a>
+
+                    </div>
+    </div>
+</div>
+
+                            </div>
+                                            </div>
+                </div>
+
+                                    </div>
+                            </div>
+        
+    
+</div>
+<h2 id="toc-2">Intelligente IR-Fernbedienung für das Raspberry Pi im Smart Home</h2><p>Bei Unterhaltungselektronik und Haushaltsgeräten hat sich die Infrarot-Fernbedienung weitgehend durchgesetzt. Um diese Schnittstellen für die <a href="https://www.homeandsmart.de/smart-home-funk-standards-uebersicht-hausautomation" title="Smart Home Funkstandards, welche für die Hausautomation eingesetzt werden" class="hs-link hs-internal">Hausautomation</a> mit Raspberry Pi zu nutzen brauchen Sie eigentlich nur eine IR-LED als zusätzliche Hardware. Deren Reichweite können Sie mit einer einfachen Schaltung aus einem Standardtransistor wie dem BC547 und zwei Widerständen vergrößern. Das Lernen der Codes vorhandener Fernbedienungen ist mit einem IR-Modul mit einer Frequenz im Bereich 36 bis 40 kHz möglich, beispielsweise <a href="http://www.digikey.de/product-detail/de/sharp-microelectronics/GP1UM26XK/425-1138-ND/457844" target="_blank" title="Sharp GP1UM26XK Informationen" class="hs-link hs-external" rel="nofollow">Sharp GP1UM26XK</a>. Alles Bauteile, die auch im deutschen Elektronikfachhandel für Cent-Beträge erhältlich sind. Für den lötfreien Aufbau der Schaltung reicht eins der kleinsten Breadboards, mit 10x17 Kontakten (ca. 3,5x4,5 cm).</p><p><div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="./Smart Home mit Raspberry Pi - Was ist möglich__files/G65aCy_SsYI.html" allowfullscreen="" id="fitvid0"></iframe></div></p><h2 id="toc-3">Raspberry Pi Home Automation mit Web-Interface</h2><p>Softwareseitig besteht die RasPi Smart-Home-Steuerung aus Softwarebibliotheken, die grundlegenden Funktionen für die Kommunikation mittels IR-Codes respektive 433-MHz-Funksignalen bereitstellen, einem geeigneten Webserver und etwas Code für eine Web-basierte Oberfläche, sodass Sie per Smartphone, PC oder iPad Ihr <a href="https://www.homeandsmart.de/was-ist-ein-smart-home" title="Was ist ein Smart Home? Geräte und Systeme" class="hs-link hs-internal">Smart Home</a> steuern können. Im Internet finden Sie zahlreiche Ressourcen zum Thema Raspberry Pi und IR-Fernsteuerung, ein großer Teil davon befasst sich aber mit dem umgekehrten Fall, der Steuerung des Raspberry Pi mit einer IR-Fernbedienung. Eine interessante Lösung hat das Raspberry Pi Geek Magazine im Heft 10/2015 <a href="http://www.raspberry-pi-geek.com/Archive/2015/10/Raspberry-Pi-IR-remote" target="_blank" title="Raspberry Pi Artikel" class="hs-link hs-external" rel="nofollow">vorgestellt</a>. Im Gegensatz zu anderen Vorschlägen setzt es ganz auf die bevorzugte Programmiersprache Python des Raspberry Pi und kommt auch ohne Webserver-Installation aus, indem es das Python-Modul Bottle nutzt.</p><h2 id="toc-4">RasPi Medienserver für das Smart Home</h2><p>Das Mediacenter ist nicht unbedingt ein Smart-Home-Thema, wird es aber, wenn Sie es beispielsweise morgens nutzen, um sich mit einer audio-visuellen Show wecken zu lassen. Für den Einsatz als Medienserver eignet sich der Raspberry Pi aufgrund seiner Hardware-Ausstattung besonders gut. Dank des in den Prozessor integrierten Videomoduls streamen Sie Video- und Audio-Daten im Full-HD-Format über den HDMI-Ausgang an Monitore, TV-Geräte und Beamer. Alternativ gibt es noch einen FBAS-Videoausgang mit Composite-Signal für ältere Fernseher und Video-Hardware. Entsprechend umfangreich wird das Thema Raspberry Pi als Mediacenter in Fachzeitschriften sowie im Internet behandelt und mit <a href="http://openelec.tv/" target="_blank" title="Startseite von OpenELEC" class="hs-link hs-external" rel="nofollow">OpenElec</a>, <a href="https://kodi.tv/" target="_blank" title="Startseite von Kodi" class="hs-link hs-external" rel="nofollow">XBMC</a> und <a href="https://osmc.tv/" target="_blank" title="Startseite von OSMC - Raspmc" class="hs-link hs-external" rel="nofollow">Raspbmc</a> gibt es sogar eigene Linux-Distributionen, als Alternative zum meistgenutzten Raspbian, die speziell für den Raspberry Pi als Medienserver ausgelegt sind.</p>    <div class="align-center ez-embed-type-image">
+    
+
+                                    
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    
+    
+          <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/inline_image/7/1/4/4/24417-1-ger-DE/vero-2-osmc-free-opensource-media-center.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/inline_image_2x/7/1/4/4/24417-1-ger-DE/vero-2-osmc-free-opensource-media-center.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/vero-2-osmc-free-opensource-media-center.jpg" alt="Vero 2 ist ein OSMC Gerät - Open Source Mediacenter"></picture>
+      </div>
+
+  <div class="hs-image-copyright col-md-12 text-right">
+          <span class="hs-caption-short">Vero 2 ist ein OSMC Gerät - Open Source Mediacenter</span>
+                          </div>
+</div>
+
+</div>
+<h2 id="toc-5">Erweiterungsmodule für Raspberry Pi zur Hausautomation</h2><p>Ein interessantes Feature des Raspberry Pi für das Smart Home ist der, je nach Ausführung, <strong>34- oder 40-polige Steckverbinder</strong>. Darüber können Sie mehrere universelle Schnittstellen wie <a href="https://www.elektronik-kompendium.de/sites/raspberry-pi/2002191.htm" target="_blank" title="GPIO Beschreibung" class="hs-link hs-external" rel="nofollow">GPIO</a> oder <a href="http://de.i2c-bus.org/start/" target="_blank" title="I2C Erklärung und Beschreibung" class="hs-link hs-external" rel="nofollow">I2C</a> ansprechen, aber auch Erweiterungsmodule (HATs) anbinden. Diese vereinfachen beispielsweise die Ansteuerung von Motoren und anderen Bauteilen mit höherem Strombedarf als etwa eine LED und stellen weitere Schnittstellenarten zur Verfügung, unter anderem zum <a href="https://www.homeandsmart.de/bussysteme-knx-bus-smart-home" title="Bussysteme für das Smart Home – KNX Bussystem" class="hs-link hs-internal">Smart Home System KNX</a>. Hier können Sie auch die Echtzeituhr nachrüsten, die dem Raspberry Pi fehlt, damit Sie nicht Ihren wichtigsten Termin verpassen, weil Ihr Smart Home nach Murphy gerade dann nach dem Mond geht und Sie nicht rechtzeitig weckt.</p><div class="">
+    
+
+    <div class="hs_affiliateBox_block">
+        <div class="hs_affiliateBox_embedded">
+
+            <div class="row">
+
+                                    
+                
+                
+                                            
+                    
+
+                    <div class="col-sm-6 col-md-6">
+                        <div class="affiliateImage">
+                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/2/5/6/1/61652-3-ger-DE/home-and-smart-preisalarm-smarthome-produkte-billig-kaufen.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/2/5/6/1/61652-3-ger-DE/home-and-smart-preisalarm-smarthome-produkte-billig-kaufen.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/home-and-smart-preisalarm-smarthome-produkte-billig-kaufen.jpg" alt="Aktuelle Technik Deals für Smart Home Produkte"></picture>
+
+                            
+                                                            <div class="imageText">
+                                                                            Unsere Empfehlung
+
+                                    
+                                </div>
+                                                    </div>
+                    </div>
+
+                
+                <div class="col-sm-6 col-md-6">
+                    <div class="affiliateBoxText">
+                        <div class="entry-title">
+                            <div class="hs-subline">
+                                                                    <span class="ezstring-field">Aktuelle Smart Home Angebote</span>
+
+                                                            </div>
+                            <div class="hs-headline">
+                                                                    <span class="ezstring-field">Preisalarm</span>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="entry-content">
+                                                                          <div class="ezrichtext-field"><p>Wir scannen für Sie den Markt dauerhaft nach den besten Angeboten und stellen diese übersichtlich zusammen. Sichern Sie sich jetzt die besten Produkte zu den besten Preisen.</p>
+</div>
+    
+
+                                                    </div>
+
+                        
+                        
+
+                    
+
+    <a href="https://www.homeandsmart.de/deals" title="homeandsmart Preisalarm" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="homeandsmart Preisalarm">
+
+        
+        <span class="ezstring-field">Zu den Angeboten</span>    </a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                            
+    </div>
+
+
+
+</div>
+<p><strong>Weitere Lesetipps</strong></p><p><a href="https://www.homeandsmart.de/openhab-2-smart-home-software-open-source" title="Mit openHAB 2 Geräte im Smart Home unkompliziert verbinden" class="hs-link hs-internal">OpenHAB - Geräte im Smart Home verbinden</a><br><a href="https://www.homeandsmart.de/z-wave-plus-razberry-vom-minicomputer-smart-home-gateway" title="Z-Wave Plus RaZberry | Vom Minicomputer zum Smart-Home-Gateway" class="hs-link hs-internal">Z-Wave Plus RaZberry</a><br><a href="https://www.homeandsmart.de/domotz-raspberry-pi-smart-home-zentrale-nas-co" title="Domotz | Smart Home Zentrale auf Raspberry Pi und NAS &amp; Co" class="hs-link hs-internal">Domotz | Smart Home Zentrale auf Raspberry Pi </a></p><p>Mehr Infos und News zum <a href="https://www.homeandsmart.de/" title="Smart Home News und Trends" class=" hs-internal">Smart Home</a></p><div class="">
+    
+    <p class="hs-affilate-embed"><span class="ezstring-field">Mehr Informationen zum Raspberry Pi gibt es auf</span>&nbsp;                                <a href="https://www.amazon.de/gp/search/ref=as_li_qf_sp_sr_il_tl?ie=UTF8&amp;camp=1638&amp;creative=6742&amp;index=aps&amp;keywords=raspberry%20pi&amp;linkCode=as2&amp;tag=homeandsmart-21" title="Raspberry Pi bei Amazon kaufen." class="hs-affiliate affiliate-link hs-external" target="_blank" rel="nofollow" data-affiliateplatform="Raspberry Pi (Übersicht)">Amazon.</a></p>
+</div>
+
+
+
+
+
+</div>
+
+            
+    
+</div>
+                        <!-- Ende Artikel Content
+
+                        <!-- social media links -->
+                        <div class="row">
+                            <div class="col-md-12 shariff_footer">
+                                <div class="shariff" data-services="[&quot;facebook&quot;, &quot;twitter&quot;, &quot;instagram&quot;, &quot;googleplus&quot;, &quot;pinterest&quot;, &quot;mail&quot;, &quot;whatsapp&quot;]" data-theme="white" data-title="Smart Home mit Raspberry Pi - Was ist möglich? - Das Multitalent" data-media-url="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_12/1/0/4/4/24401-1-ger-DE/domotics-kit-arduino-udoo-raspberry-smart-home.jpg" data-mail-body="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich
+        
+            
+                        Smart Home, IoT, Raspberry Pi? Im Vergleich zum typischen IoT-Device wirkt der englische Einplatinencomputer wie ein Sumo-Ringer neben einem Samurai. Im Smart Home findet er seine Aufgabe daher als Zentrale, in der Daten zusammenlaufen, Ereignisse analysiert und Aktionen ausgelöst werden, als kompakter Medienserver und dergleichen, nicht zuletzt aber auch in dem Bereich, für den er eigentlich entwickelt wurde: Experimentieren, Erfahrung sammeln, Learning by doing. Was können Sie mit Ihrem Raspberry Pi im Smart Home realisieren?
+      
+    " data-mail-subject="Smart Home mit Raspberry Pi - Was ist möglich? - Das Multitalent" data-mail-url="mailto:" data-url="https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich"><ul class="theme-white orientation-horizontal col-7"><li class="shariff-button facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Facebook teilen" role="button" aria-label="Bei Facebook teilen"><span class="fa fa-facebook"></span><span class="share_text">teilen</span></a></li><li class="shariff-button twitter"><a href="https://twitter.com/intent/tweet?text=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent&amp;url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Twitter teilen" role="button" aria-label="Bei Twitter teilen"><span class="fa fa-twitter"></span><span class="share_text">tweet</span></a></li><li class="shariff-button googleplus"><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" data-rel="popup" title="Bei Google+ teilen" role="button" aria-label="Bei Google+ teilen"><span class="fa fa-google-plus"></span><span class="share_text">teilen</span></a></li><li class="shariff-button pinterest"><a href="https://www.pinterest.com/pin/create/link/?url=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich&amp;media=https%3A%2F%2Fwww.homeandsmart.de%2Fvar%2Fsite%2Fstorage%2Fimages%2F_aliases%2Ffixed_col_12%2F1%2F0%2F4%2F4%2F24401-1-ger-DE%2Fdomotics-kit-arduino-udoo-raspberry-smart-home.jpg&amp;description=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent" data-rel="popup" title="Bei Pinterest pinnen" role="button" aria-label="Bei Pinterest pinnen"><span class="fa fa-pinterest-p"></span><span class="share_text">pin it</span></a></li><li class="shariff-button mail"><a href="mailto:?subject=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent&amp;body=https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Smart%20Home%2C%20IoT%2C%20Raspberry%20Pi%3F%20Im%20Vergleich%20zum%20typischen%20IoT-Device%20wirkt%20der%20englische%20Einplatinencomputer%20wie%20ein%20Sumo-Ringer%20neben%20einem%20Samurai.%20Im%20Smart%20Home%20findet%20er%20seine%20Aufgabe%20daher%20als%20Zentrale%2C%20in%20der%20Daten%20zusammenlaufen%2C%20Ereignisse%20analysiert%20und%20Aktionen%20ausgel%C3%B6st%20werden%2C%20als%20kompakter%20Medienserver%20und%20dergleichen%2C%20nicht%20zuletzt%20aber%20auch%20in%20dem%20Bereich%2C%20f%C3%BCr%20den%20er%20eigentlich%20entwickelt%20wurde%3A%20Experimentieren%2C%20Erfahrung%20sammeln%2C%20Learning%20by%20doing.%20Was%20k%C3%B6nnen%20Sie%20mit%20Ihrem%20Raspberry%20Pi%20im%20Smart%20Home%20realisieren%3F%0A%20%20%20%20%20%20%0A%20%20%20%20" title="Per E-Mail versenden" role="button" aria-label="Per E-Mail versenden"><span class="fa fa-envelope"></span><span class="share_text">mail</span></a></li><li class="shariff-button whatsapp"><a href="whatsapp://send?text=Smart%20Home%20mit%20Raspberry%20Pi%20-%20Was%20ist%20m%C3%B6glich%3F%20-%20Das%20Multitalent%20https%3A%2F%2Fwww.homeandsmart.de%2Fsmart-home-mit-raspberry-pi-was-ist-moeglich" title="Bei Whatsapp teilen" role="button" aria-label="Bei Whatsapp teilen"><span class="fa fa-whatsapp"></span><span class="share_text">teilen</span></a></li></ul></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Article Rating -->
+                                                
+
+    
+        
+                            
+                            
+
+
+        <div class="rating">
+
+            <div class="rating_title h2">Wie gefällt Ihnen dieser Artikel?</div>
+
+            <div class="rating-content">
+                <div class="rating_graph">
+
+                    <dic class="pie_chart">
+                        <div class="rating_label">
+                            <div class="rating_label_percent">50</div>
+                            <div class="rating_label_text">gefällt das</div>
+                        </div>
+                    <canvas height="250" width="250" style="height: 200px; width: 200px;"></canvas></dic>
+
+                </div>
+
+                <div class="rating_buttons">
+                    <a id="button_like" title="Artikel positiv bewerten" class="testreport-affiliate-button button">
+                        Gefällt mir
+                    </a>
+                    <a id="button_dislike" title="Artikel negativ bewerten" class="testreport-affiliate-button button">
+                        Gefällt mir nicht
+                    </a>
+
+                    <div id="rating_error" class="error">Sie können den Artikel nur einmal bewerten.</div>
+                </div>
+                <div id="rating_ok" class="h2">Vielen Dank für Ihre Bewertung!</div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            document.addEventListener('DOMContentLoaded', function(){
+
+                                jQuery('.pie_chart').easyPieChart({
+                    barColor:  '#78B330',  // The color of the circular bar.
+                    trackColor:'#dbdbdb',  // The color of the track, or false to disable rendering.
+                    trackWidth: 3,
+                    scaleColor: false,     // The color of the scale lines, false to disable rendering.
+                    //scaleLength: 15, 	   // Length of the scale lines (reduces the radius of the chart).
+                    lineCap: 'square',     // Defines how the ending of the bar line looks like. Possible values are: butt, round and square.
+                    lineWidth: 12, 	       // Width of the chart line in px.
+                    size: 200, 	           // Size of the pie chart in px. It will always be a square.
+                    onStep: function(from, to , percent){
+                        jQuery(this.el).find('.rating_label_percent').text(Math.round(percent))
+                    }
+                });
+
+                                jQuery.get("/rating/percent/", {contentId: 2431   })
+                    .done(function(data){
+                        if(0 < data.percent){
+                            jQuery('.pie_chart').data('easyPieChart').update(data.percent);
+
+                        } else {
+                            jQuery('.pie_chart').find('.rating_label_percent').text('0');
+                        }
+                    });
+
+
+                                jQuery("#button_like").click(function(){
+                    jQuery.post("/rating/like/", {contentId: 2431   })
+                        .done(function(data){
+                            addRating();
+                        })
+                        .fail(function(data){
+                            jQuery('#rating_error').show();
+                        })
+                });
+
+                                jQuery("#button_dislike").click(function(){
+                    jQuery.post("/rating/dislike/", {contentId: 2431   })
+                        .done(function(data){
+                            addRating();
+                        })
+                        .fail(function(data){
+                            jQuery('#rating_error').show();
+                        })
+                });
+
+                                var addRating = function() {
+                    jQuery('.rating_buttons').hide();
+                    jQuery('#rating_ok').show();
+                    jQuery.get("/rating/percent/", {contentId: 2431   })
+                        .done(function(data){
+                            jQuery('.pie_chart').data('easyPieChart').update(data.percent);
+                        });
+                }
+            });
+
+        </script>
+
+    
+
+                        <!-- Autoren Block -->
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                                <div class="panel panel-default authorblock">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            Autor
+                            <span>
+                                   <a href="https://www.homeandsmart.de/impressum/kai-schiller" target="_self" rel="author">
+                                        Kai Schiller
+                                   </a>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="author-image">
+                            
+                                
+                                                                                                    
+                                                                    <img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/homeandsmart Redakteur.jpg" alt="homeandsmart.de Redaktion">
+                                
+                                                    </div>
+                        <div class="ez-richtext-content">
+                                                        <p>Selbständiger Service-Designer und Webseiten-Betreiber. Liebt sein Smart Home. Interessiert sich für Internet-Technologie, Wirtschaft, Technik, Internet of Things – einfach alles Digitale. Passionierter Macher. Entwickelt, baut und berät Internet-Portale. Der erste Tweet&nbsp;am Morgen:&nbsp;sicherlich von Kai. Das Thema:&nbsp;sicherlich das Neueste aus der Smart Home Welt.</p>
+
+                                                    </div>
+                    </div>
+                </div>
+                        </div>
+
+                        </div>
+                        <!-- Ende Autoren block -->
+
+                        <!-- Neues zu majortag_1 Slider  -->
+                                                                                                                        
+                                                                            <div class="row hs-content-page-zone-block">
+                                            <div class="col-md-12 hs-spost">
+                                                                                                    <div class="hs-tabheading hs-singleheading">Neues
+                                                        zu Smart Home DIY</div>
+                                                                                                
+    <div>
+        <div class="owl-carousel image-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="3" data-margin="30" data-nav="true" data-items-xxs="1" data-items-md="3" data-items-lg="3">
+
+                        
+                                                                
+                                
+                
+            
+                                                                
+                                
+                
+            
+                                                                
+                                
+                
+            
+                                                                
+                                
+                
+            
+                                                                
+                                
+                
+            
+                                                                
+                                
+                
+                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 1560px;"><div class="owl-item active" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/mesh-tags-smarte-vernetzung-als-diy-projekt" title="Sony MESH Tags | Bunte Dominosteine vernetzen das Smart Home">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/4/9/6/1/91694-5-ger-DE/sony-mesh-tags-bausteine-uebersicht.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/4/9/6/1/91694-5-ger-DE/sony-mesh-tags-bausteine-uebersicht.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/sony-mesh-tags-bausteine-uebersicht.jpg" alt="Sony MESH Tags Bausteine"></picture>
+                                                        <div>
+                                <div class="hs-subline">Freiraum für Kreativität im IoT</div>
+                                <div class="hs-headline">Sony MESH Tags | Bunte Dominosteine vernetzen das Smart Home</div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div><div class="owl-item active" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/lightberry-philips-ambilight-alternative-fuer-den-tv" title="Der Ambilight-Effekt: Lightberry als Philips Hue Alternative">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/0/7/9/8/18970-1-ger-DE/lightberry-eu.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/0/7/9/8/18970-1-ger-DE/lightberry-eu.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/lightberry-eu.jpg" alt="Lightberry - Philips Ambilight Effekt für Ihr TV "></picture>
+                                                        <div>
+                                <div class="hs-subline">Ambilight für Smart TVs nachrüsten</div>
+                                <div class="hs-headline">Der Ambilight-Effekt: Lightberry als Philips Hue Alternative</div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div><div class="owl-item active" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/iobroker-integrations-plattform-iot" title="ioBroker: Integrationsplattform für das Internet der Dinge">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/1/8/6/2/62681-1-ger-DE/iobroker-ist-genau-das-richtige-fuer-bastler-und-tueftler.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/1/8/6/2/62681-1-ger-DE/iobroker-ist-genau-das-richtige-fuer-bastler-und-tueftler.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/iobroker-ist-genau-das-richtige-fuer-bastler-und-tueftler.jpg" alt="Die IoT-Plattform iobroker hilft smarten Bastlern weiter"></picture>
+                                                        <div>
+                                <div class="hs-subline">OpenSource-Plattform</div>
+                                <div class="hs-headline">ioBroker: Integrationsplattform für das Internet der Dinge</div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div><div class="owl-item" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/google-raspberry-pi-kuenstliche-intelligenz" title="Google stattet Raspberry Pi mit Künstlicher Intelligenz aus">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/9/9/0/8/58099-1-ger-DE/google-steckt-kuenstliche-intelligenz-in-den-raspberry-pi.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/9/9/0/8/58099-1-ger-DE/google-steckt-kuenstliche-intelligenz-in-den-raspberry-pi.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/google-steckt-kuenstliche-intelligenz-in-den-raspberry-pi.jpg" alt="Künstliche Intelligenz auf dem PC nimmt zu"></picture>
+                                                        <div>
+                                <div class="hs-subline">KI-Tools für Bastler</div>
+                                <div class="hs-headline">Google stattet Raspberry Pi mit Künstlicher Intelligenz aus</div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div><div class="owl-item" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/ulux-switch-knx-tp-macht-die-steuerung-im-smart-home-komfortabel" title="u::Lux Switch KNX-TP - komfortable Steuerung  ">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/1/1/9/1/31911-1-ger-DE/csm_ulux_switch_2000px_f0ac1885e7.png 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/1/1/9/1/31911-1-ger-DE/csm_ulux_switch_2000px_f0ac1885e7.png 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/csm_ulux_switch_2000px_f0ac1885e7.png" alt="u::Lux Switch KNX-TP"></picture>
+                                                        <div>
+                                <div class="hs-subline">Smarter Schalter für KNX-Systeme</div>
+                                <div class="hs-headline">u::Lux Switch KNX-TP - komfortable Steuerung  </div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div><div class="owl-item" style="width: 230px; margin-right: 30px;"><div class="oc-item">
+                    <div class="ipost">
+                      <a href="https://www.homeandsmart.de/schellenberg-smart-home-system" title="Schellenberg Smart Home System für den Hobby-Handwerker">
+                                                                                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/3/5/3/0/30353-2-ger-DE/Schellenberg%20Smart%20Home%20App%20Steuerung.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/3/5/3/0/30353-2-ger-DE/Schellenberg%20Smart%20Home%20App%20Steuerung.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/Schellenberg Smart Home App Steuerung.jpg" alt="Schellenberg Smart Home"></picture>
+                                                        <div>
+                                <div class="hs-subline">Smartes Wi-Fi Starter Set</div>
+                                <div class="hs-headline">Schellenberg Smart Home System für den Hobby-Handwerker</div>
+                            </div>
+                        </a>
+                    </div>
+                </div></div></div></div><div class="owl-nav"><div class="owl-prev disabled"><i class="icon-angle-left"></i></div><div class="owl-next"><i class="icon-angle-right"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+        
+
+        </div>
+
+                                            </div>
+                                        </div>
+                                                                                                                                                <!-- Ende Neues Liste  -->
+
+                                                
+                                                                                                                                                                                                                                                                                                
+                    </div>
+                </div>
+            </div>
+
+            <!-- sidebar -->
+            <div class="col-md-4 hs-sidebar">
+                <!-- prio -->
+
+                <div class="landing-page__zone landing-page__zone--sidebar_prio landing-page__zone--right row">
+                    <div class="col-md-12">
+
+                        <!-- Mehr zu  -->
+                                                                                                                                                            <div class="row">
+                                        <div class="tabs clearfix ui-tabs ui-widget row ui-widget-content ui-corner-all row hs-content-page-zone-block">
+                                            <div class="col-md-12 hs-spost">
+                                                <div class="hs-tabheading hs-singleheading">Mehr zu Smart Home DIY</div>
+                                                
+    
+    <div>
+        <!-- Tab panes -->
+        <!-- <div class="tab-content borderbottom fade in"> -->
+        <div class="tab-pane active">
+                            <div class="spost clearfix">
+                    <a href="https://www.homeandsmart.de/entwicklerplatine-z-uno-programmieren-sie-ihr-smart-home-selbst" title="Entwicklerplatine Z-Uno - Programmieren Sie Ihr Smart Home selbst" class="nobg">
+                              <div class="entry-image">
+
+                                                                                                              <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/9/9/9/8/28999-1-ger-DE/1413.300.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/9/9/9/8/28999-1-ger-DE/1413.300.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/1413.300.jpg" alt="Entwicklerplatine Z-Uno"></picture>
+                                
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <div class="hs-subline">Z-Uno speaks Z-Wave</div>
+                                    <div class="hs-headline">Entwicklerplatine Z-Uno - Programmieren Sie Ihr Smart Home selbst</div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+
+                            <div class="spost clearfix">
+                    <a href="https://www.homeandsmart.de/web-bluetooth-google-chrome-steuert-das-smart-home" title="Google Chrome steuert das Smart Home direkt per Bluetooth" class="nobg">
+                              <div class="entry-image">
+
+                                                                                                              <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/3/5/1/7/27153-3-ger-DE/AdobeStock_90120257.jpeg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/3/5/1/7/27153-3-ger-DE/AdobeStock_90120257.jpeg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/AdobeStock_90120257.jpeg" alt="Smarte Steuerung der Beleuchtung via App"></picture>
+                                
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <div class="hs-subline">Fortschritt oder Rückschritt?</div>
+                                    <div class="hs-headline">Google Chrome steuert das Smart Home direkt per Bluetooth</div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+
+                            <div class="spost clearfix">
+                    <a href="https://www.homeandsmart.de/steuerung-mit-einem-finger-der-flexible-touchsensor-touchit" title="Steuerung mit einem Finger - Der flexible Touchsensor touchIT" class="nobg">
+                              <div class="entry-image">
+
+                                                                                                              <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/1/6/5/3/23561-2-ger-DE/touchit-touchsteuerung-von-probots.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/1/6/5/3/23561-2-ger-DE/touchit-touchsteuerung-von-probots.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/touchit-touchsteuerung-von-probots.jpg" alt="touchIT Touchsensor von ProBots"></picture>
+                                
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <div class="hs-subline">Sensor für Bastler</div>
+                                    <div class="hs-headline">Steuerung mit einem Finger - Der flexible Touchsensor touchIT</div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+
+                            <div class="spost clearfix">
+                    <a href="https://www.homeandsmart.de/conrad-connect-smart-home-software-internet-of-things" title="Conrad Connect: Elektronik-Kette steigt ins IoT ein" class="nobg">
+                              <div class="entry-image">
+
+                                                                                                              <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small/0/7/8/0/20870-1-ger-DE/conrad-connect.png 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/teaser_box_small_2x/0/7/8/0/20870-1-ger-DE/conrad-connect.png 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/conrad-connect.png" alt="Conrad Connect System @ Conrad"></picture>
+                                
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <div class="hs-subline">Sicheres Interface zur Smarthome-Steuerung</div>
+                                    <div class="hs-headline">Conrad Connect: Elektronik-Kette steigt ins IoT ein</div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+
+                        
+
+            </div>
+        <!-- </div> -->
+    </div>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                            <!-- Ende mehr zu  -->
+
+
+                        <div class="row hs-content-page-zone-block">
+                            <div class="col-md-12 hs-spost">
+                                
+
+                
+    
+    <div class="widget hs-block gallery_side mod-no-margin-bottom clearfix col-md-12 fact_container">
+
+                <div class="newsletter_block form_block">
+            <div class="row">
+
+                                                    
+                <div class="col-md-12">
+
+                    <div class="form_title">Newsletter</div>
+
+                    <div class="form_text">
+
+                        <i class="fa fa-check-circle-o" aria-hidden="true"></i> Die wichtigsten Smart Home News<br>
+                        <i class="fa fa-check-circle-o" aria-hidden="true"></i> Die günstigsten Preise im Web<br>
+                        <i class="fa fa-check-circle-o" aria-hidden="true"></i> Alle 14 Tage per E-Mail<br>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class=" newsletter_subscription">
+
+                        <form class="newsletter_form">
+
+                            <input class="newsletter_mail_input" type="text" placeholder="E-Mail Adresse angeben" name="email_address">
+
+                            <button type="sumbit" class="newsletter_block_submit button">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                Jetzt anmelden
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- tag cloud -->
+                        <div class="row">
+                            <div class="tabs clearfix hs-content-page-zone-block ui-tabs ui-widget ui-widget-content ui-corner-all">
+                                
+
+            <div class="col-md-12">
+    
+
+                            <div class="hs-singleheading hs-tabheading">verwandte Themen</div>
+
+      <div class="tag-Cloud">
+          <div class="content_tags">
+              <a href="https://www.homeandsmart.de/internet-der-dinge-smart-home-internet-of-things" class="hs-tag" title="IoT - Smart Home">IoT</a><a href="https://www.homeandsmart.de/netzwerktechnik" class="hs-tag" title="Netzwerktechnik - Smart Home">Netzwerktechnik</a><a href="https://www.homeandsmart.de/produkte" class="hs-tag" title="Produkt - Smart Home">Produkt</a>          </div>
+      </div>
+
+
+            </div>
+    
+
+                            </div>
+                        </div>
+                        <!-- Ende tag cloud -->
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+                                                <div class="row hs-content-page-zone-block">
+                            <div class="col-md-12 hs-spost">
+                                                                    
+                        <div class="col-md-12">
+                <div class="row">
+                    <div class="hs-tabheading hs-singleheading">News</div>
+                    <div>
+                                                                            
+                        <div class="owl-carousel image-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1" data-margin="30" data-nav="true" data-items-xxs="1" data-items-md="1" data-items-lg="1">
+
+                            
+                                                                                                                                
+                                                                
+                                
+                            
+                                                                                                                                
+                                                                
+                                
+                            
+                                                                                                                                
+                                                                
+                                
+                            
+                                                                                                                                
+                                                                
+                                
+                                                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 1560px;"><div class="owl-item active" style="width: 360px; margin-right: 30px;"><div class="oc-item">
+                                    <div class="ipost">
+                                        <a href="https://www.homeandsmart.de/amazon-alexa-skills-quiz" title="Die spannendsten Alexa Quiz-Skills im Test">
+                                                                                                                                                                <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/0/7/7/4/144770-1-ger-DE/lass-dich-von-alexa-testen-mit-den-quiz-skills.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/0/7/7/4/144770-1-ger-DE/lass-dich-von-alexa-testen-mit-den-quiz-skills.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/lass-dich-von-alexa-testen-mit-den-quiz-skills.jpg" alt="Alexa hat Fragen zu fast jeder gewünschten Rubrik parat"></picture>
+                                                                                                <div>
+                                                    <div class="hs-subline">Gehirnjogging per Sprachbefehl</div>
+                                                    <div class="hs-headline">Die spannendsten Alexa Quiz-Skills im Test</div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 360px; margin-right: 30px;"><div class="oc-item">
+                                    <div class="ipost">
+                                        <a href="https://www.homeandsmart.de/avira-safethings-anti-virus-smart-home" title="Avira SafeThings: Der Router wird zur Firewall für&#39;s Smart Home">
+                                                                                                                                                                <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/6/7/1/4/144176-1-ger-DE/avira-safe-things-sicherheit-smart-home-schutz-malware-virus.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/6/7/1/4/144176-1-ger-DE/avira-safe-things-sicherheit-smart-home-schutz-malware-virus.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/avira-safe-things-sicherheit-smart-home-schutz-malware-virus.jpg" alt="Avira SafeThings ist die Internet-Security-Lösung für das Smart Home"></picture>
+                                                                                                <div>
+                                                    <div class="hs-subline">IoT-Antivirus 2018</div>
+                                                    <div class="hs-headline">Avira SafeThings: Der Router wird zur Firewall für's Smart Home</div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 360px; margin-right: 30px;"><div class="oc-item">
+                                    <div class="ipost">
+                                        <a href="https://www.homeandsmart.de/august-smart-lock-homekit-bluetooth" title="August Smart Lock: Bluetooth-Türschloss mit HomeKit-Support">
+                                                                                                                                                                <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/8/2/6/3/143628-1-ger-DE/august-smartes-tuerschloss-smart-lock-in-zwei-generationen.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/8/2/6/3/143628-1-ger-DE/august-smartes-tuerschloss-smart-lock-in-zwei-generationen.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/august-smartes-tuerschloss-smart-lock-in-zwei-generationen.jpg" alt="Nur für Zylinderschlösser: August Smart Lock und Smart Lock Pro"></picture>
+                                                                                                <div>
+                                                    <div class="hs-subline">Mit Sprachsteuerung und WLAN-Bridge</div>
+                                                    <div class="hs-headline">August Smart Lock: Bluetooth-Türschloss mit HomeKit-Support</div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 360px; margin-right: 30px;"><div class="oc-item">
+                                    <div class="ipost">
+                                        <a href="https://www.homeandsmart.de/streaming-stick-vergleich" title="Vergleich 2017: Die besten Streaming Sticks und Dongles">
+                                                                                                                                                                <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/7/3/6/3/143637-1-ger-DE/streaming-stick-vergleich-2017.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/7/3/6/3/143637-1-ger-DE/streaming-stick-vergleich-2017.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/streaming-stick-vergleich-2017.jpg" alt="Wir haben die beliebtesten Streaming Sticks verglichen"></picture>
+                                                                                                <div>
+                                                    <div class="hs-subline">Normale Fernseher zum Smart TV nachrüsten</div>
+                                                    <div class="hs-headline">Vergleich 2017: Die besten Streaming Sticks und Dongles</div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div></div></div></div><div class="owl-nav"><div class="owl-prev disabled"><i class="icon-angle-left"></i></div><div class="owl-next"><i class="icon-angle-right"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+                        
+
+                        </div>
+                </div>
+            </div>
+            
+                            </div>
+                        </div>
+
+
+                        <!-- SECTION Affiliate Teaser Box -->
+                        
+                            <div class="tabs clearfix hs-content-page-zone-block ui-tabs ui-widget ui-widget-content ui-corner-all">
+                                                                
+
+    <div class="hs_affiliateBox_block">
+        <div class="hs_affiliateBox_embedded">
+
+            <div class="row">
+
+                                    
+                
+                
+                                            
+                    
+
+                    <div class="col-md-12">
+                        <div class="affiliateImage">
+                                  <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6/5/0/1/2/72105-1-ger-DE/tink-logo-affiliate-guenstige-smarthome-produkte.jpg 1x, https://www.homeandsmart.de/var/site/storage/images/_aliases/fixed_col_6_2x/5/0/1/2/72105-1-ger-DE/tink-logo-affiliate-guenstige-smarthome-produkte.jpg 2x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/tink-logo-affiliate-guenstige-smarthome-produkte.jpg" alt="tink "></picture>
+
+                            
+                                                    </div>
+                    </div>
+
+                
+                <div class="col-md-12">
+                    <div class="affiliateBoxText">
+                        <div class="entry-title">
+                            <div class="hs-subline">
+                                                                    <span class="ezstring-field">Für Einsteiger und Profis</span>
+
+                                                            </div>
+                            <div class="hs-headline">
+                                                                    <span class="ezstring-field">Home of Connected Home</span>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="entry-content">
+                                                                          <div class="ezrichtext-field"><p>Egal ob Sie in&nbsp;den Bereich Smart Home&nbsp;einsteigen, oder ein System erweitern wollen:&nbsp;Bei tink.de finden Sie vom Einsteigerset bis zur Komplettlösung ein breites Sortiment an Produkten für das vernetzte Zuhause.</p>
+</div>
+    
+
+                                                    </div>
+
+                        
+                        
+
+                    
+
+    <a href="https://partners.webmasterplan.com/click.aspx?ref=802883&amp;site=15731&amp;type=text&amp;tnb=22&amp;diurl=https%3A%2F%2Fwww.tink.de" title="Smart Home Produkte bei tink kaufen" target="_blank" rel="nofollow" class="testreport-affiliate-button button hs-affiliate affiliate-link" data-affiliateplatform="tink Allgemein Shopverlinkung (Übersicht)">
+
+        
+        <span class="ezstring-field">Jetzt tink.de besuchen</span>    </a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                            
+    </div>
+
+
+
+                            </div>
+
+                                                <!-- END Affiliate Teaser Box -->
+
+                                                                                                            
+                                                                                                                                                                                                                                                                                                                                
+                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                        
+
+                                                                                                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- bottom -->
+        <div class="row">
+            <div class="landing-page__zone landing-page__zone--bottom ">
+                <div class="landing-page__block block hs-content-page-zone-block clearfix">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+    <!-- #content end -->
+
+            <!-- Footer
+            ============================================= -->
+    <footer id="footer" class="dark">
+
+        <div class="container">
+
+            <!-- Footer Widgets
+            ============================================= -->
+            <div class="row footer-widgets-wrap clearfix">
+
+
+                <div class="col-md-12 mainfooter">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget clearfix footer_contact">
+                            <div>
+                                
+                                                                                <picture class="ezimage-field"><source media="(max-width: 768px)" srcset="https://www.homeandsmart.de/var/site/storage/images/6/4/3/0/70346-1-ger-DE/home-and-smart-logo-white.png 1x"><img src="./Smart Home mit Raspberry Pi - Was ist möglich__files/home-and-smart-logo-white.png" alt="Homeandsmart | Smart Home Systeme, Geräte &amp; Tests im Überblick" class="footer-logo"></picture>
+                                    
+                                
+                                                                    <address>
+                                                                                    homeandsmart GmbH<br>
+                                        
+                                                                                    Ettlinger Str. 59<br>
+                                        
+                                                                                    76137 Karlsruhe<br>
+                                        
+                                                                                    Germany<br>
+                                                                                <br>
+                                    </address>
+
+                                                                                                                    <strong>E-Mail:</strong> info@homeandsmart.de
+                                                                                                </div>
+
+                        </div>
+
+                    </div>
+
+                                                <div class="col-md-7 col-md-push-1">
+                            <div class="row footerlinks">
+                                <div class="col-xs-12 col-sm-4 ">
+                                    <div class="widget widget_links clearfix">
+                                                      <div class="ezrichtext-field">
+</div>
+    
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 ">
+                                    <div class="widget widget_links clearfix">
+                                                      <div class="ezrichtext-field">
+</div>
+    
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 ">
+                                    <div class="widget widget_links clearfix">
+                                                      <div class="ezrichtext-field">
+</div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    
+                        
+                            
+                                                    
+                                    </div>
+              </div>
+            </div><!-- .footer-widgets-wrap end -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                        <div class="socialmedia">
+
+                            
+
+
+                
+    <div class="newsletter_subscription ">
+        <div class="newsletter_title_footer">
+            <a href="https://www.homeandsmart.de/newsletter" title="Newsletter abonnieren">Newsletter</a>
+            abonnieren
+        </div>
+
+        <div class="newsletter_form_footer">
+            <form id="newsletterForm" class="newsletter_form">
+                <input class="newsletter_mail_input" type="text" placeholder="E-Mail Adresse angeben" name="email_address">
+
+                <button type="sumbit" class="newsletter_submit" title="Newsletter abonnieren">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+                                                                                        
+                            <div class="footer-social pull-right">
+                                <ul>
+                                                                      <li>
+                                        <a href="https://www.facebook.com/homeandsmart" target="_blank" title="homeandsmart auf Facebook folgen">
+                                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                                                      <li>
+                                        <a href="https://www.twitter.com/homeandsmart" target="_blank" title="homeandsmart auf Twitter folgen">
+                                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                                                      <li>
+                                        <a href="https://plus.google.com/104211828333340841944" target="_blank" title="homeandsmart auf Google+ folgen">
+                                            <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                                                      <li>
+                                        <a href="https://www.youtube.com/channel/UCS7PhPQoOyu2Og7r4Wxx1mA" target="_blank" title="homeandsmart auf Youtube folgen">
+                                            <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                                                      <li>
+                                        <a href="https://de.pinterest.com/homeandsmart" target="_blank" title="homeandsmart auf Pinterest folgen">
+                                            <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                                                      <li>
+                                        <a href="https://www.instagram.com/homeandsmart" target="_blank" title="homeandsmart auf Instagram folgen">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                  
+                                  <li>
+                                      <a href="https://www.homeandsmart.de/feed" target="_blank" title="homeandsmart RSS Feed abonnieren">
+                                          <i class="fa fa-rss-square" aria-hidden="true"></i>
+                                      </a>
+                                  </li>
+                                </ul>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+
+
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    © 2017 homeandsmart GmbH
+                </div>
+
+                <div class="col_half col_last tright">
+
+                    <div class="copyright-links">
+                        
+                                                    <a href="https://www.homeandsmart.de/presse" title="homeandsmart - Presse">
+                                Presse
+                            </a> |
+
+                            <a href="https://www.homeandsmart.de/white-label" title="homeandsmart White Label Angebot">
+                                White Label
+                            </a> |
+
+                        
+                        <a href="https://www.homeandsmart.de/impressum" title="homeandsmart - Impressum ">
+                            Impressum
+                        </a> |
+
+                        <a href="https://www.homeandsmart.de/datenschutzerklaerung" title="homeandsmart - Datenschutz">Datenschutz
+                        </a> |
+
+                        <a href="https://www.homeandsmart.de/ueber-uns" title="homeandsmart - Über uns">
+                            Über uns
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+
+            </div>
+
+        </div><!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+
+</div>
+<!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" data-mobile="true" class="fa fa-angle-up" style="display: none;"></div>
+
+        <script src="./Smart Home mit Raspberry Pi - Was ist möglich__files/e226d52-ee5d109.js.Download"></script>
+    
+            <script type="text/javascript">
+        // remove now unused cookie
+        $(document).ready(function () {
+            Cookies.remove('returningVisitor');
+        });
+    </script>
+
+
+        <script type="text/javascript">
+
+        $('.newsletter_subscription').on('submit', function(e){
+
+            e.preventDefault();
+            var $form = $( this );
+            var mail = $form.find( "input[name='email_address']" ).val();
+
+            if (mail.length == 0) {
+                var $mailField = $form.find( "input[name='email_address']" );
+                $mailField.addClass('alert-danger');
+
+            } else {
+
+                jQuery.post("/newsletter-controller/subscribe/", {email_address: mail})
+                      .done(function(data){
+
+                          if(data =='OK'){
+                              var link =" https://www.homeandsmart.de/newsletter-bestellt";
+                              window.location.assign(link);
+                          }
+                    });
+            }
+        });
+
+
+        $('.newsletter_mail_input').focus(function(){
+            $(this).removeClass('alert-danger');
+        });
+
+    </script>
+
+    
+                            
+    
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+            jQuery(window).resize(function () {
+                jQuery('.preis_tracker_frame').each(function (i, obj) {
+                        reseizePreisTrackerIFrame(obj);
+                });
+            });
+
+            // add some funny dots on line endings if text is to long ..
+            // see here: http://dotdotdot.frebsite.nl/
+            jQuery('.dotdotdot').dotdotdot({
+                ellipsis : '... ',
+                wrap	 : 'word',
+                watch	 : true,
+                height   : null
+            });
+
+
+
+            jQuery(window).resize(function(){
+                jQuery('#menu-main ul').each(function(){
+                    jQuery(this).hide();
+                });
+            });
+
+
+            /****  side bar menu  ***/
+            jQuery('#side-panel-trigger').on('click, tap', function(){
+                jQuery(document.body).addClass('side-menu-panel-active');
+            });
+
+
+            /*jQuery('#menu-main li a').on('click tap', function(e) {*/
+            jQuery('#menu-main li a').each(function(){
+
+                jQuery(this).on('click tap', function(e) {
+                    if (jQuery('body').hasClass('side-menu-panel-active')) {
+
+                        if (jQuery(this).hasClass("menuback")) {
+                            var ul = jQuery(this).closest('ul');
+                            ul.removeClass("sub-menu-active");
+                            setTimeout(function(){
+                              //set display none after animation has finished
+                              ul.removeClass("prepare-animation");
+                            }, 200);
+
+                        } else if ($(this).next("ul").length) {
+                            e.preventDefault();
+                            window.scrollTo(0, 1);
+                            var ul = jQuery(this).next('ul');
+                            //the ul needs to have display none for overflow scrolling to work on android
+                            //but needs to be block for the slide animation to work
+                            //also we need !important, which cannot be set with jquery css
+                            //this first class sets display block, after a timeout the position is animated
+                            ul.addClass("prepare-animation").stop(false,true);
+                            setTimeout(function(){
+                              ul.addClass("sub-menu-active");
+                            }, 30);
+                        }
+                    }
+                });
+            });
+
+            jQuery('#side-panel-trigger-close, .top-search-trigger').on('click tap', function(e) {
+
+                jQuery('.sub-menu-active').css('margin-left', '-100%');
+
+                jQuery(document.body).removeClass('side-menu-panel-active');
+                jQuery(".sub-menu-active").removeClass("sub-menu-active");
+
+                setTimeout(function(){
+                    jQuery('#menu-main ul').removeAttr( 'style' );
+                }, 500);
+            });
+
+        });
+    </script>
+
+   
+
+    
+        <script type="text/javascript">
+
+            $('a.affiliate-link').on('click', function() {
+                var affiliatePlatform = $(this).attr('data-affiliatePlatform');
+                ga('send', 'event', 'Affiliate Clickout', affiliatePlatform, window.location.href);
+            });
+
+            $('a.eness-link').on('click', function() {
+                var affiliatePlatform = $(this).attr('data-affiliatePlatform');
+                ga('send', 'event', 'Eness', "Formularseite geöffnet", window.location.href);
+            });
+
+            $('a.download').on('click', function() {
+                ga('send', 'event', 'Downloads', 'herunterladen', $(this).attr('data-title') );
+            });
+
+
+            $('.newsletter_form').submit(function (e) {
+                ga('send', 'event', 'Newsletter', 'anmelden', window.location.href );
+            })
+
+        </script>
+
+        
+
+    <!-- Facebook Tracking Code -->
+    
+
+                        <!-- Facebook Pixel Code -->
+        <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq)return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq)f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '731194843696814'); // Insert your pixel ID here.
+            fbq('track', 'PageView');
+        </script>
+        <noscript>&lt;img height="1" width="1" style="display:none" alt="Facebook Tracking Pixel" src="https://www.facebook.com/tr?id=731194843696814&amp;ev=PageView&amp;noscript=1"/&gt;</noscript>
+
+        <!-- DO NOT MODIFY -->
+        <!-- End Facebook Pixel Code -->
+    
+
+
+
+
+,
+
+</body></html>
