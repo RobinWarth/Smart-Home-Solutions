@@ -1,0 +1,27 @@
+Online Source List
+
+Digitale Assistenten
+https://curved.de/reviews/google-home-oder-amazon-echo-der-vergleichstest-mit-video-516362 - 09.11.2017 12:14 Uhr
+http://www.businessinsider.de/digital-assistants-are-overrated-2017-7?r=US&IR=T - 10.11.2017 11:57 Uhr
+https://www.welt.de/wirtschaft/bilanz/article164608232/Wie-Voice-Commerce-unser-Leben-veraendert.html - 10.11.2017 12:03 Uhr
+https://www.welt.de/wirtschaft/webwelt/article166766253/Google-fordert-Amazons-Alexa-zum-Zweikampf-heraus.html#Comments - 10.11.2017 12:05 Uhr
+http://digitale-assistenten.info/vergleich-amazon-echo-und-google-home/ - 10.11.2017 Uhr
+https://www.heise.de/newsticker/meldung/Unhoerbare-Spracheingaben-koennen-digitale-Assistenten-steuern-3814479.html - 10.11.2017 12:11 Uhr
+https://www.computerwoche.de/a/was-taugen-siri-cortana-und-google-now,3047422 - 10.11.2017 12:13 Uhr
+https://www.welt.de/wirtschaft/webwelt/article162429879/Google-vs-Amazon-Kampf-um-Vorherrschaft-auf-Smartphones.html - 10.11.2017 12:17 Uhr
+
+Smart Home
+https://www.homeandsmart.de/was-ist-ein-smart-home - 10.11.2017 12:20 Uhr
+https://www.devolo.de/smart-home/ - 10.11.2017 12:22 Uhr
+https://your-smarthome.com/blog/allgemein/smart-home-test-vergleich/ - 10.11.2017 12:26 Uhr
+
+Raspberry Pi
+https://www.raspberrypi.org/documentation/ - 10.11.2017 12:31 Uhr
+https://www.homeandsmart.de/smart-home-mit-raspberry-pi-was-ist-moeglich - 10.11.2017 12:35 Uhr
+https://www.siio.de/folge-1-raspberry-pi-als-low-budget-smart-home-zentrale/ - 10.11.2017 12:38 Uhr
+https://tutorials-raspberrypi.de/raspberry-pi-amazon-alexa-deutsch-installieren/ - 10.11.2017 12:42 Uhr
+https://raspberry.tips/raspberrypi-tutorials/sprachassistentin-alexa-auf-dem-raspberry-pi-raspi-echo/ 10.11.2017 12:43 Uhr
+http://www.instructables.com/id/Control-Raspberry-Pi-GPIO-With-Amazon-Echo-and-Pyt/ 10.11.2017 12:50 Uhr
+
+Funkstandards
+https://www.homeandsmart.de/smart-home-funk-standards-uebersicht-hausautomation - 10.11.2017 12:55 Uhr
