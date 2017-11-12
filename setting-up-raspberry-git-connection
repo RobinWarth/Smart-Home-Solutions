@@ -1,0 +1,8 @@
+git config --global user.name "UserName"
+git config --global user.email "e@mail.com"
+
+git clone https://github.com/RobinWarth/Smart-Home-Solutions.git
+
+git remote add origin https://github.com/user/repo.git
+# Set a new remote
+
