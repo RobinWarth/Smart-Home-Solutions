@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
 
 app.use(express.static('public'));
 
@@ -19,6 +20,12 @@ process.stdout.on('data', function (data){
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
+});
+
+app.post('/input', function (req, res) {
+  //testing python execution
+  var spawn = require("child_process").spawn;
+  var process = spawn('python',["../elropi.py", 1, 1]);
 });
 
 app.listen(3000, function () {
