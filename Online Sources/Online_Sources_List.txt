@@ -27,5 +27,13 @@ https://raspberry.tips/raspberrypi-tutorials/sprachassistentin-alexa-auf-dem-ras
 http://www.instructables.com/id/Control-Raspberry-Pi-GPIO-With-Amazon-Echo-and-Pyt/ 10.11.2017 12:50 Uhr
 https://www.rustimation.eu/index.php/433mhz-schalt-steckdosen-fernsteuern/ 10.11.2017 14:01 Uhr
 
+Node.js
+https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp
+https://www.w3schools.com/nodejs/
+https://nodejs.org/en/
+
+Node.js - Frameworks
+http://expressjs.com/de/
+
 Funkstandards
 https://www.homeandsmart.de/smart-home-funk-standards-uebersicht-hausautomation - 10.11.2017 12:55 Uhr
