@@ -35,5 +35,8 @@ https://nodejs.org/en/ 14.11.2017 10:02 Uhr
 Node.js - Frameworks
 http://expressjs.com/de/ 14.11.2017 10:02 Uhr
 
+Python-Shell (Kommunikation javascript <-> python)
+https://github.com/extrabacon/python-shell 14.11.2017 10:54 Uhr
+
 Funkstandards
 https://www.homeandsmart.de/smart-home-funk-standards-uebersicht-hausautomation - 10.11.2017 12:55 Uhr
