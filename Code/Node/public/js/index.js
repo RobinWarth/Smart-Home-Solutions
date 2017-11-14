@@ -5,7 +5,7 @@ function postRaspberry(id, status) {
         status: status
     },
     function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+        console.log("Data: " + data + "\nStatus: " + status);
     });
 }
 jQuery("#buttonAon").click(function(){

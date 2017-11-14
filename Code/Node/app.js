@@ -35,6 +35,13 @@ console.log(req.body);
   
   var spawn = require("child_process").spawn;
   var process = spawn('python',["../elropi.py", id, status]);
+  
+  process.stdout.on('data', function (data){
+	console.log(data.toString('utf8')); // buffer to string);
+  });
+
+  res.send("Alright!")
+
 });
 
 app.listen(3000, function () {
