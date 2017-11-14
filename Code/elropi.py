@@ -84,7 +84,8 @@ if __name__ == '__main__':
 	
 	if len(sys.argv) < 3:
 		print "usage:sudo python %s int_device int_state (e.g. '%s 2 1' switches device 2 on)" % \
-			(sys.argv[0], sys.argv[0])  
+			(sys.argv[0], sys.argv[0])
+		sys.stdout.flush()
 		sys.exit(1)
 	
 	
