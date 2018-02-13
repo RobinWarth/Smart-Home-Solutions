@@ -1,5 +1,7 @@
 function postRaspberry(id, status) {
-    jQuery.post("http://192.168.111.90:3000/input",
+    var url      = window.location.href;
+    var fullUrl = url + "input";
+    jQuery.post(fullUrl,
     {
         id: id,
         status: status
