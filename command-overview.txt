@@ -17,3 +17,43 @@ Git commands:
 -git push --set-upstream origin [newBranchName]	//push and change the upstream branch to [newBranchName]
 
 -git merge [branchFromWitchYouWantTheThings]	//merging into your branch (branch which is checked out)
+
+
+
+
+
+Cloud9 starten... 
+(Client): http://192.168.111.90:8181/ide.html
+(Server): nodejs ./server.js -p 8181 -l 0.0.0.0 -a : -w /home/pi/Smart-Home-Solutions
+
+
+
+
+
+cloud9 (WebIDE) einrichten...
+
+https://dev.to/jtlunsford/setup-javascript-ide-on-pi-3
+
+
+Get NVM
+
+git clone https://github.com/creationix/nvm.git ~/.nvm
+
+Add NVM to .bashrc
+
+source ~/.nvm/nvm.sh
+
+Install Cloud9
+
+git clone git://github.com/c9/core.git c9sdk
+cd c9sdk
+scripts/install-sdk.sh
+~/workspace/c9sdk/server.js -l 0.0.0.0 -p 8080 -a : -w /home/pi/workspace/ 
+
+Run IDE
+
+http://localhost:8080/ide.html
+
+
+
+
