@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require("body-parser");
+var OAuthServer = require('express-oauth-server');
+var memorystore = require('model.js');
 var app = express();
 
 
@@ -21,11 +23,36 @@ process.stdout.on('data', function (data){
 
 */
 
+
+
+/* OAuth2 */
+
+app.oauth = new OAuthServer({
+  model: memorystore, // See https://github.com/oauthjs/node-oauth2-server for specification 
+});
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(app.oauth.authorize());
+ 
+app.use(function(req, res) {
+  res.send('Secret area');
+});
+
+app.get('/oauth', function (req, res) {
+  res.sendfile(__dirname + '/public/oauth.html');
+});
+
+
+/* Webinterface */
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
+
+
 
 app.post('/input', urlencodedParser, function (req, res) {
 console.log(req.body);
