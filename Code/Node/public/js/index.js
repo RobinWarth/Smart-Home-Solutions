@@ -1,6 +1,7 @@
 function postRaspberry(id, status) {
     var url      = window.location.href;
     var fullUrl = url + "input";
+    
     jQuery.post(fullUrl,
     {
         id: id,
@@ -40,4 +41,12 @@ jQuery("#buttonDon").click(function(){
 
 jQuery("#buttonDoff").click(function(){
     postRaspberry(8,0);
+});
+
+jQuery("#buttonAllon").click(function(){
+    postRaspberry(99,1);
+});
+
+jQuery("#buttonAlloff").click(function(){
+    postRaspberry(99,0);
 });
