@@ -31,35 +31,96 @@ exports.handler = function(request, context) {
     function handleDiscovery(request, context) {
         var payload = {
             "endpoints": [{
-                "endpointId": "wirelessSwitch1_id",
-                "manufacturerName": "Raspberry Dude",
-                "friendlyName": "Licht",
-                "description": "Smart Device Switch",
-                "displayCategories": ["LIGHT"],
-                "cookie": {
-                    "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                    "key2": "There can be multiple entries",
-                    "key3": "but they should only be used for reference purposes.",
-                    "key4": "This is not a suitable place to maintain current endpoint state."
-                },
-                "capabilities": [{
-                        "type": "AlexaInterface",
-                        "interface": "Alexa",
-                        "version": "3"
+                    "endpointId": "wirelessSwitch1",
+                    "manufacturerName": "Raspberry Dude",
+                    "friendlyName": "Licht",
+                    "description": "Smart Device Switch",
+                    "displayCategories": ["LIGHT"],
+                    "cookie": {
+                        "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                        "key2": "There can be multiple entries",
+                        "key3": "but they should only be used for reference purposes.",
+                        "key4": "This is not a suitable place to maintain current endpoint state."
                     },
-                    {
-                        "interface": "Alexa.PowerController",
-                        "version": "3",
-                        "type": "AlexaInterface",
-                        "properties": {
-                            "supported": [{
-                                "name": "powerState"
-                            }],
-                            "retrievable": true
+                    "capabilities": [{
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "interface": "Alexa.PowerController",
+                            "version": "3",
+                            "type": "AlexaInterface",
+                            "properties": {
+                                "supported": [{
+                                    "name": "powerState"
+                                }],
+                                "retrievable": true
+                            }
                         }
-                    }
-                ]
-            }]
+                    ]
+                },
+                {
+                    "endpointId": "wirelessSwitch2",
+                    "manufacturerName": "Raspberry Dude",
+                    "friendlyName": "PC-Switch",
+                    "description": "Smart Device Switch",
+                    "displayCategories": ["SWITCH"],
+                    "cookie": {
+                        "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                        "key2": "There can be multiple entries",
+                        "key3": "but they should only be used for reference purposes.",
+                        "key4": "This is not a suitable place to maintain current endpoint state."
+                    },
+                    "capabilities": [{
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "interface": "Alexa.PowerController",
+                            "version": "3",
+                            "type": "AlexaInterface",
+                            "properties": {
+                                "supported": [{
+                                    "name": "powerState"
+                                }],
+                                "retrievable": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "endpointId": "wirelessSwitch3",
+                    "manufacturerName": "Raspberry Dude",
+                    "friendlyName": "TV-Switch",
+                    "description": "Smart Device Switch",
+                    "displayCategories": ["SWITCH"],
+                    "cookie": {
+                        "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                        "key2": "There can be multiple entries",
+                        "key3": "but they should only be used for reference purposes.",
+                        "key4": "This is not a suitable place to maintain current endpoint state."
+                    },
+                    "capabilities": [{
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "interface": "Alexa.PowerController",
+                            "version": "3",
+                            "type": "AlexaInterface",
+                            "properties": {
+                                "supported": [{
+                                    "name": "powerState"
+                                }],
+                                "retrievable": true
+                            }
+                        }
+                    ]
+                }
+            ]
         };
         var header = request.directive.header;
         header.name = "Discover.Response";
@@ -79,40 +140,39 @@ exports.handler = function(request, context) {
         var requestMethod = request.directive.header.name;
         // get user token pass in request
         //var requestToken = request.directive.payload.scope.token;
-        let status = 0;
+        let powerResult = "OFF"; //default
 
 
         if (requestMethod === "TurnOn") {
 
             // Make the call to your device cloud for control 
             // powerResult = stubControlFunctionToYourCloud(endpointId, token, request);
-            //powerResult = "ON";
-            status = 1;
+            powerResult = "ON";
 
         }
         else if (requestMethod === "TurnOff") {
             // Make the call to your device cloud for control and check for success 
             // powerResult = stubControlFunctionToYourCloud(endpointId, token, request);
-            //powerResult = "OFF";
-            status = 0;
+            powerResult = "OFF";
 
         }
 
+        let attempt = {
+            "endpointId": request.directive.endpoint.endpointId,
+            "properties": [{
+                "namespace": "Alexa.PowerController",
+                "name": "powerState",
+                "value": powerResult,
+                "timeOfSample": "2017-09-03T16:20:50.52Z", //retrieve from result.
+                "uncertaintyInMilliseconds": 500
+            }]
+        };
+
         //testing
-        api.sendToRaspberry(1, status, context, (error, context, model) => {
-            let powerResult = "OFF";
-            if (model.state_wirelessSwitch1 === 1) {
-                powerResult = "ON";
-            }
+        api.sendToRaspberry(attempt, context, (error, context, device) => {
 
             let contextResponse = {
-                "properties": [{
-                    "namespace": "Alexa.PowerController",
-                    "name": "powerState",
-                    "value": powerResult, //only mock data to test
-                    "timeOfSample": "2017-09-03T16:20:50.52Z", //retrieve from result.
-                    "uncertaintyInMilliseconds": 500
-                }]
+                "properties": device.properties
             };
 
             let eventResponse = {
@@ -174,21 +234,15 @@ exports.handler = function(request, context) {
 
     function handleReportState(request, context) {
 
-        api.statusFromRaspberry(context, (error, context, model) => {
-            let powerResult = "OFF";
-            if (model.state_wirelessSwitch1 === 1) {
-                powerResult = "ON";
-            }
-            
-            
+        let attempt = {
+            "endpointId": request.directive.endpoint.endpointId
+        };
+
+        api.statusFromRaspberry(attempt, context, (error, context, device) => {
+
+
             let contextResponse = {
-                "properties": [{
-                    "namespace": "Alexa.PowerController",
-                    "name": "powerState",
-                    "value": powerResult, //only mock data to test
-                    "timeOfSample": "2017-09-03T16:20:50.52Z", //retrieve from result.
-                    "uncertaintyInMilliseconds": 50
-                }]
+                "properties": device.properties
             };
 
             let eventResponse = {

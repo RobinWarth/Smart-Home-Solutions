@@ -1,27 +1,25 @@
 var http = require('http');
 
-exports.sendToRaspberry = (id, status, context, callback) => {
-    
-    /* faked: the real powerState should come from Raspberry in the response */
-    let powerResult = "OFF";
-    if(status === 1){
-        powerResult = "ON"
-    }
-    
-    
+exports.sendToRaspberry = (attempt, context, callback) => {
+    httpRaspberry(attempt, context, '/input', callback);
+};
 
-    var body = JSON.stringify({
-        id: id,
-        status: status
-    });
 
+exports.statusFromRaspberry = (attempt, context, callback) => {
+    httpRaspberry(attempt, context, '/output', callback);
+};
+
+
+let httpRaspberry = (attempt, context, path, callback) => {
+    
+    var body = JSON.stringify(attempt);
 
     const options = {
-        hostname: 'test.io', //no real data
+        hostname: 'ngrok.io',
         port: 80,
-        path: '/input',
+        path: path,
         method: 'POST',
-        auth: 'please:change', //no real data
+        auth: 'bla:bla',
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(body)
@@ -32,15 +30,16 @@ exports.sendToRaspberry = (id, status, context, callback) => {
     const req = http.request(options, (res) => {
 
         res.setEncoding('utf8');
-        
+
         res.on('data', (chunk) => {
             console.log(`BODY: ${chunk}`);
             callback(null, context, JSON.parse(chunk));
         });
+        
         res.on('end', () => {
             console.log('No more data in response.');
         });
-        
+
     });
 
     req.on('error', (e) => {
@@ -53,42 +52,3 @@ exports.sendToRaspberry = (id, status, context, callback) => {
     req.end(body);
 };
 
-
-exports.statusFromRaspberry = (context, callback) => {
-    
-
-    const options = {
-        hostname: 'test.io', //no real data
-        port: 80,
-        path: '/output',
-        method: 'GET',
-        auth: 'please:change', //no real data
-        headers: {
-            'Content-Type': 'application/json'
-        },
-
-    };
-
-    const req = http.request(options, (res) => {
-
-        res.setEncoding('utf8');
-        
-        res.on('data', (chunk) => {
-            console.log(`BODY: ${chunk}`);
-            callback(null, context, JSON.parse(chunk));
-        });
-        res.on('end', () => {
-            console.log('No more data in response.');
-        });
-    });
-
-    req.on('error', (e) => {
-        console.error(`problem with request: ${e.message}`);
-        callback(e, context, null);
-    });
-
-    // write data to request body
-    req.end();
-};
-
-// exports.state_wirelessSwitch1 = "ON";
