@@ -33,9 +33,10 @@ app.post('/output', function(req, res) {
 });
 
 app.post('/input', function(req, res) {
-  console.log(`body: ${req.body}`, `type: ${typeof(req.body)}`, `JSON.stringify: ${JSON.stringify(req.body)}`);
+
+  console.log(`type: ${typeof(req.body)}`, `JSON.stringify: ${JSON.stringify(req.body)}`);
   let deviceUpdateAttempt = req.body;
-  console.log(deviceUpdateAttempt);
+  console.log(JSON.stringify(deviceUpdateAttempt));
   //console.log(req.body);
   //testing python execution
   //let id = parseInt(req.body.id, 10);
@@ -54,12 +55,12 @@ app.post('/input', function(req, res) {
 
 
   if (id != 99) { /* not "All" */
-    callProcess(id, status);
+    toPythonScript(id, status);
   }
   else {
     id = 1;
     let interval = setInterval(() => {
-      callProcess(id, status);
+      toPythonScript(id, status);
       id *= 2;
       if (id === 8) {
         clearInterval(interval);
@@ -67,7 +68,7 @@ app.post('/input', function(req, res) {
 
     }, 1000);
   }
-  console.log("send");
+
   res.send(JSON.stringify(updatedDevice));
 
 });
@@ -78,14 +79,34 @@ app.post('/input', function(req, res) {
 
 
 
+let toPythonScript = (id, status) => {
+
+  let timeOfLastProcess = new Date(model.getData().timeOfLastUpdate);
+  let timeNow = new Date();
+  let delta = 500;
+
+  //console.log("timeNow: " + timeNow, "timeOfLastProcess: " + timeOfLastProcess, "timeOfLastProcess + delta - timeNow: " + (timeOfLastProcess.getTime() + delta - timeNow.getTime()));
+  if (timeOfLastProcess.getTime() + delta > timeNow.getTime()) {
+    setTimeout(() => { toPythonScript(id, status) }, 100);
+  }
+  else {
+    callProcess(id, status);
+  }
+
+
+};
+
 let callProcess = (id, status) => {
+
+  model.setTimeOfLastUpdate(new Date());
   let spawn = require("child_process").spawn;
   let process = spawn('python', ["../elropi.py", id, status]);
+
 
   process.stdout.on('data', function(data) {
     console.log(data.toString('utf8')); // buffer to string);
   });
-};
+}
 
 
 app.listen(3000, function() {
