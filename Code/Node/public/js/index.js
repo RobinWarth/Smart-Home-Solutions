@@ -1,6 +1,6 @@
 function postRaspberry(endpointId, status) {
-    var url = window.location.href;
-    var fullUrl = url + "input";
+    let url = window.location.href;
+    let fullUrl = url + "input";
 
     let attempt = {
         endpointId: endpointId,

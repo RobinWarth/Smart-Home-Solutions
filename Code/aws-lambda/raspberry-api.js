@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 
 exports.sendToRaspberry = (attempt, context, callback) => {
     httpRaspberry(attempt, context, '/input', callback);
@@ -12,14 +12,14 @@ exports.statusFromRaspberry = (attempt, context, callback) => {
 
 let httpRaspberry = (attempt, context, path, callback) => {
     
-    var body = JSON.stringify(attempt);
+    let body = JSON.stringify(attempt);
 
     const options = {
-        hostname: 'ngrok.io',
+        hostname: 'eu.ngrok.io',
         port: 80,
         path: path,
         method: 'POST',
-        auth: 'bla:bla',
+        auth: 'bla:blub',
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(body)

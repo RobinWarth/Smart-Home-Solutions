@@ -29,7 +29,7 @@ exports.handler = function(request, context) {
     // LIGHT bekommt durchgehend anfragen
     // retievable was true
     function handleDiscovery(request, context) {
-        var payload = {
+        let payload = {
             "endpoints": [{
                     "endpointId": "wirelessSwitch1",
                     "manufacturerName": "Raspberry Dude",
@@ -122,7 +122,7 @@ exports.handler = function(request, context) {
                 }
             ]
         };
-        var header = request.directive.header;
+        let header = request.directive.header;
         header.name = "Discover.Response";
         log("DEBUG", "Discovery Response: ", JSON.stringify({ header: header, payload: payload }));
         context.succeed({ event: { header: header, payload: payload } });
@@ -137,7 +137,7 @@ exports.handler = function(request, context) {
 
     function handlePowerControl(request, context) {
         // get device ID passed in during discovery
-        var requestMethod = request.directive.header.name;
+        let requestMethod = request.directive.header.name;
         // get user token pass in request
         //var requestToken = request.directive.payload.scope.token;
         let powerResult = "OFF"; //default
