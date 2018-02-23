@@ -1,0 +1,90 @@
+Mögliche Herangehensweisen:
+
+1. Lösung mit Alexa Skill (optional: AWS - Amazon Lambda)
+https://developer.amazon.com/de/docs/ask-overviews/understanding-the-different-types-of-skills.html
+
+Amazon Lambda umgehen: http://www.wolter.biz/2017/02/amazon-alexa-im-lokalen-smart-home-programmieren/
+
+1.1 Smart Home Skill API
+https://developer.amazon.com/de/blogs/post/Tx1KIRDSNFDHEA4/Amazon-Enables-Developers-to-Extend-Alexa-s-Smart-Home-Capabilities-a-New-Additi
+https://developer.amazon.com/de/docs/smarthome/understand-the-smart-home-skill-api.html
+
+mögliche "Aktivitäten":
+https://developer.amazon.com/de/docs/smarthome/smart-home-skill-api-message-reference.html
+
++ keine Zusatzwörter wie "Alexa sag Raspberry bla bla" nur z.B. "Alexa licht an"
+(- AWS Lambda notwendig)?
+(- OAuth setup notwendig)
+
+
+1.2 Custom Skill
+- Zusatzwörter (Invocation Name) "Alexa sag Raspberry bla bla" => erschwerte bedienung
+https://iot.stackexchange.com/questions/323/how-to-write-custom-alexa-skills-without-ask-xxxx/324
+- Laut Amazon mehr Aufwand
+
+1.3 Weitere Skill Typen (Flash, Video, List)
+
+-- nicht vorgesehen für das Projekt, da nicht zutreffend
+
+
+2. Phillips Hue, WeMo oder ähnliches simulieren, dann "Alexa suche nach verfügbaren Geräten" und somit kein Skill benötigen
+
+-- Abhängigkeit von ein paar "Hackern"
+- Möglicherweise schon nicht mehr unterstützt
+- Wahrscheinlich probleme in DHBW Netzwerk wegen Firewall, Authentifizierung und Co.
+
+Beispiel WeMo: https://itler.net/raspberry-pi-mit-alexa-amazon-echo-steuern-anleitung/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zusatz Quellen:
+
+https://oauth.net/2/
+
+https://www.reddit.com/r/amazonecho/comments/4d9vdc/can_i_use_echo_to_call_a_rest_api/
+
+https://www.youtube.com/watch?v=3TaLlI4BqeI
+
+not read yet: https://medium.com/aib-innovation/how-to-make-a-custom-amazon-alexa-skill-on-your-lunchbreak-ebde4616f336
+
+Raspberry Pi von außerhalb erreichen: 
+
+- Raspberry über Router erreichbar machen (Problematisch an DHBW)
+- ngrok ( ngrok http -auth="username:password" 8080 )
+
+
+
+
+
+Plan A (Smart Home Skill API [+ AWS?]):
+
+- Smart Home Skill API
+- Webserver (Node.js) auf Raspberry Pi weltweit erreichbar mittels ngrok => Auch Web-Applikation erreichbar
+(- Benutzerkontrolle müsste bei veröffentlichung des Skills erstellt werden => Benutzer dürfen nicht alle meine Lichter anschalten :D. Zwischen ngrok und Raspberry wäre Authentifizierungs-Server (AWS?) notwendig, welcher die Annfragen an Raspberrys von bestimmtem Benutzer weiterleitet.)
+
+- Benutze Funktion AN/AUS für verschiede Modi (bsp. Party) => "Alexa, schalte Partymodus an"
+
+- Vorbereitung Präsentation: 1. Raspberry mit an UNI bringen 2. Server von dort starten! 3. ngrok umleiten auf UNI-Raspberry-Adresse (prüfen ob möglich, ngrok Adresse soll gleich bleiben !!!) 4. Alexa über Smartphone WLAN-Thethering ans Netz koppeln 
+
+
+
+
+AWS Lambda (tipps):
+https://blog.hellojs.org/3-common-challenges-using-javascript-node-js-in-aws-lambda-e3fc318401ba
+

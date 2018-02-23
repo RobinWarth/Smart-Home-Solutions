@@ -1,41 +1,72 @@
-function postRaspberry(id, status) {
-    jQuery.post("http://192.168.111.90:3000/input",
-    {
-        id: id,
-        status: status
-    },
-    function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
+function postRaspberry(endpointId, status) {
+    let url = window.location.href;
+    let fullUrl = url + "input";
+
+    let attempt = {
+        endpointId: endpointId,
+        properties: [{
+            namespace: "Alexa.PowerController",
+            name: "powerState",
+            value: status,
+            timeOfSample: "2017-09-03T16:20:50.52Z", //retrieve from result.
+            uncertaintyInMilliseconds: 500
+        }]
+    };
+    let attemptString = JSON.stringify(attempt);
+    console.log(attemptString);
+
+
+    jQuery.ajax({
+        type: "POST",
+        url: fullUrl,
+        data: attemptString,
+        success: callbackSuccess,
+        dataType: "json",
+        contentType: 'application/json'
     });
 }
-jQuery("#buttonAon").click(function(){
-    var a = postRaspberry(1,1);
+
+function callbackSuccess(data, status) {
+    console.log("Data: " + data + "\nStatus: " + status);
+}
+
+
+jQuery("#buttonAon").click(function() {
+    postRaspberry("wirelessSwitch1", "ON");
 });
 
-jQuery("#buttonAoff").click(function(){
-    postRaspberry(1,0);
+jQuery("#buttonAoff").click(function() {
+    postRaspberry("wirelessSwitch1", "OFF");
 });
 
-jQuery("#buttonBon").click(function(){
-    postRaspberry(2,1);
+jQuery("#buttonBon").click(function() {
+    postRaspberry("wirelessSwitch2", "ON");
 });
 
-jQuery("#buttonBoff").click(function(){
-    postRaspberry(2,0);
+jQuery("#buttonBoff").click(function() {
+    postRaspberry("wirelessSwitch2", "OFF");
 });
 
-jQuery("#buttonCon").click(function(){
-    postRaspberry(4,1);
+jQuery("#buttonCon").click(function() {
+    postRaspberry("wirelessSwitch3", "ON");
 });
 
-jQuery("#buttonCoff").click(function(){
-    postRaspberry(4,0);
+jQuery("#buttonCoff").click(function() {
+    postRaspberry("wirelessSwitch3", "OFF");
 });
 
-jQuery("#buttonDon").click(function(){
-    postRaspberry(8,1);
+jQuery("#buttonDon").click(function() {
+    postRaspberry("wirelessSwitch4", "ON");
 });
 
-jQuery("#buttonDoff").click(function(){
-    postRaspberry(8,0);
+jQuery("#buttonDoff").click(function() {
+    postRaspberry("wirelessSwitch4", "OFF");
+});
+
+jQuery("#buttonAllon").click(function() {
+    postRaspberry("wirelessSwitch1", "ON"); //change
+});
+
+jQuery("#buttonAlloff").click(function() {
+    postRaspberry("wirelessSwitch1", "OFF"); //change
 });

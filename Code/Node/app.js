@@ -1,50 +1,115 @@
-var express = require('express');
-var bodyParser = require("body-parser");
-var app = express();
+const model = require("./model.js")
+const express = require('express');
+const bodyParser = require("body-parser");
+
+const app = express();
 
 
 app.use(express.static('public'));
 
-app.use("/styles",  express.static(__dirname + '/public/css'));
+app.use("/styles", express.static(__dirname + '/public/css'));
 app.use("/scripts", express.static(__dirname + '/public/js'));
-app.use("/images",  express.static(__dirname + '/public/images'));
-
-/*
-//testing python execution
-var spawn = require("child_process").spawn;
-var process = spawn('python',["../elropi.py", 1, 1]);
+app.use("/images", express.static(__dirname + '/public/images'));
 
 
-process.stdout.on('data', function (data){
-	console.log(data.toString('utf8')); // buffer to string);
-});
 
-*/
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.get('/', function (req, res) {
+/* Webinterface */
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-app.post('/input', urlencodedParser, function (req, res) {
-console.log(req.body);
-  //testing python execution
-  var id = req.body.id;
-  var status = req.body.status;
-  
-  var spawn = require("child_process").spawn;
-  var process = spawn('python',["../elropi.py", id, status]);
-  
-  process.stdout.on('data', function (data){
-	console.log(data.toString('utf8')); // buffer to string);
-  });
+app.post('/output', function(req, res) {
+  let deviceAttempt = req.body;
+  res.send(JSON.stringify(model.getDevice(deviceAttempt)));
+});
 
-  res.send("Alright!")
+app.post('/input', function(req, res) {
+
+  console.log(`type: ${typeof(req.body)}`, `JSON.stringify: ${JSON.stringify(req.body)}`);
+  let deviceUpdateAttempt = req.body;
+  console.log(JSON.stringify(deviceUpdateAttempt));
+  //console.log(req.body);
+  //testing python execution
+  //let id = parseInt(req.body.id, 10);
+  //let status = parseInt(req.body.status, 10);
+  let updatedDevice = model.updateDevice(deviceUpdateAttempt);
+  let id = updatedDevice.switchId;
+
+  let status = 0;
+  for (let property of updatedDevice.properties) {
+    if (property.namespace === "Alexa.PowerController" && property.name === "powerState") {
+
+      /* ternary operator */
+      status = property.value === "ON" ? 1 : 0;
+    }
+  }
+
+
+  if (id != 99) { /* not "All" */
+    toPythonScript(id, status);
+  }
+  else {
+    id = 1;
+    let interval = setInterval(() => {
+      toPythonScript(id, status);
+      id *= 2;
+      if (id === 8) {
+        clearInterval(interval);
+      }
+
+    }, 1000);
+  }
+
+  res.send(JSON.stringify(updatedDevice));
 
 });
 
-app.listen(3000, function () {
+
+
+
+
+
+
+let toPythonScript = (id, status) => {
+
+  let timeOfLastProcess = new Date(model.getData().timeOfLastUpdate);
+  let timeNow = new Date();
+  let delta = 500;
+
+  //console.log("timeNow: " + timeNow, "timeOfLastProcess: " + timeOfLastProcess, "timeOfLastProcess + delta - timeNow: " + (timeOfLastProcess.getTime() + delta - timeNow.getTime()));
+  if (timeOfLastProcess.getTime() + delta > timeNow.getTime()) {
+    setTimeout(() => { toPythonScript(id, status) }, 100);
+  }
+  else {
+    callProcess(id, status);
+  }
+
+
+};
+
+let callProcess = (id, status) => {
+
+  model.setTimeOfLastUpdate(new Date());
+  let spawn = require("child_process").spawn;
+  let process = spawn('python', ["../elropi.py", id, status]);
+
+
+  process.stdout.on('data', function(data) {
+    console.log(data.toString('utf8')); // buffer to string);
+  });
+}
+
+
+app.listen(3000, function() {
   console.log('Example app listening on port 3000!');
 
 });
