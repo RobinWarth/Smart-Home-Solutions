@@ -18,6 +18,8 @@ Git commands:
 
 -git merge [branchFromWitchYouWantTheThings]	//merging into your branch (branch which is checked out)
 
+-git push origin :[branchToDelete]	//delete remote branch
+
 
 
 
