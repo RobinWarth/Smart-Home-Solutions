@@ -1,4 +1,4 @@
-Mögliche Herangehensweisen:
+﻿Mögliche Herangehensweisen:
 
 1. Lösung mit Alexa Skill (optional: AWS - Amazon Lambda)
 https://developer.amazon.com/de/docs/ask-overviews/understanding-the-different-types-of-skills.html
