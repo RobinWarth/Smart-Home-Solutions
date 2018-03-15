@@ -1,4 +1,97 @@
-// move to model.js or model.json
+let endpointInformation = {
+    "endpoints": [{
+            "endpointId": "wirelessSwitch1",
+            "manufacturerName": "Raspberry Dude",
+            "friendlyName": "Licht",
+            "description": "Smart Device Switch",
+            "displayCategories": ["LIGHT"],
+            "cookie": {
+                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                "key2": "There can be multiple entries",
+                "key3": "but they should only be used for reference purposes.",
+                "key4": "This is not a suitable place to maintain current endpoint state."
+            },
+            "capabilities": [{
+                    "type": "AlexaInterface",
+                    "interface": "Alexa",
+                    "version": "3"
+                },
+                {
+                    "interface": "Alexa.PowerController",
+                    "version": "3",
+                    "type": "AlexaInterface",
+                    "properties": {
+                        "supported": [{
+                            "name": "powerState"
+                        }],
+                        "retrievable": true
+                    }
+                }
+            ]
+        },
+        {
+            "endpointId": "wirelessSwitch2",
+            "manufacturerName": "Raspberry Dude",
+            "friendlyName": "PC",
+            "description": "Smart Device Switch",
+            "displayCategories": ["SWITCH"],
+            "cookie": {
+                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                "key2": "There can be multiple entries",
+                "key3": "but they should only be used for reference purposes.",
+                "key4": "This is not a suitable place to maintain current endpoint state."
+            },
+            "capabilities": [{
+                    "type": "AlexaInterface",
+                    "interface": "Alexa",
+                    "version": "3"
+                },
+                {
+                    "interface": "Alexa.PowerController",
+                    "version": "3",
+                    "type": "AlexaInterface",
+                    "properties": {
+                        "supported": [{
+                            "name": "powerState"
+                        }],
+                        "retrievable": true
+                    }
+                }
+            ]
+        },
+        {
+            "endpointId": "wirelessSwitch3",
+            "manufacturerName": "Raspberry Dude",
+            "friendlyName": "TV",
+            "description": "Smart Device Switch",
+            "displayCategories": ["SWITCH"],
+            "cookie": {
+                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
+                "key2": "There can be multiple entries",
+                "key3": "but they should only be used for reference purposes.",
+                "key4": "This is not a suitable place to maintain current endpoint state."
+            },
+            "capabilities": [{
+                    "type": "AlexaInterface",
+                    "interface": "Alexa",
+                    "version": "3"
+                },
+                {
+                    "interface": "Alexa.PowerController",
+                    "version": "3",
+                    "type": "AlexaInterface",
+                    "properties": {
+                        "supported": [{
+                            "name": "powerState"
+                        }],
+                        "retrievable": true
+                    }
+                }
+            ]
+        }
+    ]
+};
+
 let data = {
     timeOfLastUpdate: "2017-09-03T16:20:50.52Z",
     devices: [{
@@ -52,17 +145,17 @@ exports.updateDevice = (updateDeviceAttempt) => {
     let date = new Date();
     let dateISO = date.toISOString();
     data.timeOfLastUpdate = dateISO;
-    
-    
+
+
     for (let device of data.devices) {
         if (device.endpointId === updateDeviceAttempt.endpointId) {
             device.properties = updateDeviceAttempt.properties;
-            
-            for (let property of device.properties){
+
+            for (let property of device.properties) {
                 property.timeOfSample = dateISO;
             }
-            
-            
+
+
             console.log("device updated: " + JSON.stringify(device));
             return device;
         }
@@ -86,4 +179,8 @@ exports.getDevice = (deviceAttempt) => {
 exports.setTimeOfLastUpdate = (time) => {
     data.timeOfLastUpdate = time.toISOString();
     console.log("new Time set to: " + data.timeOfLastUpdate);
-}
+};
+
+exports.getEndpointInformation = () => {
+    return endpointInformation;
+};

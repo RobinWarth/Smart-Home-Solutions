@@ -5,10 +5,13 @@ exports.sendToRaspberry = (attempt, bearerToken, callback) => {
     sendToUsersRaspberry(attempt, '/input', bearerToken, callback);
 };
 
-
 exports.statusFromRaspberry = (attempt, bearerToken, callback) => {
     sendToUsersRaspberry(attempt, '/output', bearerToken, callback);
 
+};
+
+exports.discoveryFromRaspberry = (bearerToken, callback) => {
+    sendToUsersRaspberry({}, '/discovery', bearerToken, callback);
 };
 
 let sendToUsersRaspberry = (attempt, path, bearerToken, callback) => {

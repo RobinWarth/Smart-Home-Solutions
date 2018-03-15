@@ -4,10 +4,10 @@ const https = require('https');
 exports.checkUser = (bearerToken, callbackUserHost) => {
 
     obtainCustomerProfileInformation(bearerToken, (user) => {
-        if (user.user_id === 'amzn1.account.ABC') { //user_id Robin
-            callbackUserHost('robin.eu.ngrok.io', 'bla:blub');
+        if (user.user_id === 'amzn1.account.A') { //user_id Robin
+            callbackUserHost('rob.eu.ngrok.io', 'b:b');
         }
-        else if (user.user_id === 'amzn1.account.XYZ') { //user_id Max
+        else if (user.user_id === 'amzn1.account.UA') { //user_id Max
             callbackUserHost('max.eu.ngrok.io', 'test:test');
         }
         else {

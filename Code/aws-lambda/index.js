@@ -27,107 +27,15 @@ exports.handler = (request, context) => {
 };
 
 
-// SWITCH -> LIGHT?
-// LIGHT bekommt durchgehend anfragen
-// retievable was true
 let handleDiscovery = (request, context) => {
-    let payload = {
-        "endpoints": [{
-                "endpointId": "wirelessSwitch1",
-                "manufacturerName": "Raspberry Dude",
-                "friendlyName": "Licht",
-                "description": "Smart Device Switch",
-                "displayCategories": ["LIGHT"],
-                "cookie": {
-                    "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                    "key2": "There can be multiple entries",
-                    "key3": "but they should only be used for reference purposes.",
-                    "key4": "This is not a suitable place to maintain current endpoint state."
-                },
-                "capabilities": [{
-                        "type": "AlexaInterface",
-                        "interface": "Alexa",
-                        "version": "3"
-                    },
-                    {
-                        "interface": "Alexa.PowerController",
-                        "version": "3",
-                        "type": "AlexaInterface",
-                        "properties": {
-                            "supported": [{
-                                "name": "powerState"
-                            }],
-                            "retrievable": true
-                        }
-                    }
-                ]
-            },
-            {
-                "endpointId": "wirelessSwitch2",
-                "manufacturerName": "Raspberry Dude",
-                "friendlyName": "PC-Switch",
-                "description": "Smart Device Switch",
-                "displayCategories": ["SWITCH"],
-                "cookie": {
-                    "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                    "key2": "There can be multiple entries",
-                    "key3": "but they should only be used for reference purposes.",
-                    "key4": "This is not a suitable place to maintain current endpoint state."
-                },
-                "capabilities": [{
-                        "type": "AlexaInterface",
-                        "interface": "Alexa",
-                        "version": "3"
-                    },
-                    {
-                        "interface": "Alexa.PowerController",
-                        "version": "3",
-                        "type": "AlexaInterface",
-                        "properties": {
-                            "supported": [{
-                                "name": "powerState"
-                            }],
-                            "retrievable": true
-                        }
-                    }
-                ]
-            },
-            {
-                "endpointId": "wirelessSwitch3",
-                "manufacturerName": "Raspberry Dude",
-                "friendlyName": "TV-Switch",
-                "description": "Smart Device Switch",
-                "displayCategories": ["SWITCH"],
-                "cookie": {
-                    "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                    "key2": "There can be multiple entries",
-                    "key3": "but they should only be used for reference purposes.",
-                    "key4": "This is not a suitable place to maintain current endpoint state."
-                },
-                "capabilities": [{
-                        "type": "AlexaInterface",
-                        "interface": "Alexa",
-                        "version": "3"
-                    },
-                    {
-                        "interface": "Alexa.PowerController",
-                        "version": "3",
-                        "type": "AlexaInterface",
-                        "properties": {
-                            "supported": [{
-                                "name": "powerState"
-                            }],
-                            "retrievable": true
-                        }
-                    }
-                ]
-            }
-        ]
-    };
-    let header = request.directive.header;
-    header.name = "Discover.Response";
-    console.log("DEBUG", "Discovery Response: ", JSON.stringify({ header: header, payload: payload }));
-    context.succeed({ event: { header: header, payload: payload } });
+    api.discoveryFromRaspberry(request.directive.payload.scope.token, (error, payload) => {
+
+        let header = request.directive.header;
+        header.name = "Discover.Response";
+        console.log("DEBUG", "Discovery Response: ", JSON.stringify({ header: header, payload: payload }));
+        context.succeed({ event: { header: header, payload: payload } });
+    });
+
 };
 
 
@@ -254,7 +162,7 @@ let handleAuthorizationAcceptGrant = (request, context) => {
             };
         }
     }
-    
+
     console.log("DEBUG", "Authorization Response", JSON.stringify(response));
     context.succeed(response);
 

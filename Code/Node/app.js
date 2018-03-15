@@ -27,6 +27,12 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.post('/discovery', function(req, res) {
+  let endpointInformation = JSON.stringify(model.getEndpointInformation());
+  console.log(`DISCOVERY-Request`, endpointInformation);
+  res.send(endpointInformation);
+});
+
 app.post('/output', function(req, res) {
   let deviceAttempt = req.body;
   res.send(JSON.stringify(model.getDevice(deviceAttempt)));
