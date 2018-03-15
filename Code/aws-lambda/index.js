@@ -2,27 +2,27 @@ const api = require('./raspberry-api.js');
 
 exports.handler = (request, context) => {
     if (request.directive.header.namespace === 'Alexa' && request.directive.header.name === 'ReportState') {
-        log("DEBUG:", "ReportState Request", JSON.stringify(request));
+        console.log("DEBUG:", "ReportState Request", JSON.stringify(request));
         handleReportState(request, context, "");
     }
     else if (request.directive.header.namespace === 'Alexa.Discovery' && request.directive.header.name === 'Discover') {
-        log("DEBUG:", "Discover Request", JSON.stringify(request));
+        console.log("DEBUG:", "Discover Request", JSON.stringify(request));
         handleDiscovery(request, context, "");
     }
     else if (request.directive.header.namespace === 'Alexa.PowerController') {
         if (request.directive.header.name === 'TurnOn' || request.directive.header.name === 'TurnOff') {
-            log("DEBUG:", "TurnOn or TurnOff Request", JSON.stringify(request));
+            console.log("DEBUG:", "TurnOn or TurnOff Request", JSON.stringify(request));
             handlePowerControl(request, context);
         }
     }
     else if (request.directive.header.namespace === 'Alexa.Authorization') {
         if (request.directive.header.name === 'AcceptGrant') {
-            log("DEBUG:", "Authorization Request", JSON.stringify(request));
+            console.log("DEBUG:", "Authorization Request", JSON.stringify(request));
             handleAuthorizationAcceptGrant(request, context);
         }
     }
     else {
-        log("DEBUG:", "Unknon Request", JSON.stringify(request));
+        console.log("DEBUG:", "Unknon Request", JSON.stringify(request));
     }
 };
 
@@ -126,14 +126,9 @@ let handleDiscovery = (request, context) => {
     };
     let header = request.directive.header;
     header.name = "Discover.Response";
-    log("DEBUG", "Discovery Response: ", JSON.stringify({ header: header, payload: payload }));
+    console.log("DEBUG", "Discovery Response: ", JSON.stringify({ header: header, payload: payload }));
     context.succeed({ event: { header: header, payload: payload } });
 };
-
-let log = (message, message1, message2) => {
-    console.log(message + message1 + message2);
-};
-
 
 
 
@@ -171,7 +166,7 @@ let handlePowerControl = (request, context) => {
     };
 
     //testing
-    api.sendToRaspberry(attempt, context, (error, context, device) => {
+    api.sendToRaspberry(attempt, request.directive.endpoint.scope.token, (error, device) => {
 
         let contextResponse = {
             "properties": device.properties
@@ -211,7 +206,7 @@ let handlePowerControl = (request, context) => {
 
 
 
-        log("DEBUG", "PowerController Response", JSON.stringify(response));
+        console.log("DEBUG", "PowerController Response", JSON.stringify(response));
         context.succeed(response);
     });
 
@@ -221,17 +216,49 @@ let handlePowerControl = (request, context) => {
 
 
 let handleAuthorizationAcceptGrant = (request, context) => {
-    if (request.payload) {
-        if (request.payload.grant && request.payload.grant.type === 'OAuth2.AuthorizationCode') {
-            let authorizationCode = request.payload.grant.code;
+
+    /* default response if something went wrong */
+    let response = {
+        "event": {
+            "header": {
+                "messageId": request.directive.header.messageId,
+                "namespace": "Alexa.Authorization",
+                "name": "ErrorResponse",
+                "payloadVersion": "3"
+            },
+            "payload": {
+                "type": "ACCEPT_GRANT_FAILED",
+                "message": "Failed to handle the AcceptGrant directive because ..."
+            }
         }
-        if (request.payload.grantee && request.payload.grantee.type === 'BearerToken') {
-            let bearerToken = request.payload.grantee.token;
+    };
+
+
+    if (request.directive.payload) {
+        if (request.directive.payload.grant && request.directive.payload.grant.type === 'OAuth2.AuthorizationCode') {
+            let authorizationCode = request.directive.payload.grant.code;
+        }
+        if (request.directive.payload.grantee && request.directive.payload.grantee.type === 'BearerToken') {
+            let bearerToken = request.directive.payload.grantee.token;
+
+            response = {
+                "event": {
+                    "header": {
+                        "messageId": request.directive.header.messageId,
+                        "namespace": "Alexa.Authorization",
+                        "name": "AcceptGrant.Response",
+                        "payloadVersion": "3"
+                    },
+                    "payload": {}
+                }
+            };
         }
     }
+    
+    console.log("DEBUG", "Authorization Response", JSON.stringify(response));
+    context.succeed(response);
 
-
-}
+};
 
 
 let handleReportState = (request, context) => {
@@ -240,7 +267,7 @@ let handleReportState = (request, context) => {
         "endpointId": request.directive.endpoint.endpointId
     };
 
-    api.statusFromRaspberry(attempt, context, (error, context, device) => {
+    api.statusFromRaspberry(attempt, request.directive.endpoint.scope.token, (error, device) => {
 
 
         let contextResponse = {
@@ -278,7 +305,7 @@ let handleReportState = (request, context) => {
             payload: {}
 
         };
-        log("DEBUG", "ReportState Response", JSON.stringify(response));
+        console.log("DEBUG", "ReportState Response", JSON.stringify(response));
         context.succeed(response);
     });
 

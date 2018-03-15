@@ -1,25 +1,34 @@
-const http = require('http');
+const https = require('https');
+const userManagement = require('./user-management.js');
 
-exports.sendToRaspberry = (attempt, context, callback) => {
-    httpRaspberry(attempt, context, '/input', callback);
+exports.sendToRaspberry = (attempt, bearerToken, callback) => {
+    sendToUsersRaspberry(attempt, '/input', bearerToken, callback);
 };
 
 
-exports.statusFromRaspberry = (attempt, context, callback) => {
-    httpRaspberry(attempt, context, '/output', callback);
+exports.statusFromRaspberry = (attempt, bearerToken, callback) => {
+    sendToUsersRaspberry(attempt, '/output', bearerToken, callback);
+
+};
+
+let sendToUsersRaspberry = (attempt, path, bearerToken, callback) => {
+    userManagement.checkUser(bearerToken, (hostname, auth) => {
+        httpRaspberry(attempt, hostname, auth, path, callback);
+    });
 };
 
 
-let httpRaspberry = (attempt, context, path, callback) => {
-    
+let httpRaspberry = (attempt, hostname, auth, path, callback) => {
+
     let body = JSON.stringify(attempt);
 
+
     const options = {
-        hostname: 'eu.ngrok.io',
-        port: 80,
+        hostname: hostname,
+        port: 443,
         path: path,
         method: 'POST',
-        auth: 'bla:blub',
+        auth: auth,
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(body)
@@ -27,28 +36,27 @@ let httpRaspberry = (attempt, context, path, callback) => {
 
     };
 
-    const req = http.request(options, (res) => {
+    const req = https.request(options, (res) => {
 
         res.setEncoding('utf8');
 
         res.on('data', (chunk) => {
-            console.log(`BODY: ${chunk}`);
-            callback(null, context, JSON.parse(chunk));
+            console.log(`httpRaspberry [res.on('data')]: BODY: ${chunk}`);
+            callback(null, JSON.parse(chunk));
         });
-        
+
         res.on('end', () => {
-            console.log('No more data in response.');
+            console.log(`httpRaspberry [res.on('end')]: No more data in response.`);
         });
 
     });
 
     req.on('error', (e) => {
-        console.error(`problem with request: ${e.message}`);
+        console.error(`httpRaspberry [req.on('error')]: problem with request: ${e.message}`);
         callback(e, context, null);
     });
 
     // write data to request body
-    console.log(body);
+    console.log("httpRaspberry request-body: ", body);
     req.end(body);
 };
-
