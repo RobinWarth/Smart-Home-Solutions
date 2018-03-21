@@ -1,0 +1,32 @@
+{
+    "context": {
+        "properties": [
+            {
+                "namespace": "Alexa.PowerController",
+                "name": "powerState",
+                "value": "OFF",
+                "timeOfSample": "2018-03-21T08:19:13.691Z",
+                "uncertaintyInMilliseconds": 500
+            }
+        ]
+    },
+    "event": {
+        "header": {
+            "messageId": "SomeRandomString",
+            "correlationToken": "SomeRandomString",
+            "namespace": "Alexa",
+            "name": "StateReport",
+            "payloadVersion": "3"
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "SomeRandomString"
+            },
+            "endpointId": "wirelessSwitch1",
+            "cookie": {}
+        },
+        "payload": {}
+    },
+    "payload": {}
+}

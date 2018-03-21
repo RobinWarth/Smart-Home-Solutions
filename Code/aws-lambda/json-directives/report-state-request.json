@@ -1,0 +1,22 @@
+{
+    "directive": {
+        "header": {
+            "namespace": "Alexa",
+            "name": "ReportState",
+            "payloadVersion": "3",
+            "messageId": "SomeRandomString",
+            "correlationToken": "SomeRandomString"
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "SomeRandomString"
+            },
+            "endpointId": "wirelessSwitch1",
+            "cookie": {
+                "key1": "This is just an example!"
+            }
+        },
+        "payload": {}
+    }
+}

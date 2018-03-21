@@ -1,0 +1,108 @@
+{
+    "header": {
+        "namespace": "Alexa.Discovery",
+        "name": "Discover.Response",
+        "payloadVersion": "3",
+        "messageId": "SomeRandomStraing"
+    },
+    "payload": {
+        "endpoints": [
+            {
+                "endpointId": "wirelessSwitch1",
+                "manufacturerName": "Raspberry Dude",
+                "friendlyName": "Licht",
+                "description": "Smart Device Switch",
+                "displayCategories": [
+                    "LIGHT"
+                ],
+                "cookie": {
+                    "key1": "This is just an example!"
+                },
+                "capabilities": [
+                    {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa",
+                        "version": "3"
+                    },
+                    {
+                        "interface": "Alexa.PowerController",
+                        "version": "3",
+                        "type": "AlexaInterface",
+                        "properties": {
+                            "supported": [
+                                {
+                                    "name": "powerState"
+                                }
+                            ],
+                            "retrievable": true
+                        }
+                    }
+                ]
+            },
+            {
+                "endpointId": "wirelessSwitch2",
+                "manufacturerName": "Raspberry Dude",
+                "friendlyName": "PC",
+                "description": "Smart Device Switch",
+                "displayCategories": [
+                    "SWITCH"
+                ],
+                "cookie": {
+                    "key1": "This is just an example!"
+                },
+                "capabilities": [
+                    {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa",
+                        "version": "3"
+                    },
+                    {
+                        "interface": "Alexa.PowerController",
+                        "version": "3",
+                        "type": "AlexaInterface",
+                        "properties": {
+                            "supported": [
+                                {
+                                    "name": "powerState"
+                                }
+                            ],
+                            "retrievable": true
+                        }
+                    }
+                ]
+            },
+            {
+                "endpointId": "wirelessSwitch3",
+                "manufacturerName": "Raspberry Dude",
+                "friendlyName": "TV",
+                "description": "Smart Device Switch",
+                "displayCategories": [
+                    "SWITCH"
+                ],
+                "cookie": {
+                    "key1": "This is just an example!"
+                },
+                "capabilities": [
+                    {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa",
+                        "version": "3"
+                    },
+                    {
+                        "interface": "Alexa.PowerController",
+                        "version": "3",
+                        "type": "AlexaInterface",
+                        "properties": {
+                            "supported": [
+                                {
+                                    "name": "powerState"
+                                }
+                            ],
+                            "retrievable": true
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "directive": {
+        "header": {
+            "namespace": "Alexa.Discovery",
+            "name": "Discover",
+            "payloadVersion": "3",
+            "messageId": "SomeRandomString" },
+        "payload": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "SomeRandomString"}
+        }
+    }
+}
