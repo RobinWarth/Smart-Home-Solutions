@@ -33,12 +33,15 @@ app.post('/discovery', function(req, res) {
   res.send(endpointInformation);
 });
 
-app.post('/output', function(req, res) {
+app.post('/report-state', function(req, res) {
   let deviceAttempt = req.body;
-  res.send(JSON.stringify(model.getDevice(deviceAttempt)));
+  let device = model.getDevice(deviceAttempt);
+
+  console.log(JSON.stringify(device));
+  res.send(JSON.stringify(device));
 });
 
-app.post('/input', function(req, res) {
+app.post('/power-controller', function(req, res) {
 
   console.log(`type: ${typeof(req.body)}`, `JSON.stringify: ${JSON.stringify(req.body)}`);
   let deviceUpdateAttempt = req.body;
