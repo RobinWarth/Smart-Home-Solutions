@@ -6,10 +6,7 @@ let endpointInformation = {
             "description": "Smart Device Switch",
             "displayCategories": ["LIGHT"],
             "cookie": {
-                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                "key2": "There can be multiple entries",
-                "key3": "but they should only be used for reference purposes.",
-                "key4": "This is not a suitable place to maintain current endpoint state."
+                "key1": "This is just an example!"
             },
             "capabilities": [{
                     "type": "AlexaInterface",
@@ -36,10 +33,7 @@ let endpointInformation = {
             "description": "Smart Device Switch",
             "displayCategories": ["SWITCH"],
             "cookie": {
-                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                "key2": "There can be multiple entries",
-                "key3": "but they should only be used for reference purposes.",
-                "key4": "This is not a suitable place to maintain current endpoint state."
+                "key1": "This is just an example!"
             },
             "capabilities": [{
                     "type": "AlexaInterface",
@@ -66,10 +60,7 @@ let endpointInformation = {
             "description": "Smart Device Switch",
             "displayCategories": ["SWITCH"],
             "cookie": {
-                "key1": "arbitrary key/value pairs for skill to reference this endpoint.",
-                "key2": "There can be multiple entries",
-                "key3": "but they should only be used for reference purposes.",
-                "key4": "This is not a suitable place to maintain current endpoint state."
+                "key1": "This is just an example!"
             },
             "capabilities": [{
                     "type": "AlexaInterface",

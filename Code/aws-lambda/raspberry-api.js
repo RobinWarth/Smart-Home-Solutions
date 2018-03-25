@@ -2,11 +2,11 @@ const https = require('https');
 const userManagement = require('./user-management.js');
 
 exports.sendToRaspberry = (attempt, bearerToken, callback) => {
-    sendToUsersRaspberry(attempt, '/input', bearerToken, callback);
+    sendToUsersRaspberry(attempt, '/power-controller', bearerToken, callback);
 };
 
 exports.statusFromRaspberry = (attempt, bearerToken, callback) => {
-    sendToUsersRaspberry(attempt, '/output', bearerToken, callback);
+    sendToUsersRaspberry(attempt, '/report-state', bearerToken, callback);
 
 };
 
