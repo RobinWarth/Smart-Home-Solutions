@@ -1,0 +1,11 @@
+{
+    "event": {
+        "header": {
+            "messageId": "SomeRandomString",
+            "namespace": "Alexa.Authorization",
+            "name": "AcceptGrant.Response",
+            "payloadVersion": "3"
+        },
+        "payload": {}
+    }
+}
