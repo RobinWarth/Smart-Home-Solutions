@@ -5,6 +5,10 @@ https://pastebin.com/aRipYrZ6
 http://www.jer00n.nl/433send.cpp
 
 
+GPIO:
+https://www.w3schools.com/nodejs/nodejs_raspberrypi_gpio_intro.asp
+https://www.npmjs.com/package/onoff
+
 */
 
 

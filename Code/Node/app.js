@@ -121,7 +121,7 @@ let callProcess = (id, status) => {
   */
 
   model.setTimeOfLastUpdate(new Date());
-  wirelessTransmitter.transmitToWirelessSwitch(id, status);
+  wirelessTransmitter.transmitToWirelessSwitch(id, status, "01110"); //TODD: change to webinterface input!
 
 
 }
