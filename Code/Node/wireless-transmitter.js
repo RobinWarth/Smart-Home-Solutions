@@ -1,5 +1,16 @@
 /*
 
+https://pastebin.com/aRipYrZ6
+
+http://www.jer00n.nl/433send.cpp
+
+
+*/
+
+
+
+/*
+
 value:      "ON" | "OFF"
 switchId:   1 | 2 | 4 | 8
 
