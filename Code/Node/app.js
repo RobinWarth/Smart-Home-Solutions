@@ -1,4 +1,5 @@
 const model = require("./model.js")
+const wirelessTransmitter = require("./wireless-transmitter.js")
 const express = require('express');
 const bodyParser = require("body-parser");
 
@@ -58,7 +59,8 @@ app.post('/power-controller', function(req, res) {
     if (property.namespace === "Alexa.PowerController" && property.name === "powerState") {
 
       /* ternary operator */
-      status = property.value === "ON" ? 1 : 0;
+      //status = property.value === "ON" ? 1 : 0;
+      status = property.value;
     }
   }
 
@@ -107,6 +109,7 @@ let toPythonScript = (id, status) => {
 
 let callProcess = (id, status) => {
 
+  /*
   model.setTimeOfLastUpdate(new Date());
   let spawn = require("child_process").spawn;
   let process = spawn('python', ["../elropi.py", id, status]);
@@ -115,6 +118,11 @@ let callProcess = (id, status) => {
   process.stdout.on('data', function(data) {
     console.log(data.toString('utf8')); // buffer to string);
   });
+  */
+
+  wirelessTransmitter.transmitToWirelessSwitch(id, status);
+
+
 }
 
 
