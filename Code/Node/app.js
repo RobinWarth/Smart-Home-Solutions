@@ -120,6 +120,7 @@ let callProcess = (id, status) => {
   });
   */
 
+  model.setTimeOfLastUpdate(new Date());
   wirelessTransmitter.transmitToWirelessSwitch(id, status);
 
 
