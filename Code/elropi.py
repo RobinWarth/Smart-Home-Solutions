@@ -26,7 +26,7 @@ import RPi.GPIO as GPIO
 
 class RemoteSwitch(object):
 	repeat = 10 # Number of transmissions
-	pulselength = 300 # microseconds
+	pulselength = 300 # 300 microseconds
 	GPIOMode = GPIO.BCM
 	
 	def __init__(self, device, key=[1,1,1,1,1], pin=4):

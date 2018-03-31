@@ -1,6 +1,6 @@
 function postRaspberry(endpointId, status) {
     let url = window.location.href;
-    let fullUrl = url + "input";
+    let fullUrl = url + "power-controller";
 
     let attempt = {
         endpointId: endpointId,

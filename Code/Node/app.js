@@ -112,14 +112,15 @@ let callProcess = (id, status) => {
   /*
   model.setTimeOfLastUpdate(new Date());
   let spawn = require("child_process").spawn;
-  let process = spawn('python', ["../elropi.py", id, status]);
+  let process = spawn('python', ["../elropi.py", id, 1]);
 
 
   process.stdout.on('data', function(data) {
     console.log(data.toString('utf8')); // buffer to string);
   });
   */
-
+  
+  
   model.setTimeOfLastUpdate(new Date());
   wirelessTransmitter.transmitToWirelessSwitch(id, status, "01110"); //TODD: change to webinterface input!
 
