@@ -30,7 +30,8 @@ class RemoteSwitch {
     
         this.pin = pin;
         this.device = switchId;
-        this.key = [0,1,1,1,0];   //homeKey;
+        this.key = homeKey;
+        console.log(this.key);
         
         this.repeat = 10;
         this.pulselength = 300;
@@ -54,7 +55,7 @@ class RemoteSwitch {
         this.bit = [142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 136, 128, 0, 0, 0];
         
         for (let i = 0; i < 5; i++) {
-            if(this.key[i] === 1){
+            if(this.key.charAt(i) == 1){
                 this.bit[i] = 136;
             }
         }
@@ -76,7 +77,6 @@ class RemoteSwitch {
         for (let y = 0; y < 16; y++) {
             x = 128;
             for (let i = 1; i < 9; i++) {
-                console.log(this.bit.toString());
                 let b = (this.bit[y] & x) > 0 ? 1 : 0;
                 bangs.push(b);
                 x = x >> 1;
@@ -88,6 +88,7 @@ class RemoteSwitch {
         
         this.output.writeSync(0);
         
+        
         for (let i = 0; i < this.repeat; i++) {
            for (let b of bangs) {
                this.output.writeSync(b);
@@ -96,10 +97,12 @@ class RemoteSwitch {
             
         }
         
+        //this.outputIntervall(bangs, 0);
+        
     }
     
-    /*
-    outputIntervall(bangs, counter){
+    
+    /* outputIntervall(bangs, counter){
             //console.log("outputIntervall: " + counter);
             if(counter < bangs.length){
                 
@@ -107,11 +110,18 @@ class RemoteSwitch {
                 
                 counter++;
                 setTimeout(() => { this.outputIntervall(bangs, counter) }, 0.3);
+            }else{
+                this.repeat--;
+                if(this.repeat !== 0){
+                    this.outputIntervall(bangs, 0);
+                }
+               
             }
             
             
     }
     */
+    
     
 }
 
