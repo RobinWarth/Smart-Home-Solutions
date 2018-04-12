@@ -83,7 +83,7 @@ let endpointInformation = {
         {
             "endpointId": "cameraSwitch",
             "manufacturerName": "Raspberry Dude",
-            "friendlyName": "TV",
+            "friendlyName": "Kamera",
             "description": "Smart Device Switch",
             "displayCategories": ["SWITCH"],
             "cookie": {
