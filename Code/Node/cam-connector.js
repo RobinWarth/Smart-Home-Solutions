@@ -1,42 +1,61 @@
+let RaspiCam = require('raspicam');
+let fs = require('fs');
+
+let camera = new RaspiCam({
+    mode: "video",
+    output: "/../../Records/"
+    //framerate: 50
+});
+
 exports.switchOnOff = (value) => {
 
     if(value === "ON"){
-        switchOn();
+        startRecording();
     }else if (value === "OFF") {
-        switchOff();
+        stopRecording();
     }else{
         console.log("unknown value!");
     }
     
-    
-    
 };
 
-let switchOn = () => {
-    console.log("camera: switch On!");
-    // [TODO]
+let startRecording = () => {
+    console.log("camera: start recording!");
     
+    let date = new Date();
+    let d_string = date.toString();
+    let path = "/../../../Records/";
+    let output = path.concat(d_string);
     
+    if(!fs.existsSync(path)){
+        fs.mkdirSync(path);
+    }
+    
+    camera.set("output", output);
+    
+    camera.start();
 };
 
-let switchOff = () => {
-    console.log("camera: switch Off!");
-    // [TODO]
+let stopRecording = () => {
+    console.log("camera: stop recording!");
     
-    
-}
+    camera.stop();
+};
 
 
+// callbacks
+camera.on("start", function( err, timestamp ){
+	console.log("video started at " + timestamp );
+});
 
-/*
-    Beispiel: für python skript aufruf (falls du das machen willst):
+camera.on("read", function( err, timestamp, filename ){
+	console.log("video captured with filename: " + filename + " at " + timestamp );
+});
 
-  let spawn = require("child_process").spawn;
-  let process = spawn('python', ["../elropi.py", id, 1]);
+camera.on("exit", function( timestamp ){
+	console.log("video child process has exited at " + timestamp );
+});
 
-
-  process.stdout.on('data', function(data) {
-    console.log(data.toString('utf8')); // buffer to string);
-  });
-  
-*/
+camera.on("stop", function( err, timestamp ){
+	console.log("video child process was stopped at " + timestamp );
+});
