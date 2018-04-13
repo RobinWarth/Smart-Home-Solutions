@@ -3,7 +3,8 @@ let fs = require('fs');
 
 let camera = new RaspiCam({
     mode: "video",
-    output: "/../../Records/"
+    output: "/Records/",
+    timeout: 3600000
     //framerate: 50
 });
 
@@ -22,14 +23,28 @@ exports.switchOnOff = (value) => {
 let startRecording = () => {
     console.log("camera: start recording!");
     
-    let date = new Date();
-    let d_string = date.toString();
-    let path = "/../../../Records/";
-    let output = path.concat(d_string);
+    // Dateinamen aus Datum und Uhrzeit erzeugen
+    let d = new Date();
+    let time_string = d.toTimeString();
+    let time = time_string.split(' ')[0].replace(/:/g , "-");
     
+    let date = d.toString();
+    let dates = date.split(' ');
+    let date_string = dates[2].concat(dates[1].concat(dates[3]));
+    
+    let full_date = date_string.concat("_".concat(time)); 
+    
+    // Output-Directory: Anlegen, falls nicht schon vorhanden
+    let new_dir = "/../../../Records/";
+    let path = process.cwd().concat(new_dir);
+    
+    console.log(path)
     if(!fs.existsSync(path)){
+        console.log("to create")
         fs.mkdirSync(path);
     }
+    
+    let output = path.concat(full_date);
     
     camera.set("output", output);
     
