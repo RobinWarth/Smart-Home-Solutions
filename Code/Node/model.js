@@ -79,6 +79,33 @@ let endpointInformation = {
                     }
                 }
             ]
+        },
+        {
+            "endpointId": "cameraSwitch",
+            "manufacturerName": "Raspberry Dude",
+            "friendlyName": "Kamera",
+            "description": "Smart Device Switch",
+            "displayCategories": ["SWITCH"],
+            "cookie": {
+                "key1": "This is just an example!"
+            },
+            "capabilities": [{
+                    "type": "AlexaInterface",
+                    "interface": "Alexa",
+                    "version": "3"
+                },
+                {
+                    "interface": "Alexa.PowerController",
+                    "version": "3",
+                    "type": "AlexaInterface",
+                    "properties": {
+                        "supported": [{
+                            "name": "powerState"
+                        }],
+                        "retrievable": true
+                    }
+                }
+            ]
         }
     ]
 };
@@ -121,6 +148,17 @@ let data = {
         {
             switchId: 8,
             endpointId: "wirelessSwitch4",
+            properties: [{
+                namespace: "Alexa.PowerController",
+                name: "powerState",
+                value: "OFF",
+                timeOfSample: "2017-09-03T16:20:50.52Z", //retrieve from result.
+                uncertaintyInMilliseconds: 500
+            }]
+        },
+        {
+            switchId: 0,
+            endpointId: "cameraSwitch",
             properties: [{
                 namespace: "Alexa.PowerController",
                 name: "powerState",

@@ -1,4 +1,6 @@
-const model = require("./model.js")
+const model = require("./model.js");
+const wirelessTransmitter = require("./wireless-transmitter.js");
+const camConnector = require("./cam-connector.js");
 const express = require('express');
 const bodyParser = require("body-parser");
 
@@ -43,52 +45,63 @@ app.post('/report-state', function(req, res) {
 
 app.post('/power-controller', function(req, res) {
 
-  console.log(`type: ${typeof(req.body)}`, `JSON.stringify: ${JSON.stringify(req.body)}`);
-  let deviceUpdateAttempt = req.body;
+  updateDevice(req.body, (updatedDevice, id, status) => {
+    res.send(JSON.stringify(updatedDevice));
+
+    if (id != 99) { /* not "All" */
+      toWirelessTransmitter(id, status);
+    }
+    else {
+      id = 1;
+      let interval = setInterval(() => {
+        toWirelessTransmitter(id, status);
+        id *= 2;
+        if (id === 8) {
+          clearInterval(interval);
+        }
+
+      }, 1000);
+    }
+
+
+
+  });
+
+});
+
+app.post('/cam-controller', function(req, res) {
+
+  updateDevice(req.body, (updatedDevice, id, status) => {
+    res.send(JSON.stringify(updatedDevice));
+
+    camConnector.switchOnOff(status);
+  });
+
+});
+
+
+let updateDevice = (data, callback) => {
+
+  let deviceUpdateAttempt = data;
   console.log(JSON.stringify(deviceUpdateAttempt));
-  //console.log(req.body);
-  //testing python execution
-  //let id = parseInt(req.body.id, 10);
-  //let status = parseInt(req.body.status, 10);
+
+
   let updatedDevice = model.updateDevice(deviceUpdateAttempt);
   let id = updatedDevice.switchId;
 
   let status = 0;
   for (let property of updatedDevice.properties) {
     if (property.namespace === "Alexa.PowerController" && property.name === "powerState") {
-
-      /* ternary operator */
-      status = property.value === "ON" ? 1 : 0;
+      status = property.value;
     }
   }
 
 
-  if (id != 99) { /* not "All" */
-    toPythonScript(id, status);
-  }
-  else {
-    id = 1;
-    let interval = setInterval(() => {
-      toPythonScript(id, status);
-      id *= 2;
-      if (id === 8) {
-        clearInterval(interval);
-      }
-
-    }, 1000);
-  }
-
-  res.send(JSON.stringify(updatedDevice));
-
-});
+  callback(updatedDevice, id, status);
+};
 
 
-
-
-
-
-
-let toPythonScript = (id, status) => {
+let toWirelessTransmitter = (id, status) => {
 
   let timeOfLastProcess = new Date(model.getData().timeOfLastUpdate);
   let timeNow = new Date();
@@ -96,7 +109,7 @@ let toPythonScript = (id, status) => {
 
   //console.log("timeNow: " + timeNow, "timeOfLastProcess: " + timeOfLastProcess, "timeOfLastProcess + delta - timeNow: " + (timeOfLastProcess.getTime() + delta - timeNow.getTime()));
   if (timeOfLastProcess.getTime() + delta > timeNow.getTime()) {
-    setTimeout(() => { toPythonScript(id, status) }, 100);
+    setTimeout(() => { toWirelessTransmitter(id, status) }, 100);
   }
   else {
     callProcess(id, status);
@@ -108,14 +121,9 @@ let toPythonScript = (id, status) => {
 let callProcess = (id, status) => {
 
   model.setTimeOfLastUpdate(new Date());
-  let spawn = require("child_process").spawn;
-  let process = spawn('python', ["../elropi.py", id, status]);
+  wirelessTransmitter.transmitToWirelessSwitch(id, status, "01110"); //TODD: change to webinterface input!
 
-
-  process.stdout.on('data', function(data) {
-    console.log(data.toString('utf8')); // buffer to string);
-  });
-}
+};
 
 
 app.listen(3000, function() {
