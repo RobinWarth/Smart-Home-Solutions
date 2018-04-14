@@ -26,8 +26,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
+
 
 app.get('/discovery', function(req, res) {
   let endpointInformation = JSON.stringify(model.getEndpointInformation());

@@ -113,4 +113,5 @@ chmod 755 Install-Scripts/ffmpeg_i          # Schreibzugriff für Script gewähr
 chmod 755 Install-Scripts/reconfigure_ffmpeg            # Schreibzugriff für Script gewähren
 ./reconfigure_ffmpeg                                    # führt script aus
 
+convert h264 to mp4 with: "sudo ffmpeg -framerate 24 -i 14Apr2018_10-23-02.h264 -c copy 14Apr2018_10-23-02.mp4"
 
