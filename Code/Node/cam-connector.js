@@ -44,7 +44,7 @@ let startRecording = () => {
         fs.mkdirSync(path);
     }
     
-    let output = path.concat(full_date);
+    let output = path.concat(full_date, ".h264");
     
     camera.set("output", output);
     

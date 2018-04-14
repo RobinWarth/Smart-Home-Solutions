@@ -1,0 +1,34 @@
+# configure
+echo 'Port 8090
+ # bind to all IPs aliased or not
+ BindAddress 0.0.0.0
+ # max number of simultaneous clients
+ MaxClients 10
+ # max bandwidth per-client (kb/s)
+ MaxBandwidth 1000
+ # Suppress that if you want to launch ffserver as a daemon.
+ NoDaemon
+
+<Feed feed1.ffm>
+ File /tmp/feed1.ffm
+ FileMaxSize 10M
+ </Feed>
+
+<Stream test.mjpg>
+ Feed feed1.ffm
+ Format mpjpeg
+ VideoFrameRate 4
+ VideoSize 600x480
+ VideoBitRate 80
+ # VideoQMin 1
+ # VideoQMax 100
+ VideoIntraOnly
+ NoAudio
+ Strict -1
+ </Stream>' >/etc/ffserver.conf
+ 
+ 
+echo 'ffserver -f /etc/ffserver.conf & ffmpeg -v verbose -r 5 -s 600x480 -f video4linux2 -i /dev/video0 http://localhost:8090/feed1.ffm' >/usr/sbin/webcam.sh
+
+chmod +x /usr/sbin/webcam.sh 
+/usr/sbin/webcam.sh

@@ -101,6 +101,16 @@ ngrok Einrichtung:
 npm install in Node Ordner!
 
 
+start app with "sudo node app"
 
+
+chmod 755 Install-Scripts/ffmpeg_i          # Schreibzugriff für Script gewähren
+./ffmpeg_i                                  # führt script aus
+
+
+Ändern und starten:
+
+chmod 755 Install-Scripts/reconfigure_ffmpeg            # Schreibzugriff für Script gewähren
+./reconfigure_ffmpeg                                    # führt script aus
 
 
