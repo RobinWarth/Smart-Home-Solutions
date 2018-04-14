@@ -1,4 +1,4 @@
-﻿Mögliche Herangehensweisen:
+Mögliche Herangehensweisen:
 
 1. Lösung mit Alexa Skill (optional: AWS - Amazon Lambda)
 https://developer.amazon.com/de/docs/ask-overviews/understanding-the-different-types-of-skills.html
@@ -87,4 +87,20 @@ Plan A (Smart Home Skill API [+ AWS?]):
 
 AWS Lambda (tipps):
 https://blog.hellojs.org/3-common-challenges-using-javascript-node-js-in-aws-lambda-e3fc318401ba
+
+
+
+ngrok Einrichtung:
+
+- Download Linux(ARM) at https://ngrok.com/download
+- unzip ngrok-stable-linux-arm.zip -d ../
+- ./ngrok authtoken [token received after ngrok-Account creation online]
+- ./ngrok http -auth="pi:Passwort" 3000
+
+
+npm install in Node Ordner!
+
+
+
+
 
