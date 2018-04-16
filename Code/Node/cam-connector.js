@@ -1,5 +1,6 @@
-let RaspiCam = require('raspicam');
-let fs = require('fs');
+const RaspiCam = require('raspicam');
+const fs = require('fs');
+const { spawn } = require('child_process');
 
 let camera = new RaspiCam({
     mode: "video",
@@ -53,9 +54,36 @@ let startRecording = () => {
 
 let stopRecording = () => {
     console.log("camera: stop recording!");
+    console.log("my output is: " + camera.get("output"));
     
     camera.stop();
 };
+
+
+/* convert .h264 into .mp4 */
+let convertLastVideoToMp4 = () => {
+    let outputH264 = camera.get("output");
+    let outputMp4 = outputH264.slice(0, outputH264.indexOf("h264")) + "mp4";
+    
+    const ls = spawn('ffmpeg', ['-framerate', '24', '-i', outputH264, '-c', 'copy', outputMp4]);
+    
+
+    ls.stdout.on('data', (data) => {
+      console.log(`stdout: ${data}`);
+    });
+    
+    ls.stderr.on('data', (data) => {
+      console.log(`stderr: ${data}`);
+    });
+    
+    ls.on('close', (code) => {
+      console.log(`child process exited with code ${code}`);
+    });
+
+    
+    //exec("ffmpeg -framerate 24 -i " + outputH264 + " -c copy " + outputMp4);
+};
+
 
 
 // callbacks
@@ -69,6 +97,7 @@ camera.on("read", function( err, timestamp, filename ){
 
 camera.on("exit", function( timestamp ){
 	console.log("video child process has exited at " + timestamp );
+	convertLastVideoToMp4();
 });
 
 camera.on("stop", function( err, timestamp ){
