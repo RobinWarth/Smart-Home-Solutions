@@ -65,7 +65,7 @@ let convertLastVideoToMp4 = () => {
     let outputH264 = camera.get("output");
     let outputMp4 = outputH264.slice(0, outputH264.indexOf("h264")) + "mp4";
     
-    const ls = spawn('ffmpeg', ['-framerate', '24', '-i', outputH264, '-c', 'copy', outputMp4]);
+    const ls = spawn('ffmpeg', ['-framerate', '50', '-i', outputH264, '-c', 'copy', outputMp4]);
     
 
     ls.stdout.on('data', (data) => {

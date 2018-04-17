@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home Control</title>
+    <title>Home Central</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,21 +26,19 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                    <a href="#" id="route-home">
+                        Home Central
                     </a>
                 </li>
+
                 <li>
-                    <a href="#">Home</a>
+                    <a href="#route-switches" id="route-switches">Switches</a>
                 </li>
                 <li>
-                    <a href="#">Tools</a>
+                    <a href="#route-records" id="route-records">Records</a>
                 </li>
                 <li>
-                    <a href="#">Lights</a>
-                </li>
-                <li>
-                    <a href="#">Cam</a>
+                    <a href="#">Live-Cam</a>
                 </li>
             </ul>
         </div>
@@ -54,36 +52,10 @@
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
                 <br>
                 <br>
+                <div id="route-output">
+                    Home
+                </div>
 
-                <h4>A: Light</h4>
-                <button type="button" id="buttonAon" class="btn btn-success">On</button>
-                <button type="button" id="buttonAoff" class="btn btn-danger">Off</button>
-                <br>
-                <br>
-                <h4>B: Computer</h4>
-                <button type="button" id="buttonBon" class="btn btn-success">On</button>
-                <button type="button" id="buttonBoff" class="btn btn-danger">Off</button>
-                <br>
-                <br>
-                <h4>C: TV</h4>
-                <button type="button" id="buttonCon" class="btn btn-success">On</button>
-                <button type="button" id="buttonCoff" class="btn btn-danger">Off</button>
-                <br>
-                <br>
-                <h4>D</h4>
-                <button type="button" id="buttonDon" class="btn btn-success">On</button>
-                <button type="button" id="buttonDoff" class="btn btn-danger">Off</button>
-                <br>
-                <br>
-                <h4>-> ALL</h4>
-                <button type="button" id="buttonAllon" class="btn btn-success">On</button>
-                <button type="button" id="buttonAlloff" class="btn btn-danger">Off</button>
-                <br>
-                <br>
-
-                
-
-                
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -91,18 +63,38 @@
     </div>
     <!-- /#wrapper -->
 
-    
+
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-	
+
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        /* global $ */
+
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $("#route-home").click(function(e) {
+            $("#route-output").load("/switches");
+        });
+
+        $("#route-records").click(function(e) {
+            $("#route-output").load("/records");
+        });
+
+        $("#route-switches").click(function(e) {
+            $("#route-output").load("/switches");
+        });
+
+        $(document).ready(function() {
+            $("#route-output").load("/switches");
+        });
     </script>
 
     <script src="js/index.js"></script>

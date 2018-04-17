@@ -3,6 +3,7 @@ const wirelessTransmitter = require("./wireless-transmitter.js");
 const camConnector = require("./cam-connector.js");
 const express = require('express');
 const bodyParser = require("body-parser");
+const path = require('path');
 
 const app = express();
 
@@ -27,6 +28,22 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/switches', function(req, res) {
+  res.sendFile(__dirname + '/public/switches.html');
+});
+
+app.get('/record-files', function(req, res) {
+  res.sendFile(__dirname + '/public/records.html');
+});
+
+app.get('/record-files/:id', function(req, res) {
+  res.sendFile(path.resolve(__dirname.concat('../../../../Records/', req.params.id)));
+});
+
+app.get('/records', function(req, res) {
+  res.sendFile(__dirname + '/public/records.html');
 });
 
 
