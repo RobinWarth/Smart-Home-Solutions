@@ -45,9 +45,12 @@ echo 'Port 8090
 <Feed feed1.ffm>
  File /tmp/feed1.ffm
  FileMaxSize 10M
+ ACL allow 127.0.0.1
+ ACL allow localhost
+ ACL allow 192.168.0.0 192.168.255.255
  </Feed>
 
-<Stream test.mjpg>
+<Stream live-cam.mjpg>
  Feed feed1.ffm
  Format mpjpeg
  VideoFrameRate 4

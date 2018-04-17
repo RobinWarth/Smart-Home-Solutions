@@ -5,8 +5,10 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const path = require('path');
 const fs = require("fs");
+const httpProxy = require('http-proxy');
 
 const app = express();
+var proxy = httpProxy.createProxyServer({});
 
 
 app.use(express.static('public'));
@@ -31,9 +33,11 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/switches', function(req, res) {
-  res.sendFile(__dirname + '/public/switches.html');
+app.get('/live-cam.mjpg', function(req, res) {
+  console.log("live-cam: request");
+  proxy.web(req, res, { target: 'http://127.0.0.1:8090' });
 });
+
 
 app.get('/record-files', function(req, res) {
   fs.readdir(path.resolve(__dirname.concat('../../../../Records/')), function(err, files) {
@@ -53,9 +57,7 @@ app.get('/record-files/:id', function(req, res) {
   res.sendFile(path.resolve(__dirname.concat('../../../../Records/', req.params.id)));
 });
 
-app.get('/records', function(req, res) {
-  res.sendFile(__dirname + '/public/records.html');
-});
+
 
 
 app.get('/discovery', function(req, res) {

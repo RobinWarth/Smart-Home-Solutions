@@ -39,9 +39,9 @@ let startRecording = () => {
     let new_dir = "/../../../Records/";
     let path = process.cwd().concat(new_dir);
     
-    console.log(path)
+    console.log(path);
     if(!fs.existsSync(path)){
-        console.log("to create")
+        console.log("to create");
         fs.mkdirSync(path);
     }
     
