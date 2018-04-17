@@ -71,32 +71,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-        /* global $ */
-
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $("#route-home").click(function(e) {
-            $("#route-output").load("/switches");
-        });
-
-        $("#route-records").click(function(e) {
-            $("#route-output").load("/records");
-        });
-
-        $("#route-switches").click(function(e) {
-            $("#route-output").load("/switches");
-        });
-
-        $(document).ready(function() {
-            $("#route-output").load("/switches");
-        });
-    </script>
-
     <script src="js/index.js"></script>
 
 </body>

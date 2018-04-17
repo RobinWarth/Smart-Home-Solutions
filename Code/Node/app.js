@@ -4,6 +4,7 @@ const camConnector = require("./cam-connector.js");
 const express = require('express');
 const bodyParser = require("body-parser");
 const path = require('path');
+const fs = require("fs");
 
 const app = express();
 
@@ -35,7 +36,17 @@ app.get('/switches', function(req, res) {
 });
 
 app.get('/record-files', function(req, res) {
-  res.sendFile(__dirname + '/public/records.html');
+  fs.readdir(path.resolve(__dirname.concat('../../../../Records/')), function(err, files) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      let mp4Files = filterMp4FilesFromStringArray(files);
+      res.send(mp4Files);
+      console.log("GET /record-files: ".concat(mp4Files));
+    }
+
+  });
 });
 
 app.get('/record-files/:id', function(req, res) {
@@ -133,7 +144,6 @@ let toWirelessTransmitter = (id, status) => {
     callProcess(id, status);
   }
 
-
 };
 
 let callProcess = (id, status) => {
@@ -142,6 +152,21 @@ let callProcess = (id, status) => {
   wirelessTransmitter.transmitToWirelessSwitch(id, status, "01110"); //TODD: change to webinterface input!
 
 };
+
+let filterMp4FilesFromStringArray = (fileArray) => {
+  let mp4Files = [];
+  for (let file of fileArray) {
+    if (file.includes(".mp4", file.length - 4)) {
+      mp4Files.push(file);
+    }
+  }
+  return mp4Files;
+};
+
+
+
+
+
 
 
 app.listen(3000, function() {
