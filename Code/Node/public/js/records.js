@@ -5,17 +5,23 @@ $(document).ready(function() {
     getRecordListFromServer();
 });
 
+$('#recordSelector').change(function() {
+    if ($(this).val().includes(".mp4")) {
+        showSelectedVideo($(this).val());
+    }
+});
+
 function createRecordOptionsListHTML(data, status) {
     console.log(data, typeof(data));
     let firstOption = "<option selected>Select Record</option>";
     let recordOptions = "";
     for (let file of data) {
-        recordOptions = recordOptions.concat("<option ".concat("value='", file, "' ", "id='", "recordOption#", file, "' onclick='showSelectedVideo()'>", file.slice(0, file.indexOf(".mp4")), "</option>"));
+        recordOptions = recordOptions.concat("<option ".concat("value='", file, "' ", "id='", "recordOption#", file, "' class='record-option'>", file.slice(0, file.indexOf(".mp4")), "</option>"));
     }
     console.log(firstOption.concat(recordOptions));
     $("#recordSelector").html(firstOption.concat(recordOptions));
 
-};
+}
 
 function getRecordListFromServer() {
     let url = window.location.hostname;
@@ -33,10 +39,18 @@ function getRecordListFromServer() {
         success: createRecordOptionsListHTML,
         contentType: 'application/json'
     });
-};
+}
 
-function showSelectedVideo() {
-    let id = $("#recordSelector").find("option:selected").val();
+function showSelectedVideo(id) {
+
     let videoHTML = "<video width='640' height='480' controls><source src='../record-files/".concat(id, "' type='video/mp4'>", "Your browser does not support the video tag. </video>'");
-    $("#videoContainer").html(videoHTML);
-};
+    console.log(videoHTML);
+
+
+    $("#videoContainer").hide("slow", function() {
+        $("#videoContainer").html(videoHTML);
+        $("#videoContainer").show("slow");
+    });
+
+
+}
