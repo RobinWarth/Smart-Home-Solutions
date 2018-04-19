@@ -8,9 +8,9 @@ class CamController {
         this.initalCheckForRunningFFServerProcess = true;
 
         this.RaspividTime = 3600000;
-        this.RaspividFps = 10;
-        this.RaspividWidth = 600;
-        this.RaspividHeight = 400;
+        this.RaspividFps = 8;
+        this.RaspividWidth = 640;
+        this.RaspividHeight = 320;
 
         let new_dir = "/../../../Records/";
         this.path = process.cwd().concat(new_dir);

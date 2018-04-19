@@ -13,6 +13,7 @@ var proxy = httpProxy.createProxyServer({});
 
 app.use(express.static('public'));
 
+app.use("/node_modules", express.static(__dirname + '/node_modules'));
 app.use("/styles", express.static(__dirname + '/public/css'));
 app.use("/scripts", express.static(__dirname + '/public/js'));
 app.use("/images", express.static(__dirname + '/public/images'));

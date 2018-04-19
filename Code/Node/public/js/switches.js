@@ -5,13 +5,11 @@ function postRaspberry(endpointId, status) {
     if(window.location.port){
         url += ":" + window.location.port;
     }
+    let fullUrl = window.location.protocol.concat("//", url, "/power-controller");
     if(endpointId === "cameraSwitch"){
-        let fullUrl = window.location.protocol.concat("//", url, "/cam-controller");
-    }else{
-        let fullUrl = window.location.protocol.concat("//", url, "/power-controller");
+        fullUrl = window.location.protocol.concat("//", url, "/cam-controller");
     }
     
-
     let attempt = {
         endpointId: endpointId,
         properties: [{

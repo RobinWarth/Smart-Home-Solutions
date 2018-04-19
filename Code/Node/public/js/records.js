@@ -55,7 +55,7 @@ function getRecordListFromServer() {
 
 function showSelectedVideo(id) {
 
-    let videoHTML = "<video width='640' height='480' controls><source src='../record-files/".concat(id, "' type='video/mp4'>", "Your browser does not support the video tag. </video>'");
+    let videoHTML = "<video class='embed-responsive-item' controls><source src='../record-files/".concat(id, "' type='video/mp4'>", "Your browser does not support the video tag. </video>'");
     console.log(videoHTML);
 
 
