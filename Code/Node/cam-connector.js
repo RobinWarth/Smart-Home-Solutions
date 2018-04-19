@@ -10,7 +10,7 @@ class CamController {
         this.RaspividTime = 3600000;
         this.RaspividFps = 8;
         this.RaspividWidth = 640;
-        this.RaspividHeight = 320;
+        this.RaspividHeight = 360;
 
         let new_dir = "/../../../Records/";
         this.path = process.cwd().concat(new_dir);
