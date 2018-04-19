@@ -166,6 +166,17 @@ let data = {
                 timeOfSample: "2017-09-03T16:20:50.52Z", //retrieve from result.
                 uncertaintyInMilliseconds: 500
             }]
+        },
+        {
+            switchId: 99,
+            endpointId: "wirelessSwitchAll",
+            properties: [{
+                namespace: "Alexa.PowerController",
+                name: "powerState",
+                value: "OFF",
+                timeOfSample: "2017-09-03T16:20:50.52Z", //retrieve from result.
+                uncertaintyInMilliseconds: 500
+            }]
         }
     ]
 };

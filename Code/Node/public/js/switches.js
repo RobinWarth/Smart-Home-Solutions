@@ -71,17 +71,10 @@ $("#buttonDoff").click(function() {
 
 
 
-/*
-
-TODO: All on/off has to do something!
-
-*/
-
-
 $("#buttonAllon").click(function() {
-    postRaspberry("wirelessSwitch1", "ON"); //change
+    postRaspberry("wirelessSwitchAll", "ON");
 });
 
 $("#buttonAlloff").click(function() {
-    postRaspberry("wirelessSwitch1", "OFF"); //change
+    postRaspberry("wirelessSwitchAll", "OFF");
 });

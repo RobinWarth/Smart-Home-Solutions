@@ -11,6 +11,18 @@ $('#recordSelector').change(function() {
     }
 });
 
+$('#recordSelector').click(function() {
+    getRecordListFromServer();
+});
+
+$("#buttonRecordStart").click(function() {
+    postRaspberry("cameraSwitch", "ON");
+});
+
+$("#buttonRecordStop").click(function() {
+    postRaspberry("cameraSwitch", "OFF");
+});
+
 function createRecordOptionsListHTML(data, status) {
     console.log(data, typeof(data));
     let firstOption = "<option selected>Select Record</option>";
@@ -51,6 +63,4 @@ function showSelectedVideo(id) {
         $("#videoContainer").html(videoHTML);
         $("#videoContainer").show("slow");
     });
-
-
 }
