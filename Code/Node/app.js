@@ -45,7 +45,7 @@ app.get('/record-files', function(req, res) {
       console.log(err);
     }
     else {
-      let mp4Files = filterMp4FilesFromStringArray(files);
+      let mp4Files = filterMp4FilesFromStringArray(files).reverse();
       res.send(mp4Files);
       console.log("GET /record-files: ".concat(mp4Files));
     }

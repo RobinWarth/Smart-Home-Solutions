@@ -8,7 +8,7 @@ class CamController {
         this.initalCheckForRunningFFServerProcess = true;
 
         this.RaspividTime = 3600000;
-        this.RaspividFps = 25;
+        this.RaspividFps = 10;
         this.RaspividWidth = 600;
         this.RaspividHeight = 400;
 
@@ -53,7 +53,7 @@ class CamController {
         this.setFFServerExitListener(() => {
 
             // raspivid -o video.h264 -t 10000
-            this.raspividProcess = spawn('raspivid', ['-o', this.output, '-t', this.time, '-w', this.RaspividWidth, '-h', this.RaspividHeight, '-fps', this.RaspividFps]);
+            this.raspividProcess = spawn('raspivid', ['-o', this.output, '-t', this.RaspividTime, '-w', this.RaspividWidth, '-h', this.RaspividHeight, '-fps', this.RaspividFps]);
 
             this.setAllRaspividListeners();
         });
@@ -158,7 +158,7 @@ class CamController {
         let outputH264 = this.output;
         let outputMp4 = outputH264.slice(0, outputH264.indexOf("h264")) + "mp4";
 
-        let ls = spawn('ffmpeg', ['-framerate', '50', '-i', outputH264, '-c', 'copy', outputMp4]);
+        let ls = spawn('ffmpeg', ['-framerate', this.RaspividFps, '-i', outputH264, '-c', 'copy', outputMp4]);
         console.log("convert to mp4...");
 
 
