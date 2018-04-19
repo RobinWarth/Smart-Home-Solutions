@@ -1,6 +1,8 @@
 #!/bin/bash
 clear
 
+# load it and create /dev/video0
+modprobe bcm2835-v4l2
 
 # configure
 echo 'Port 8090
