@@ -7,7 +7,10 @@ class CamController {
 
         this.initalCheckForRunningFFServerProcess = true;
 
-        this.time = 3600000;
+        this.RaspividTime = 3600000;
+        this.RaspividFps = 25;
+        this.RaspividWidth = 600;
+        this.RaspividHeight = 400;
 
         let new_dir = "/../../../Records/";
         this.path = process.cwd().concat(new_dir);
@@ -50,7 +53,7 @@ class CamController {
         this.setFFServerExitListener(() => {
 
             // raspivid -o video.h264 -t 10000
-            this.raspividProcess = spawn('raspivid', ['-o', this.output, '-t', this.time]);
+            this.raspividProcess = spawn('raspivid', ['-o', this.output, '-t', this.time, '-w', this.RaspividWidth, '-h', this.RaspividHeight, '-fps', this.RaspividFps]);
 
             this.setAllRaspividListeners();
         });
