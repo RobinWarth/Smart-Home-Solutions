@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { spawn } = require('child_process');
+const { spawn, execFile } = require('child_process');
 
 class CamController {
 
@@ -99,13 +99,13 @@ class CamController {
         });
     }
 
-    /* need?
+
     setFFServerCloseListener() {
         this.ffserverProcess.on('close', (code) => {
             console.log(`ffserverProcess - child process exited with code ${code}`);
         });
     }
-    */
+
     setFFServerErrListener(callback) {
         this.ffserverProcess.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`);
@@ -126,7 +126,28 @@ class CamController {
     }
 
     startFFserverProcess() {
-        this.ffserverProcess = spawn('../../Install-Scripts/reconfigure_ffmpeg');
+        this.ffserverProcess = execFile('../../Install-Scripts/reconfigure_ffmpeg', [], { 'shell': true, 'maxBuffer': 10000 * 1024 }, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`ff: exec error: ${error}`);
+                if (error.toString().includes('maxBuffer exceeded')) {
+                    console.error(`trying to kill this process and restart ${this.ffserverProcess.constructor.name}`);
+                    this.killFFServerProcess();
+                    let firstKill = true;
+                    
+                    this.setKillingFFServerProcessExitListener(() => {
+                        if (firstKill) {
+                            firstKill = false;
+                            this.startFFserverProcess();
+                        }
+                    });
+                }
+                return;
+            }
+            console.log(`ff: stdout: ${stdout}`);
+            console.log(`ff: stderr: ${stderr}`);
+        });
+        // ffserver -f /etc/ffserver.conf & ffmpeg -v verbose -r 5 -s 600x480 -f video4linux2 -i /dev/video0 http://localhost:8090/feed1.ffm
+        //this.ffserverProcess = spawn('ffserver', ['-f /etc/ffserver.conf & ffmpeg -v verbose -r 5 -s 600x480 -f video4linux2 -i /dev/video0 http://localhost:8090/feed1.ffm']);
         this.setFFServerExitListener(() => {});
     }
 

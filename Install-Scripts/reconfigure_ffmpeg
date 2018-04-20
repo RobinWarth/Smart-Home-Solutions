@@ -11,7 +11,7 @@ echo 'Port 8090
  # max number of simultaneous clients
  MaxClients 10
  # max bandwidth per-client (kb/s)
- MaxBandwidth 1000
+ MaxBandwidth 3000
  # Suppress that if you want to launch ffserver as a daemon.
  NoDaemon
 
@@ -26,18 +26,18 @@ echo 'Port 8090
 <Stream live-cam.mjpg>
  Feed feed1.ffm
  Format mpjpeg
- VideoFrameRate 4
- VideoSize 600x480
- VideoBitRate 80
- # VideoQMin 1
- # VideoQMax 100
+ VideoFrameRate 8 #4 (5 bei: -r 5)
+ VideoSize 640x360 #600x480
+ VideoBitRate 499 #80
+ VideoQMin 1
+ VideoQMax 100
  VideoIntraOnly
  NoAudio
  Strict -1
  </Stream>' >/etc/ffserver.conf
  
  
-echo 'ffserver -f /etc/ffserver.conf & ffmpeg -v verbose -r 5 -s 600x480 -f video4linux2 -i /dev/video0 http://localhost:8090/feed1.ffm' >/usr/sbin/webcam.sh
+echo 'ffserver -f /etc/ffserver.conf & ffmpeg -v verbose -r 8 -s 640x360 -f video4linux2 -i /dev/video0 http://localhost:8090/feed1.ffm' >/usr/sbin/webcam.sh
 
 chmod +x /usr/sbin/webcam.sh 
 /usr/sbin/webcam.sh
