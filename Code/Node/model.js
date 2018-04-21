@@ -216,6 +216,14 @@ exports.getDevice = (deviceAttempt) => {
     }
 };
 
+exports.getDeviceStatusByEndpointId = (endpointId) => {
+    for (let device of data.devices) {
+        if (device.endpointId === endpointId) {
+            return device.properties[0].value;
+        }
+    }
+};
+
 exports.setTimeOfLastUpdate = (time) => {
     data.timeOfLastUpdate = time.toISOString();
     console.log("new Time set to: " + data.timeOfLastUpdate);

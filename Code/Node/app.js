@@ -35,8 +35,14 @@ app.get('/', function(req, res) {
 });
 
 app.get('/live-cam.mjpg', function(req, res) {
-  console.log("live-cam: request");
-  proxy.web(req, res, { target: 'http://127.0.0.1:8090' });
+  console.log("live-cam: request", model.getDeviceStatusByEndpointId('cameraSwitch'));
+  
+  if(model.getDeviceStatusByEndpointId('cameraSwitch') === "OFF"){
+    proxy.web(req, res, { target: 'http://127.0.0.1:8090' });
+  } else{
+    return res.send('live-cam is currently unavailable due to ongoing recordings!');
+  }
+  
 });
 
 
