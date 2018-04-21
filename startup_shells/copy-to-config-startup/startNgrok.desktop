@@ -1,0 +1,12 @@
+[Desktop Entry]
+#
+# !!! copy this file to /home/[user]/.config/autostart !!!
+#
+Encoding=UTF-8
+Type=Application
+Name=startNgrok
+Exec=lxterminal -t "Starting Ngrok" --working-directory=/home/pi/startup_shells/ -e ./startNgrok.sh
+StartupNotify=false
+Terminal=true
+Hidden=false
+X-KeepTerminal=true

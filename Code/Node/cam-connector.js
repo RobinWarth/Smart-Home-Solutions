@@ -1,6 +1,14 @@
 const fs = require('fs');
 const { spawn, execFile } = require('child_process');
 
+/*
+/
+/ TODO: autostart c9, ngrok, app
+/ Error: start Record -> navigate to live-cam => crash of proxy!
+/ Optional: close nav-bar onclick
+*/
+
+
 class CamController {
 
     constructor() {

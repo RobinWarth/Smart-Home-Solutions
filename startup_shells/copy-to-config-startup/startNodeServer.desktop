@@ -1,0 +1,12 @@
+[Desktop Entry]
+#
+# !!! copy this file to /home/[user]/.config/autostart !!!
+#
+Encoding=UTF-8
+Type=Application
+Name=startNodeServer
+Exec=lxterminal -t "Starting Node Server" --working-directory=/home/pi/startup_shells/ -e ./startNodeServer.sh
+StartupNotify=false
+Terminal=true
+Hidden=false
+X-KeepTerminal=true

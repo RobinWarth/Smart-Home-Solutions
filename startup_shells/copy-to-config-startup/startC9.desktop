@@ -1,0 +1,12 @@
+[Desktop Entry]
+#
+# !!! copy this file to /home/[user]/.config/autostart !!!
+#
+Encoding=UTF-8
+Type=Application
+Name=startC9
+Exec=lxterminal -t "Starting Cloud9" --working-directory=/home/pi/startup_shells/ -e ./startC9.sh
+StartupNotify=false
+Terminal=true
+Hidden=false
+X-KeepTerminal=true
